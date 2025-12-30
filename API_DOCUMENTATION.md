@@ -59,6 +59,10 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
 ```bash
 # Replace <access_token> with your actual token
 # Replace <your-server> with your FreePBX server address (e.g., freepbx.example.com)
+
+# Example: Test authentication by listing users
+curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
 ---

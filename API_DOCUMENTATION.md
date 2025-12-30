@@ -2,11 +2,64 @@
 
 This document outlines the RESTful APIs identified within the FreePBX project. The APIs are organized by module.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Authentication](#authentication)
+- [Module: Core](#module-core)
+- [Module: Calendar](#module-calendar)
+- [Module: Conferences](#module-conferences)
+- [Module: Contact Manager](#module-contact-manager)
+- [Module: Fax](#module-fax)
+- [Module: Find Me / Follow Me](#module-find-me--follow-me)
+- [Module: Hotel Wakeup](#module-hotel-wakeup)
+- [Module: Parking](#module-parking)
+- [Module: Pinsets](#module-pinsets)
+- [Module: Presence State](#module-presence-state)
+- [Module: Queues](#module-queues)
+- [Module: SMS](#module-sms)
+- [Module: Time Conditions](#module-time-conditions)
+- [Module: UCP (User Control Panel)](#module-ucp-user-control-panel)
+- [Module: Userman (User Manager)](#module-userman-user-manager)
+- [Module: Voicemail](#module-voicemail)
+- [Module: RestApps (Phone Apps)](#module-restapps-phone-apps)
+- [Module: Web Callback](#module-web-callback)
+
+## Overview
+
+This documentation covers **18 modules** with **67 API endpoints**, each with complete cURL request examples.
+
+### Documented Modules:
+- Core
+- Calendar
+- Conferences
+- Contact Manager
+- Fax
+- Find Me / Follow Me
+- Hotel Wakeup
+- Parking
+- Pinsets
+- Presence State
+- Queues
+- SMS
+- Time Conditions
+- UCP (User Control Panel)
+- Userman (User Manager)
+- Voicemail
+- RestApps (Phone Apps)
+- Web Callback
+
 ## Authentication
 Most APIs require authentication. FreePBX typically uses OAuth2 for API authentication. Ensure you have obtained a valid access token.
 
 **Header:**
 `Authorization: Bearer <access_token>`
+
+**Example:**
+```bash
+# Replace <access_token> with your actual token
+# Replace <your-server> with your FreePBX server address (e.g., freepbx.example.com)
+```
 
 ---
 

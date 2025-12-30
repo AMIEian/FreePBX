@@ -725,3 +725,93 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
              -H "Content-Type: application/json" \
              -d '{"password": "1234"}'
         ```
+
+---
+
+## Module: RestApps (Phone Apps)
+
+### Sync
+*   **Sync Phone Apps**
+    *   **Method:** `POST`
+    *   **URI:** `/restapps/sync.php`
+    *   **Description:** Synchronizes phone applications data between the server and client devices.
+    *   **cURL:**
+        ```bash
+        curl -X POST "http://<your-server>/restapps/sync.php" \
+             -H "Authorization: Bearer <access_token>" \
+             -H "Content-Type: application/json" \
+             -d '{"device_id": "device123", "app_version": "1.0"}'
+        ```
+
+### Applications
+*   **List Phone Applications**
+    *   **Method:** `GET`
+    *   **URI:** `/restapps/applications.php`
+    *   **Description:** Retrieves a list of available phone applications.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://<your-server>/restapps/applications.php" \
+             -H "Authorization: Bearer <access_token>"
+        ```
+
+*   **Get Application**
+    *   **Method:** `GET`
+    *   **URI:** `/restapps/applications.php?app={app_name}`
+    *   **Description:** Retrieves details of a specific phone application.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://<your-server>/restapps/applications.php?app=freepbx" \
+             -H "Authorization: Bearer <access_token>"
+        ```
+
+### Desktop Phone API
+*   **Desktop Phone Interface**
+    *   **Method:** `POST`
+    *   **URI:** `/restapps/dphoneApi.php`
+    *   **Description:** API endpoint for desktop phone integration and control.
+    *   **cURL:**
+        ```bash
+        curl -X POST "http://<your-server>/restapps/dphoneApi.php" \
+             -H "Authorization: Bearer <access_token>" \
+             -H "Content-Type: application/json" \
+             -d '{"action": "dial", "extension": "100"}'
+        ```
+
+### Images
+*   **Get Application Image**
+    *   **Method:** `GET`
+    *   **URI:** `/restapps/image.php?file={filename}`
+    *   **Description:** Retrieves image assets for phone applications.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://<your-server>/restapps/image.php?file=icon.png" \
+             -H "Authorization: Bearer <access_token>" \
+             -o icon.png
+        ```
+
+---
+
+## Module: Web Callback
+
+### Callback Request
+*   **Initiate Web Callback**
+    *   **Method:** `POST`
+    *   **URI:** `/wcb.php`
+    *   **Description:** Initiates a web callback request to connect a user to a phone number.
+    *   **cURL:**
+        ```bash
+        curl -X POST "http://<your-server>/wcb.php" \
+             -H "Authorization: Bearer <access_token>" \
+             -H "Content-Type: application/json" \
+             -d '{"source": "100", "destination": "18005551234", "context": "from-internal"}'
+        ```
+
+*   **Get Callback Status**
+    *   **Method:** `GET`
+    *   **URI:** `/wcb.php?id={callback_id}`
+    *   **Description:** Retrieves the status of a web callback request.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://<your-server>/wcb.php?id=callback123" \
+             -H "Authorization: Bearer <access_token>"
+        ```

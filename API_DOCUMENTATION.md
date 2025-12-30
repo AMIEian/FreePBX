@@ -53,16 +53,16 @@ This documentation covers **18 modules** with **67 API endpoints**, each with co
 Most APIs require authentication. FreePBX typically uses OAuth2 for API authentication. Ensure you have obtained a valid access token.
 
 **Header:**
-`Authorization: Bearer <access_token>`
+`Authorization: Bearer YOUR_ACCESS_TOKEN_HERE`
 
 **Example:**
 ```bash
-# Replace <access_token> with your actual token
-# Replace <your-server> with your FreePBX server address (e.g., freepbx.example.com)
+# Replace YOUR_ACCESS_TOKEN_HERE with your actual token
+# Replace freepbx.example.com with your FreePBX server address
 
 # Example: Test authentication by listing users
 curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
-     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+     -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
 ```
 
 ---
@@ -76,8 +76,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of all users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/core/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User**
@@ -86,8 +86,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details for a specific user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/core/users/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/core/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -101,8 +101,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of all calendars.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/calendar/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/calendar/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Calendar**
@@ -111,8 +111,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific calendar.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/calendar/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/calendar/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Calendar**
@@ -121,8 +121,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates a specific calendar.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/calendar/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/calendar/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "New Name", "description": "Updated Description"}'
         ```
@@ -134,8 +134,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves events for a specific calendar.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/calendar/events/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/calendar/events/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Event**
@@ -144,8 +144,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Adds or updates an event in a calendar.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/calendar/events/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/calendar/events/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"eventid": "new", "start": "2023-10-27 10:00:00", "end": "2023-10-27 11:00:00", "description": "Meeting"}'
         ```
@@ -161,8 +161,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of all conferences.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/conferences/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/conferences/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Conference**
@@ -171,8 +171,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific conference.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/conferences/101" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/conferences/101" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Delete Conference**
@@ -181,8 +181,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Deletes a specific conference.
     *   **cURL:**
         ```bash
-        curl -X DELETE "http://<your-server>/admin/api/rest/conferences/101" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X DELETE "http://freepbx.example.com/admin/api/rest/conferences/101" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Create/Update Conference**
@@ -191,8 +191,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Creates or updates a conference room.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/conferences/101" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/conferences/101" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "Team Meeting", "userpin": "1234", "adminpin": "5678"}'
         ```
@@ -208,8 +208,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves all contact manager groups.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **List Groups by Owner**
@@ -218,8 +218,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves contact manager groups for a specific owner ID.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Group Info**
@@ -228,8 +228,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific group for a specific owner.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups/1/5" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups/1/5" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Entries
@@ -239,8 +239,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves entries for a specific group.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups/1/5/entries" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups/1/5/entries" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Entry**
@@ -249,8 +249,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific contact entry.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/entries/10" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/entries/10" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -264,8 +264,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves global fax settings.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Detect Fax**
@@ -274,8 +274,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Lists fax detection modules.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/detect" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/detect" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Settings**
@@ -284,8 +284,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates global fax settings.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/fax/" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/fax/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"key": "value"}'
         ```
@@ -297,8 +297,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves fax settings for all users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User Settings**
@@ -307,8 +307,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves fax settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/users/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update User Settings**
@@ -317,8 +317,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates fax settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/fax/users/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/fax/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"faxenabled": "true", "faxemail": "user@example.com"}'
         ```
@@ -334,8 +334,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves Find Me/Follow Me settings for all users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/findmefollow/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/findmefollow/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User Settings**
@@ -344,8 +344,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves Find Me/Follow Me settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/findmefollow/users/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/findmefollow/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update User Settings**
@@ -354,8 +354,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates Find Me/Follow Me settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/findmefollow/users/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/findmefollow/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"strategy": "ringallv2", "grptime": "20", "grplist": "100"}'
         ```
@@ -371,8 +371,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves the hotel wakeup code.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/code" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/code" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Languages**
@@ -381,8 +381,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves list of installed languages for wakeup calls.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/languages" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/languages" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **List Wakeup Calls**
@@ -391,8 +391,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves all scheduled wakeup calls.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/wakeup" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Wakeup Call**
@@ -401,8 +401,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a specific wakeup call.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/wakeup/1/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup/1/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Create Wakeup Call**
@@ -411,8 +411,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Schedules a new wakeup call.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/hotelwakeup/wakeup" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"day": "2023-10-27", "time": "07:00", "destination": "100"}'
         ```
@@ -423,8 +423,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Deletes a specific wakeup call.
     *   **cURL:**
         ```bash
-        curl -X DELETE "http://<your-server>/admin/api/rest/hotelwakeup/wakeup/1/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X DELETE "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup/1/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -438,8 +438,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves the default parking lot settings.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/parking/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/parking/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Default Lot**
@@ -448,8 +448,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates the default parking lot settings.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/parking/" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/parking/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"slots": "71-79"}'
         ```
@@ -465,8 +465,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of all pinsets.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/pinsets/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/pinsets/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Pinset**
@@ -475,8 +475,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific pinset.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/pinsets/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/pinsets/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Pinset**
@@ -485,8 +485,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates a specific pinset.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/pinsets/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/pinsets/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"description": "Sales", "passwords": "1234\n5678"}'
         ```
@@ -502,8 +502,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of presence states.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/presencestate/list" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/presencestate/list" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **List Types**
@@ -512,8 +512,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of presence state types.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/presencestate/types" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/presencestate/types" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User Preferences**
@@ -522,8 +522,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves presence state preferences for a user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/presencestate/prefs/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/presencestate/prefs/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update User Preferences**
@@ -532,8 +532,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates presence state preferences for a user.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/presencestate/prefs/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/presencestate/prefs/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"state": "available"}'
         ```
@@ -549,8 +549,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of all queues.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Queue Details**
@@ -559,8 +559,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific queue.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/500" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/500" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Queue Members
@@ -570,8 +570,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves all members for all queues.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/members" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/members" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Queue Members**
@@ -580,8 +580,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves members of a specific queue.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/members/500" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/members/500" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Queue Members**
@@ -590,8 +590,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates members of a specific queue.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/queues/members/500" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/queues/members/500" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"member": "Local/100@from-queue/n,0", "dynmembers": "101,0"}'
         ```
@@ -607,8 +607,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves SMS media content by ID.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/sms/media/123" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/sms/media/123" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -622,8 +622,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of all time conditions.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/timeconditions/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/timeconditions/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Time Condition State**
@@ -632,8 +632,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves the state of a specific time condition.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/timeconditions/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/timeconditions/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Time Condition State**
@@ -642,8 +642,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates the state of a specific time condition.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/timeconditions/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/timeconditions/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"state": "true"}'
         ```
@@ -659,8 +659,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of UCP dashboards for the user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/ucp/dashboard/tab" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Dashboard Layout**
@@ -669,8 +669,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates the order of dashboard tabs.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/ucp/dashboard/tab/layout" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab/layout" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '["id1", "id2"]'
         ```
@@ -681,8 +681,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Creates a new dashboard.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/ucp/dashboard/tab" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "New Dashboard"}'
         ```
@@ -693,8 +693,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates a specific dashboard.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "Updated Name"}'
         ```
@@ -705,8 +705,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Deletes a specific dashboard.
     *   **cURL:**
         ```bash
-        curl -X DELETE "http://<your-server>/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X DELETE "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -720,8 +720,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of all Userman users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User**
@@ -730,8 +730,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific Userman user (by username).
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/users/admin" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/users/admin" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Extensions
@@ -741,8 +741,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of default extensions associated with users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/extensions" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/extensions" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User by Extension**
@@ -751,8 +751,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves user details by default extension.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/extensions/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/extensions/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -766,8 +766,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves voicemail mailbox details.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/voicemail/mailboxes/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/voicemail/mailboxes/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Password
@@ -777,8 +777,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Updates the voicemail password for a mailbox.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/voicemail/password/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/voicemail/password/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"password": "1234"}'
         ```
@@ -794,8 +794,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Synchronizes phone applications data between the server and client devices.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/restapps/sync.php" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/restapps/sync.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"device_id": "device123", "app_version": "1.0"}'
         ```
@@ -807,8 +807,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves a list of available phone applications.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/restapps/applications.php" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/restapps/applications.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Application**
@@ -817,8 +817,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves details of a specific phone application.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/restapps/applications.php?app=freepbx" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/restapps/applications.php?app=freepbx" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Desktop Phone API
@@ -828,8 +828,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** API endpoint for desktop phone integration and control.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/restapps/dphoneApi.php" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/restapps/dphoneApi.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"action": "dial", "extension": "100"}'
         ```
@@ -841,8 +841,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves image assets for phone applications.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/restapps/image.php?file=icon.png" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X GET "http://freepbx.example.com/restapps/image.php?file=icon.png" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -o icon.png
         ```
 
@@ -857,8 +857,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Initiates a web callback request to connect a user to a phone number.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/wcb.php" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/wcb.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"source": "100", "destination": "18005551234", "context": "from-internal"}'
         ```
@@ -869,6 +869,6 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
     *   **Description:** Retrieves the status of a web callback request.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/wcb.php?id=callback123" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/wcb.php?id=callback123" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```

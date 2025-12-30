@@ -787,6 +787,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
 
 ## Module: RestApps (Phone Apps)
 
+**Note:** RestApps endpoints are accessed directly via PHP files at the web root, not through the `/admin/api/rest/` path like other modules.
+
 ### Sync
 *   **Sync Phone Apps**
     *   **Method:** `POST`
@@ -849,6 +851,8 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
 ---
 
 ## Module: Web Callback
+
+**Note:** Web Callback endpoint is accessed directly via `wcb.php` at the web root, not through the `/admin/api/rest/` path like other modules.
 
 ### Callback Request
 *   **Initiate Web Callback**

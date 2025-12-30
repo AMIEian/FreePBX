@@ -1,0 +1,114 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for customcontexts
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-26 03:40-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:377 functions.inc.php:536
+msgid " v"
+msgstr ""
+
+#: views/extensions_hook.php:23
+msgid "ALLOW ALL (Default)"
+msgstr ""
+
+#: functions.inc.php:379 functions.inc.php:538
+msgid "Add Context"
+msgstr ""
+
+#: views/extensions_hook.php:32
+msgid "Add Extension"
+msgstr ""
+
+#: views/extensions_hook.php:34
+msgid "Add User"
+msgstr ""
+
+#: functions.inc.php:370 functions.inc.php:394 functions.inc.php:527
+#: page.customcontexts.php:21 page.customcontextsadmin.php:24
+msgid "Context"
+msgstr ""
+
+#: views/extensions_hook.php:38
+msgid "Custom Context"
+msgstr ""
+
+#: functions.inc.php:775
+#, php-format
+msgid "Custom Context: %s"
+msgstr ""
+
+#: functions.inc.php:804
+#, php-format
+msgid "Custom Context: %s (%s)"
+msgstr ""
+
+#: functions.inc.php:554
+msgid "Duplicate Context"
+msgstr ""
+
+#: functions.inc.php:388 functions.inc.php:551
+msgid "Edit Context"
+msgstr ""
+
+#: views/extensions_hook.php:32
+msgid "Edit Extension"
+msgstr ""
+
+#: views/extensions_hook.php:34
+msgid "Edit User"
+msgstr ""
+
+#: functions.inc.php:390
+msgid "Remove Context"
+msgstr ""
+
+#: install.php:33
+msgid "Time Conditions Module required and not present .. aborting install"
+msgstr ""
+
+#: views/extensions_hook.php:38
+#, php-format
+msgid ""
+"You can select a custom context from this list to limit this user to "
+"portions of the dialplan you defined in the %s module."
+msgstr ""
+
+#: install.php:141 install.php:149
+msgid "done"
+msgstr ""
+
+#: install.php:135
+msgid "migrating customcontexts_timegroups if needed.."
+msgstr ""
+
+#: install.php:142
+msgid ""
+"removing customcontexts_timegroups and customcontexts_tiemgroups_detail "
+"tables.."
+msgstr ""

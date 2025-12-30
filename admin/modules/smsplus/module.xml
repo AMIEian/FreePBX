@@ -1,0 +1,64 @@
+<module>
+  <rawname>smsplus</rawname>
+  <name>Smsplus</name>
+  <version>17.0.3</version>
+  <publisher>Sangoma Technologies Corporation</publisher>
+  <license>Commercial</license>
+  <repo>commercial</repo>
+  <type>tool</type>
+ <category>Reports</category>
+  <licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+  <description>Smsplus Commercial Module will get activated when Sipstation or Voipinnovations module is activated with a key. Smsplus Module is used to enhance the functionality of the Blacklist, Sms module. 
+                Blocking of abusive Sms. This Module is also used to Create a Report for Sms incoming/outgoing.
+  </description>
+  <changelog>
+		*17.0.2* 17.0.2  release
+		*17.0.1alpha* 17.0.1 alpha release
+	</changelog>
+  <menuitems>
+    <sms_reports>Sms Reports</sms_reports>
+  </menuitems>
+  <database>
+      <table name="sms_blocklisted_messages">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="from" type="string" length="20"/>
+        <field name="to" type="string" length="20"/>
+        <field name="cnam" type="string" length="40" notnull="false"/>
+        <field name="direction" type="string" length="3"/>
+        <field name="tx_rx_datetime" type="datetime"/>
+        <field name="body" type="string" length="1600"/>
+        <field name="delivered" type="boolean" default="0"/>
+        <field name="read" type="boolean" default="0"/>
+        <field name="adaptor" type="string" length="45" notnull="false"/>
+        <field name="emid" type="string" length="255" notnull="false"/>
+        <field name="threadid" type="string" length="50"/>
+        <field name="didid" type="integer"/>
+        <field name="timestamp" type="integer"/>
+		  </table>
+      <table name="sms_deleted_messages">
+        <field name="id" type="integer"/>
+        <field name="from" type="string" length="20"/>
+        <field name="to" type="string" length="20"/>
+        <field name="cnam" type="string" length="40" notnull="false"/>
+        <field name="direction" type="string" length="3"/>
+        <field name="tx_rx_datetime" type="datetime"/>
+        <field name="body" type="string" length="1600"/>
+        <field name="delivered" type="boolean" default="0"/>
+        <field name="read" type="boolean" default="0"/>
+        <field name="adaptor" type="string" length="45" notnull="false"/>
+        <field name="emid" type="string" length="255" notnull="false"/>
+        <field name="threadid" type="string" length="50"/>
+        <field name="didid" type="integer"/>
+        <field name="timestamp" type="integer"/>
+      </table>
+	</database>
+  <hooks>
+  </hooks>
+	<depends>
+    		<module>sms ge 17.0.1</module>
+    		<module>blacklist ge 17.0.1</module>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+</module>

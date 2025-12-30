@@ -1,0 +1,12 @@
+#!/bin/bash -x
+
+# Update sysadmin rpm
+PKG_OK=$(/usr/bin/dpkg-query -W --showformat='${Status}\n' sysadmin17 |grep "install ok installed") > /dev/null 2>&1
+if [ "" = "$PKG_OK" ]; then
+	apt-get -y --ignore-missing -o Dpkg::Options::="--force-overwrite" install sysadmin17 > /dev/null 2>&1
+else
+	apt-get install -y --only-upgrade sysadmin17
+fi
+
+
+

@@ -1,0 +1,86 @@
+<module>
+	<rawname>conferencespro</rawname>
+	<name>Conference Pro</name>
+	<version>17.0.1.8</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<repo>commercial</repo>
+	<category>Applications</category>
+	<description>COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Adds ability to manage Conference Room settings into the User Control Panel and also to create Conference IVRs </description>
+  	<more-info>https://wiki.freepbx.org/display/FPG/Conference+Pro</more-info>
+
+	<changelog>
+		*17.0.1.8* FREEI-1966 Submit &amp;amp; Reset button showing up in non-licensed 
+		*17.0.1.7*  bump 
+		*17.0.1* Fork to 17
+	</changelog>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#conference-pro</link>
+	</commercial>
+	<menuitems>
+		<conferencespro>Conferences Pro</conferencespro>
+	</menuitems>
+    <database>
+        <table name="conferencespro_rooms">
+            <field name="room" type="string" length="25"/>
+            <field name="user" type="string" length="50"/>
+            <field name="ivr" type="string" length="15"/>
+            <key name="room" type="unique">
+                <column name="room"/>
+            </key>
+        </table>
+        <table name="conferencespro">
+            <field name="setting" type="string" length="50"/>
+            <field name="value" type="string" length="50"/>
+            <key name="setting" type="unique">
+                <column name="setting"/>
+            </key>
+        </table>
+    </database>
+	<depends>
+		<version>17.0.1</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>core ge 17.0.1</module>
+		<module>sysadmin ge 17.0.1</module>
+		<module>conferences ge 17.0.1</module>
+		<module>music ge 17.0.1</module>
+		<module>recordings ge 17.0.1</module>
+		<module>userman ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+	</depends>
+	<hooks>
+		<ucp class="Ucp">
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="addUser">ucpAddUser</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="updateUser">ucpUpdateUser</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="delUser">ucpDelUser</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="addGroup">ucpAddGroup</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="delGroup">ucpDelGroup</method>
+		</ucp>
+		<userman namespace="FreePBX\modules" class="Userman">
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="delGroup">usermanDelGroup</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="addGroup">usermanAddGroup</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="updateGroup">usermanUpdateGroup</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="delUser">usermanDelUser</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="addUser">usermanAddUser</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="updateUser">usermanUpdateUser</method>
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="myShowPage">usermanShowPage</method>
+		</userman>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+			<method class="Conferencespro" namespace="FreePBX\modules" callingMethod="getModuleLicenseInformation">sendModuleLicenseInformation</method>
+		</sysadmin>
+	</hooks>
+	<popovers>
+		<conferencespro>
+			<display>conferences</display>
+			<view>form</view>
+		</conferencespro>
+	</popovers>
+	<supported>
+		<version>17.0</version>
+	</supported>
+</module>

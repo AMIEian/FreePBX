@@ -1,0 +1,53 @@
+<module>
+	<rawname>webcallback</rawname>
+	<name>Web Callback</name>
+	<version>17.0.4</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/15/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.pdf</licenselink>
+	<repo>commercial</repo>
+	<category>Applications</category>
+	<description>COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. The Web CallBack  module allows you to easily add an HTML call me box
+		to your website. Visitors simply put their phone number in to be connected with you, or a specific destination. The
+		Web Callback module allows you to specify a CID to be prepended
+		which alerts you that the call is coming from a specific callback. You can also set Dial Matches to specify which
+		numbers users are allows to call. Once you have set your
+		destination and saved changes you will be given HTML code to paste into your website. </description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/35193874/Web+CallBack</more-info>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#web-callback</link>
+	</commercial>
+	<database>
+		<table name="webcallback">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="name" type="string" length="50" notnull="false"/>
+			<field name="dest" type="string" length="150" notnull="false"/>
+			<field name="cidprepend" type="string" length="25" notnull="false"/>
+			<field name="numprepend" type="string" length="50" notnull="false"/>
+			<field name="accountcode" type="integer" notnull="false"/>
+			<field name="button_attr" type="text" notnull="false"/>
+			<field name="dialpad_attr" type="text" notnull="false"/>
+			<field name="patterns" type="text" notnull="false"/>
+			<field name="error_msg" type="text" notnull="false"/>
+			<field name="valid_msg" type="text" notnull="false"/>
+			<field name="invalid_msg" type="text" notnull="false"/>
+			<field name="icon" type="string" length="25" notnull="false"/>
+		</table>
+	</database>
+	<menuitems>
+		<webcallback needsenginedb="yes">Web Callback</webcallback>
+	</menuitems>
+	<changelog>
+		17.0.4* bump 
+	</changelog>
+	<depends>
+		<version>17.0.1</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+</module>

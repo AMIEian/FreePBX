@@ -1,0 +1,177 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+;################################################
+;#        FreePBX Module Signature File         #
+;################################################
+;# Do not alter the contents of this file!  If  #
+;# this file is tampered with, the module will  #
+;# fail validation and be marked as invalid!    #
+;################################################
+
+[config]
+version=1
+hash=sha256
+signedwith=B53D215A755231A3
+signedby='FreePBX Mirror Servers <security@freepbx.org>'
+repo=commercial
+timestamp=1756450309.2543
+[hashes]
+Backup.php = 4ecba07d11c8217e6821b6522db873a3a0f92a1f021a88fc678d7230dc8562f3
+Console/Unlockucp.class.php = f8de3b2cda385a7450a1a114643ba6c953a895f42d694f7881c0fec5f039037a
+Job.php = c101069896194eba70fce9f4f2cc4d96a50bc05dc71044cc0f2f9f6501dd8330
+LICENSE = d012ce07f6ec81aeae4f3aa64794d8624511e10e21f3413ef5991174d68ce58a
+Pbxmfa.class.php = 097171823e26e33c345ffa0f9718ce8544a9dcbd6991ef851a7319d97700193b
+README.md = b6f161b74a7dde2d824be13037db420c18696513b38ad8b46bc898be7e5b3571
+Restore.php = 538acd753a334a7278c98db6d2298464e47190118ea362ead4944394edc09fb0
+agi-bin/pbxmfa.agi = d1488af7857e57850838d47082c56682abb06cb1cdf9083b35a2953a0731d463
+assets/css/adminlogin.css = 1bbaf1c1bcdcfdd79f266dd1f145cd4cc52b785d56576cf513812e8e9d064fad
+assets/images/auth-app.svg = 28bef6205b0c3e2968a7e6a7e54d448c69bd155a601ca229432911984af0ae36
+assets/images/call.svg = 2bd5003df03dff8f7006d2bcd8cd0b1abf347540993c4cf44b3c80f757e473ea
+assets/images/calling.svg = 0b3dbfe5f0cbe08b96008c3f77b776b0f09488896bd502acf6e1dd1be1fb8533
+assets/images/callmissed.svg = 238cb0af143aee681c318c4d23083efe487486ecaecd8e6f310e18b73366c484
+assets/images/email.svg = f5cef75cb2598242ea0e40fb42ec6ada9e45c5dae636b3207aa4f5ea4f68359c
+assets/images/error.svg = 9857e4f81ba312537580b4997806a89a518211e81cd79a917f2776b8f66ebfde
+assets/images/invalid.svg = 7e4ca0aa283b1b317b59ba5e93afaf414896edb8a62566d4a6ee9576e3ffc885
+assets/images/mfa.svg = 20e02f5102d76e2702a2e448b977d7e0d63ca12a35de471a311aa46d17cca067
+assets/images/noanswer.svg = e9a78440bf0b9c99b14908d963dee4898d118f2fc88983e56df345cf8de9602a
+assets/images/notabletocall.svg = a4da463077a5f4f55a9b8a4f92d91a8dbd2a8751bca39a654726c92a49a9e39b
+assets/images/passwordreset.svg = e018d86aceed406d70c55dfef04a02b6b456ed96ba6006ee24d3712568911c16
+assets/images/security.svg = ccd4415778e9d62adccd98a868740d330582f1926c7f6943a6972a3fea78edf2
+assets/images/timeout.svg = 8de42c5231d4f3ad4fd5f48e4b92a26f8e88f27c6dcff0cdfa1891567e5a6970
+assets/js/adminlogin.js = 67370bf2bb2bdbcf6c4a3a0cecd269c35926c433690682b84794cc58a119d40e
+assets/js/mfa.js = a673a44ad16970b5d1a31d17620ab9d06221266f1478dffffa7fa0e8b9c6c0a9
+assets/less/main.less = ac14f2f1f1747c85f216968d0aa06ebc94c79c2bcd712142d6aef2125bb7b5cc
+assets/less/mfa.less = a5421c2e7a4bfcc864f49eb320486526577a739d095a10cd7ba0fecad9f01ff0
+assets/less/passwordreminder.less = 1c8b9a748de6c9299e7e4f6b1d36783eeacd28a99bd8078085f66b2ef7630edf
+assets/less/utility.less = e6da0c634379b9e76a29c1464f60ae42642b4592329650e28b59ee3e86faf03e
+functions.inc.php = 40fd7fcda0f8a510959d7e646ce61431b5a69a97808976f1de7f11fee8442c16
+hooks/logrotate = f165207c01de1ad3be212be57a423bceee12239dbcc50faba5d8244c9627a03f
+install.php = 5e3c179d4d54c2571ce8f45b0957fcb2392ad1c805f419632b48e862586851dd
+module.xml = a6898efc5945b5adb0e8686b37cbe51a145bf56d241dc06a618712a42250850e
+page.pbxmfa.php = 32f231f2d791cdfb304ea39470bc0429049c22e8acc8640721d723db0b4b9981
+sounds/en/authfile.wav = 9bae50cdd1e581469afba917868dbfc773b78322845f74cda9b09a846ca8a6c8
+ucp/Pbxmfa.class.php = 6af6bec3032122b9b5a679cd3a5492b7a956b7b515eee10e7ebf071f7e903903
+ucp/assets/css/ucplogin.css = cfdcabe9acfb349b1588bc699fa0caa31de0dd78303b09cddb2d5d5a0ac6160d
+ucp/assets/images/auth-app.svg = 28bef6205b0c3e2968a7e6a7e54d448c69bd155a601ca229432911984af0ae36
+ucp/assets/images/call.svg = 2bd5003df03dff8f7006d2bcd8cd0b1abf347540993c4cf44b3c80f757e473ea
+ucp/assets/images/calling.svg = 0b3dbfe5f0cbe08b96008c3f77b776b0f09488896bd502acf6e1dd1be1fb8533
+ucp/assets/images/callmissed.svg = 238cb0af143aee681c318c4d23083efe487486ecaecd8e6f310e18b73366c484
+ucp/assets/images/email.svg = f5cef75cb2598242ea0e40fb42ec6ada9e45c5dae636b3207aa4f5ea4f68359c
+ucp/assets/images/error.svg = 9857e4f81ba312537580b4997806a89a518211e81cd79a917f2776b8f66ebfde
+ucp/assets/images/invalid.svg = 7e4ca0aa283b1b317b59ba5e93afaf414896edb8a62566d4a6ee9576e3ffc885
+ucp/assets/images/mfa.svg = 20e02f5102d76e2702a2e448b977d7e0d63ca12a35de471a311aa46d17cca067
+ucp/assets/images/noanswer.svg = e9a78440bf0b9c99b14908d963dee4898d118f2fc88983e56df345cf8de9602a
+ucp/assets/images/notabletocall.svg = a4da463077a5f4f55a9b8a4f92d91a8dbd2a8751bca39a654726c92a49a9e39b
+ucp/assets/images/passwordreset.svg = e018d86aceed406d70c55dfef04a02b6b456ed96ba6006ee24d3712568911c16
+ucp/assets/images/security.svg = ccd4415778e9d62adccd98a868740d330582f1926c7f6943a6972a3fea78edf2
+ucp/assets/images/timeout.svg = 8de42c5231d4f3ad4fd5f48e4b92a26f8e88f27c6dcff0cdfa1891567e5a6970
+ucp/assets/js/pbxmfa.js = 339e8cd3a7278b28d02a061792e56130a2fe85e8fd9d93eafff936a7f0e45da5
+ucp/assets/js/ucplogin.js = e29633e5b7ec081d925aef8e83105dae87acf3f50e673efda197cb13c00029d2
+ucp/assets/less/Pbxmfa.less = e997351e937d0ba2915406118c59e60e87b65ed8da28748a9c31e2529e080507
+ucp/views/user_settings.php = 52093ee61315c1aa4456d42a47b554c4261e832d8351ac4df283d50098540149
+uninstall.php = 1eacd1f5c39885f551932990f695944d9f7a6f7cf56c6fab886cda7027494282
+vendor/autoload.php = 162758e7052e12881773c4b7aa1700afdbc7dd6057d8105b52006a82021daec7
+vendor/composer/ClassLoader.php = d4b2313e562edf942838ec316d983c1a3459ca67da3e5658e861200b0b3693c2
+vendor/composer/InstalledVersions.php = 21f4ba19e7859cb3f85b8b1680c970ee25d972546c1606dcae0e7e5f43f626f0
+vendor/composer/LICENSE = 7855ac293067aebe7e51afdd23b9dea54b8be24187dbecc9b9142581c37f596c
+vendor/composer/autoload_classmap.php = 375085d0d6690301081436cd75755cb2c882f8a7f6fc385c8814a11734fc413a
+vendor/composer/autoload_namespaces.php = ede505407590638a435137f4e060136f1008de79fc169b3de9793423b0cea38c
+vendor/composer/autoload_psr4.php = 0a7c2d13514c524cda5c92d918ef95a205f8421c83591f783762ab5b30b3ac4c
+vendor/composer/autoload_real.php = 99e101e7499a12cbdce0d3d9ea29d260cd6d5628f52ac0cceacd4d0a93b52091
+vendor/composer/autoload_static.php = 8cc27ccdd1632f170d65f34cd458c0a5671f4e1e1b2395b3e2f10b761b3cbebc
+vendor/composer/installed.json = 2616695cd71d5ed5ee6d617b66fe4ec70788f635009636c2e6ac23d515939f80
+vendor/composer/installed.php = 821b332db16ec55a1006962e02a46522dc5b5883a9cfd5d30fc65a4de69a8853
+vendor/composer/platform_check.php = a35a93ad352c7c414cd970603b92d1b8f0e01c96108d2e0febfbdc7c9558f1fa
+vendor/robthree/twofactorauth/LICENSE = 9fba714068f7431a54f7596fc65597dfcd68c5f0b7dc3b322ce3b4464978e3c6
+vendor/robthree/twofactorauth/README.md = 7abcd2a4a550e7ed7396d4bcd3660987027b888c844d9c9c8bb4b34fea67bbe8
+vendor/robthree/twofactorauth/TwoFactorAuth.phpproj = 6664544549edac0ad3cfcb66997493f2d0d2f9047a0276f71dd881d9e439b854
+vendor/robthree/twofactorauth/TwoFactorAuth.sln = 4595cc86d662cfca6c1fbceed0989fedc2518e095ad6bf050517eed233a737b7
+vendor/robthree/twofactorauth/demo/demo.php = fc29b211f8b33b813790c22d282f99e9d3334e7b76d683cbf761808928d43880
+vendor/robthree/twofactorauth/docs/_config.yml = 3eb507b4a268a0ef8ed7118e8a850893d7e4c3a338b2c66f612ac9b4b8ab20d1
+vendor/robthree/twofactorauth/docs/_layouts/post.html = 24412eb71258fafe30cb354dcfb4281869c5295201cf7372f59414058c07fc83
+vendor/robthree/twofactorauth/docs/assets/css/style.scss = c5b71c88e372c83ee48c6ac3be32dd6a5bb82e16bc6be441069d9295120dacfb
+vendor/robthree/twofactorauth/docs/getting-started.md = fc7b404ae10f6a49d7e36b297a76d304a55f81ef291c208b8d02064ff2a27b66
+vendor/robthree/twofactorauth/docs/improved-code-verification.md = 9fcd787d8b41f778e3540f789c5a585aadb10ed55fc545ceb32d3e882c45c045
+vendor/robthree/twofactorauth/docs/index.md = ea122d3613ee315fd2d62c26c399a2e23a212b3ddcf7c0023950d8e6ead1866c
+vendor/robthree/twofactorauth/docs/optional-configuration.md = 328b6360d87e85aa9e21fac06c7760dd88915901a3b8e78ebbf815dd4449d9c8
+vendor/robthree/twofactorauth/docs/qr-codes/bacon.md = 6199ad885cfc11ba792ab6c0160f5f5e688c4057f266f545849ffba71f6b1e29
+vendor/robthree/twofactorauth/docs/qr-codes/endroid.md = 0d6b0fc434706842e2bbc14d21d377bc9f5260a79684d4e620925166cd1024d3
+vendor/robthree/twofactorauth/docs/qr-codes/image-charts.md = 79ebca9ee344b835415d5f4ac0fb89d4bc4142c56768baa65a37b7a3bb3e8e79
+vendor/robthree/twofactorauth/docs/qr-codes/qr-server.md = 1734298f84ee5d11cf7333c1b4c740674ea88e75890e712b4e3d3e94145d3f55
+vendor/robthree/twofactorauth/docs/qr-codes/qrickit.md = 452721a359d183d02980d7cd12b0cabea3c5850b322240091ec2441b15a096be
+vendor/robthree/twofactorauth/docs/qr-codes.md = 6450e95f3d08ecc874a04d9e42123d09aa65cdd798a9224f34c860fb45063983
+vendor/robthree/twofactorauth/lib/Providers/Qr/BaconQrCodeProvider.php = 67e517b23259a0fe88f8feed14b2eb97513c3b59cd41f444d8ad9348301a4af0
+vendor/robthree/twofactorauth/lib/Providers/Qr/BaseHTTPQRCodeProvider.php = 6adf820ea927c198bfdd0d0aec53fa2a43e9ab545114ca20df498427eaf4c579
+vendor/robthree/twofactorauth/lib/Providers/Qr/EndroidQrCodeProvider.php = d93179405ac3405ad31e3fe4b7236c0a6f6b271a1151d02ff1a7dbf1b138698b
+vendor/robthree/twofactorauth/lib/Providers/Qr/EndroidQrCodeWithLogoProvider.php = e887a5ac8eb3ac9e4fd35ece60331965fd1d9b6709529691b8bd1128a2e6ff2f
+vendor/robthree/twofactorauth/lib/Providers/Qr/GoogleChartsQrCodeProvider.php = 223b5a4758c5d941202dcd75318ef00bed73ea03899dcba729dfe3e8d6371e9f
+vendor/robthree/twofactorauth/lib/Providers/Qr/HandlesDataUri.php = 699f289b10795fc5719ca3873b927889213c14d09d6b2e94221d8bf7deba8731
+vendor/robthree/twofactorauth/lib/Providers/Qr/IQRCodeProvider.php = 9321b8fd199b06196b86b914f934ff8105e5f06b0daf107142852aa5f390957b
+vendor/robthree/twofactorauth/lib/Providers/Qr/ImageChartsQRCodeProvider.php = 6d68f797addf0a661412a7d03b7816a7fd199c6ab0899df78d1b92b8e088477d
+vendor/robthree/twofactorauth/lib/Providers/Qr/QRException.php = a3a0f22c20266ea7fa8ce2dd3851686f3260048fc52ffb4d7a2f650be8412520
+vendor/robthree/twofactorauth/lib/Providers/Qr/QRServerProvider.php = 2450ada633bb2cea8ac992b830573de56316e7a8d7966e1844b5b2bfcc3b1ee2
+vendor/robthree/twofactorauth/lib/Providers/Qr/QRicketProvider.php = a86904dbe23172b0f43e2c21703b905f751dd9f5578eabeb6b53a91489fe4c55
+vendor/robthree/twofactorauth/lib/Providers/Rng/CSRNGProvider.php = 16400aceced2af958da5fae765680660e0c9aec1f0c16c27c7fc9a049a62834e
+vendor/robthree/twofactorauth/lib/Providers/Rng/HashRNGProvider.php = a92cfe1cc15e15cb712e63fdd653150fd35c4819a252c4ac1c79631ac80a8b1c
+vendor/robthree/twofactorauth/lib/Providers/Rng/IRNGProvider.php = 89904616b0351b75643ce945daaf9794fbdd974c48623741556dd95a9c92e5d8
+vendor/robthree/twofactorauth/lib/Providers/Rng/MCryptRNGProvider.php = 814856c7e725c78cddb416c63caf65442a9792b00c1d0dfdd3b131092196c892
+vendor/robthree/twofactorauth/lib/Providers/Rng/OpenSSLRNGProvider.php = 13ddd5873bc571157a52cde9ff1d545c746bb546c6055b0430a651f7ca2c91ab
+vendor/robthree/twofactorauth/lib/Providers/Rng/RNGException.php = 93e97892bf9a772395b2f817b73f3b4aa12592618b31ad86d255cbd1a2b347cc
+vendor/robthree/twofactorauth/lib/Providers/Time/HttpTimeProvider.php = 21c96d4f731bece0c870264ea2b84543fb267b1d06da31fdb8d552c67d4821f7
+vendor/robthree/twofactorauth/lib/Providers/Time/ITimeProvider.php = e1fb436b6d786bc4c797c679fb6f715bced5dd452c24b77456e6aacdb6c67437
+vendor/robthree/twofactorauth/lib/Providers/Time/LocalMachineTimeProvider.php = 17c5043e4a0dbce24f9bee92e70d697a0692444bd470a659ab9ff97dbc71591d
+vendor/robthree/twofactorauth/lib/Providers/Time/NTPTimeProvider.php = 8278aeebbca8565eae08131d8d34263429162f927d527d481021428bbd17f5c5
+vendor/robthree/twofactorauth/lib/Providers/Time/TimeException.php = 371da2e40c6bf7967f9faa53d2640772ed27edef05f10d303fdb07b0ed17dd58
+vendor/robthree/twofactorauth/lib/TwoFactorAuth.php = 8725eab75ee9952972d480b1f6b579ec68353b5e0ef5600988586e5fe7ccbff1
+vendor/robthree/twofactorauth/lib/TwoFactorAuthException.php = fdd34e071dfe3ef315dd0884a1fff7d17957ae9fcd9ac689ad07ee76797deb7c
+vendor/robthree/twofactorauth/logo.png = 5400a5cb3e369a09c9e34c65fcfaf83a82bb325baf97478d7745db1306bfe5f1
+vendor/robthree/twofactorauth/multifactorauthforeveryone.png = 512ecdbb20b377a9dc594352ee0661909e0b90735309cb82d7135aff5311d6fa
+vendor/robthree/twofactorauth/tests/MightNotMakeAssertions.php = 208c756988ed47e40e633e732a6ce7a166e1178a3d699b8f4f1abafa6852e0b6
+vendor/robthree/twofactorauth/tests/Providers/Qr/IQRCodeProviderTest.php = d474bf3553d5f9f60208762a1659a6eeef8eda6be626210710a1169b367eda5c
+vendor/robthree/twofactorauth/tests/Providers/Qr/TestQrProvider.php = 664d08705d555d99512ef0d81ac4e2083cbfa237a05dcecf97627c1d6bc90954
+vendor/robthree/twofactorauth/tests/Providers/Rng/CSRNGProviderTest.php = 49370f8b51d7ad8c755d38224a22409701f03330fed912505a6f0e25da11c6cd
+vendor/robthree/twofactorauth/tests/Providers/Rng/HashRNGProviderTest.php = a770d6ff5312efb54edc8210215b444a6cdf8e7156309037b4ff743723c23b32
+vendor/robthree/twofactorauth/tests/Providers/Rng/IRNGProviderTest.php = 9fe051b2d0eccfe7553ddba55b40e6fb6e4bd08be3a0eba228936569f062b82e
+vendor/robthree/twofactorauth/tests/Providers/Rng/MCryptRNGProviderTest.php = a905e6dbe751f85199c81bb9257984046000658b4e96d25065c6d214e3e2fefb
+vendor/robthree/twofactorauth/tests/Providers/Rng/NeedsRngLengths.php = 43b0a24db81edce475176aecfc17ff5f28e35909d79cca8620f2e4b458c91e82
+vendor/robthree/twofactorauth/tests/Providers/Rng/OpenSSLRNGProviderTest.php = 625d2a45f2e3d0743bc83c4602fd9359ad29204b080903ffdf05e9cba4d8a305
+vendor/robthree/twofactorauth/tests/Providers/Rng/TestRNGProvider.php = 1769251f7621133a8e5d4a3331f3a304ef59aaae408676404ebb7ad6d308b25e
+vendor/robthree/twofactorauth/tests/Providers/Time/ITimeProviderTest.php = b982c0bb904e070e36ed040a28b641a385be58c6d54046984f8bac6b94c1786c
+vendor/robthree/twofactorauth/tests/Providers/Time/TestTimeProvider.php = 1b52237c8eb74ee0555388a6bd8dcf7fc3b74b76ae8ec0530bfcac8b5ce09d24
+vendor/robthree/twofactorauth/tests/TwoFactorAuthTest.php = fa243aa9d11ddef6a199091d66992a11c92dca4accc38aaa0de0a48ef343c9f7
+vendor/robthree/twofactorauth/testsDependency/BaconQRCodeTest.php = 8e8d17837b4a3ca8b17893ae39cfc60cd4e30924893463f343fb8a3ed980cab0
+vendor/robthree/twofactorauth/testsDependency/EndroidQRCodeTest.php = 34e4089e22a6da4203b30fd421c200dfac448a141a0edeec638d50b8b3e2a3b3
+views/mfa/allAdmins.php = 80167a4e31559a489839a81c7c16aad127068b80f79fdf1f2d4e86965c8aa903
+views/mfa/allUcpUsers.php = 20ae625c1efd6ef2453dbdc2b46e226f9ce5441c6501c5d134c72a89f64acfb4
+views/mfa/backupCodeActionsConfirmationModal.php = f5d34fa5de9ff29acbb9c5869970db974ee6413f53cdf5d5d35fe8909dfc0adc
+views/mfa/enableOrDisableModal.php = fb4c6a45b5731cf8517f11a478d9269804e6e9a001b86255b4ae2b0002871300
+views/mfa/maxLoginAttemptMail.php = 14aebd6c95a6a8b4ab9ff279b206e445b77cfebd2812304364fc93f1f8617da5
+views/mfa/otpModal.php = 038474e534673b7653eaf14c20a67101d255c7bd4f164210adfe7516ff56016f
+views/mfa/qrCodeMail.php = a1e04718f7de90b57b0003199086a9975e0f045b0a6f0dfcebe8d4ac6eea219c
+views/mfa/qrCodeMailTemplate.tpl = 5e3a6b76651ab1f0455b7bdb238d1537c8532b72e0b36df68b59eef6085c2b09
+views/mfa/resetMFAConfirmationModal.php = 858b9a590464b829ca333afbcdff27a39c8adf05d1d9292e0ef1456002bf3dcc
+views/mfa/settings.php = ab5e8ddc59fb350463e7de134a7435e2c1d51774be312c9a4c349f23866b67d1
+views/mfa/systemWideMFADisableConfirmModal.php = 6b7876480d294649c47ffcb5cd7871a1d6753d4b9c07012451cb8676ba33b34d
+views/mfa/testMail.php = 44b8f23ec496df52dac602e63a4661b1e7f58c3a0f2041274cec570c92bd160e
+views/mfa/verifyOTOMailTemplate.tpl = 91b1dff11bafbd38e56fb0cabd3bdff838e269e91c6cd5afa120daac3bcff504
+views/mfa/verifyOTPMail.php = 64da98d55542a07ed9395795bdb435eab273564b22c955a2849396993068b42a
+views/userman_hook.php = 82b7e990b82df77fb4411959eef9281a22c9d7baa5f8b136e03f8a6cadad017e
+;# End
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+iQIcBAEBAgAGBQJosU4FAAoJELU9IVp1UjGjYTUQAK/OkzeugmhEBynY1uF38jJB
+0VxL8xV2JuHoMw1lkT/VsfR/CiVoQXdiUuksur/MSSNOvW92oZwH5uslHrtGFuqn
+EaJ5e7LwQVCX5ZgFnsHrVle2fCbWei1OVKlj0lvtcxgBS3ehhaOTVfw/TUVy4QCE
+5cQCUOJ5bslqHKOmmKIcUmdoRMVBUg1TIYti5GlC/ekCCq9daAiGORCPVaw/ySe8
+/VtNWygTQIdPr0GI1bF89+1HD8c5HxpmdmB8wPiazTjqSTjZdV0CMmlT+Odn/+Ey
++klxYac45hza8NBoxKumcBWd6Rv138a1GfUt9Vf00D2p4cY1JDGYNl3wkVzNpQQh
+RZ9S9m4Fsz7hJ2FxxXhhcbpuCCv69G75g67B9QAeZKKbn8AfdZdMJPyBkFGTe6N/
+F/bogd3Z3aFbnD2eK/0LsY7S5VGJh9wFsNKC1W0B3QuTT9Psa3BqTYe5XLKM9f/f
+aWr+jTkNUB5rRCIVNleRaTIm3nSOHHcGnijE61A6poQ27XfRvHQHBuFwxmdA9QnF
+YrtpCajja6yFTyDsBp3PRwXM+e/GxQQFUWGzREHbzaZ1ooLoTl5PkwDuWiX7pwIs
+MD/q8SSl7VNLeAaxV2fYz5bbevEFvtf3ULWZOBlZ7/raCmuPcmWG6uh4riyXs1ez
+3eN3N5sJGXADC3jrBm55
+=YzZl
+-----END PGP SIGNATURE-----

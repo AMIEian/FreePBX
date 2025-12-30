@@ -1,0 +1,38 @@
+<module>
+	<rawname>extensionroutes</rawname>
+	<repo>commercial</repo>
+	<name>Extension Routes</name>
+	<version>17.0.1</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<commercial>
+		<type>free</type>
+		<link>//www.freepbx.org/add-ons/#extension-routing</link>
+	</commercial>
+	<category>Connectivity</category>
+	<description>COMMERCIAL MODULE, REQUIRES A LICENSE.
+				Allows the explicit exclusion/inclusion of extensions for each route, including calls forwarded or followme-ed from the extension</description>
+	<more-info>https://wiki.freepbx.org/display/FPG/Extension+Routing</more-info>
+	<depends>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>core ge 17.0.1</module>
+		<module>sysadmin ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+	</depends>
+	<changelog>
+		*17.0.1* 17.0.1  release
+	</changelog>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<database>
+	<table name="extensionroutes">
+		<field name="exten" type="string" length="20" default="" primarykey="true"/>
+		<field name="route_id" type="integer" default="0" primarykey="true"/>
+	</table>
+</database>
+	<location/>
+	<md5sum/>
+</module>

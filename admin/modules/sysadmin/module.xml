@@ -1,0 +1,146 @@
+<module>
+	<rawname>sysadmin</rawname>
+	<name>System Admin</name>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<repo>commercial</repo>
+	<version>17.0.2.33</version>
+	<authentication>false</authentication>
+	<category>Admin</category>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#sysadmin</link>
+	</commercial>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/35618920/System+Admin+Module</more-info>
+	<description>System Administration - COMMERCIAL MODULE REQUIRES A LICENSE FOR PRO FEATURES TO BE ENABLED ABOVE THE
+		INCLUDED FREE FEATURES. System Administration - provides access to various
+		system administration tools. This module is designed to work with some very specific distributions such as the
+		FreePBX Distro and PBXact. There are dependencies that are not all listed in this module.xml package so the module
+		should not be used except on the distributions that it is designed for. </description>
+	<changelog>
+		*17.0.2.33* FREEI-362 Exception Invalid Network or IP range. 
+		*17.0.2.32* DSP-325 hardcoding scd version which supports MFA  and added CLI  option to force update the haproxy config 
+		*17.0.2.31* DSP-297 haproxy update 
+		*17.0.2.30* FREEI-2023 haproxy update 
+		*17.0.2.29* FREEI-2016 haproxy changes 
+		*17.0.2.28* FREEI-2016 haproxy changes 
+		*17.0.2.27* Offer page css changes 
+		*17.0.2.26* Offer page css changes 
+		*17.0.2.25* FREEI-1686  haproxy config issue 
+		*17.0.2.24* #689 Improve line parsing logic to handle inconsistent whitespace 
+		*17.0.2.23* FREEI-1724 Sysadmin Commercial license show the incorrect softphone advanced license data 
+		*17.0.2.22* FREEI-1686 : haproxy install check 
+		*17.0.2.21* FREEI-1686 : force enable and restart HAProxy configuration 
+		*17.0.2.20* FREEI-1686 haproxy default enable 
+		*17.0.2.19* FREEI-1724 FREEI-1686 
+		*17.0.2.18* FREEI-1786 
+		*17.0.2.16* FREEI-1753, FREEI-170 and FREEI-1724
+		*17.0.2.15* FREEI-1686 Migrate RTAPI PhoneApps from HTTPD to HAPROXY 
+		*17.0.2.14* Github #641 mdadm.conf path update 
+		*17.0.2.13* FREEI-1375 Restart HAproxy service ,after SSL cert update/renewal 
+		*17.0.2.12* FREEI-1657 Sangomaconnect - Reload issue after restore for sangomaconnect non - licensed system. 
+		*17.0.2.11* #609 Do not display the dashboard networking service notification if the system is not licensed 
+		*17.0.2.10* bump 
+		*17.0.2.9* FREEI-1437 Removing SSLv3 option 
+		*17.0.2.8* Github #573 Adding ip availability check in apache2 process 
+		*17.0.1* 17.0.1 alpha release
+	</changelog>
+	<depends>
+		<module>framework ge 17.0.1</module>
+		<module>core ge 17.0.1</module>
+		<module>backup ge 17.0.1</module>
+		<module>firewall ge 17.0.1.19</module>
+		<module>certman ge 17.0.1</module>
+		<phpversion>8.2</phpversion>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<file>/usr/sbin/incrond</file>
+	</depends>
+	<menuitems>
+		<sysadmin>System Admin</sysadmin>
+	</menuitems>
+	<bootstrap_hooks>
+		<pre_module_load>
+			<all_mods>modules/sysadmin/agi-bin/LoadLicenseIfExists.php</all_mods>
+		</pre_module_load>
+	</bootstrap_hooks>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
+			<method callingMethod="getSummary" class="Sysadmin" namespace="FreePBX\modules">dashboardService</method>
+		</dashboard>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="preAsteriskHooks" class="Sysadmin" namespace="FreePBX\modules">startFreepbx</method>
+		</framework>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Sysadmin" namespace="FreePBX\modules">chownFreepbx</method>
+		</framework>
+		<userman class="Userman" namespace="FreePBX\modules">
+			<method callingMethod="myShowPage" class="Sysadmin" namespace="FreePBX\modules">usermanShowPage</method>
+			<method callingMethod="addUser" class="Sysadmin" namespace="FreePBX\modules">usermanAddUser</method>
+			<method callingMethod="updateUser" class="Sysadmin" namespace="FreePBX\modules">usermanUpdateUser</method>
+			<method class="Sysadmin" namespace="FreePBX\modules" callingMethod="addGroup">usermanAddGroup</method>
+			<method class="Sysadmin" namespace="FreePBX\modules" callingMethod="updateGroup">usermanUpdateGroup</method>
+		</userman>
+		<userman class="Certman" namespace="FreePBX\modules">
+			<method callingMethod="updateCertificate" class="Sysadmin" namespace="FreePBX\modules">updateCertManCert</method>
+		</userman>
+		<ucp class="Ucp">
+			<method callingMethod="constructModuleConfigPages" class="Sysadmin" namespace="FreePBX\modules">ucpConfigPage</method>
+			<method callingMethod="addUser" class="Sysadmin" namespace="FreePBX\modules">ucpAddUser</method>
+			<method callingMethod="updateUser" class="Sysadmin" namespace="FreePBX\modules">ucpUpdateUser</method>
+			<method callingMethod="delUser" class="Sysadmin" namespace="FreePBX\modules">ucpDelUser</method>
+			<method callingMethod="addGroup" class="Sysadmin" namespace="FreePBX\modules">ucpAddGroup</method>
+			<method callingMethod="updateGroup" class="Sysadmin" namespace="FreePBX\modules">ucpUpdateGroup</method>
+			<method callingMethod="delGroup" class="Sysadmin" namespace="FreePBX\modules">ucpDelGroup</method>
+		</ucp>
+		<framework class="Motd" namespace="FreePBX\Console\Command">
+			<method callingMethod="externalMessages" class="Sysadmin" namespace="FreePBX\modules">updateMessages</method>
+		</framework>
+	</hooks>
+	<database>
+		<table name="sysadmin_options">
+			<field name="key" type="string" length="25" notnull="false"/>
+			<field name="value" type="text" notnull="false"/>
+			<key name="key" type="unique">
+				<column name="key"/>
+			</key>
+		</table>
+		<table name="sysadmin_update_log">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="time" type="bigint" notnull="false"/>
+			<field name="version" type="string" length="25" notnull="false"/>
+			<field name="status_id" type="smallint" notnull="false"/>
+			<field name="status" type="string" length="255" notnull="false"/>
+		</table>
+		<table name="sysadmin_fail2ban">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="filter_owner" type="string" length="25" notnull="false"/>
+			<field name="filter_rule" type="string" length="25" notnull="false"/>
+			<field name="logpath" type="string" notnull="40"/>
+			<field name="opt_name" type="string" length="25" notnull="false"/>
+			<field name="opt_port" type="string" length="25" default="" notnull="false"/>
+			<field name="opt_protocol" type="string" length="25" default="all" notnull="false"/>
+			<field name="active" type="smallint" default="1" notnull="true"/>
+			<key name="filter_owner" type="unique">
+				<column name="filter_owner"/>
+			</key>
+		</table>
+		<table name="sysadmin_expiry_notifications">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="type" type="string" length="25" notnull="true"/>
+			<field name="module" type="string" length="150" notnull="true"/>
+			<field name="expired_date" type="bigint" notnull="true"/>
+			<field name="created_at" type="datetime" notnull="true"/>
+		</table>
+	</database>
+	<oobe method="oobeHook" priority="90"/>
+	<console>
+		<command>
+			<name>sysadmin</name>
+			<alias>sa</alias>
+		</command>
+	</console>
+</module>

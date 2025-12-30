@@ -1,0 +1,66 @@
+<module>
+	<rawname>sangomacrm</rawname>
+	<repo>commercial</repo>
+	<description>COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Links your PBX to your CRM</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/27263360/Customer+Relationship+Management+CRM+Link</more-info>
+	<name>Customer Relationship Management Link</name>
+	<version>17.0.1.24</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#crm</link>
+	</commercial>
+	<category>Settings</category>
+	<menuitems>
+		<sangomacrm>CRM Settings</sangomacrm>
+		<sangomacrmrest>CRM API Settings</sangomacrmrest>
+	</menuitems>
+	<changelog>
+		*17.0.1.24* Packaging of ver 17.0.1.24
+		*17.0.1.23* Packaging of ver 17.0.1.23
+		*17.0.1.22* FREEI-2149 
+		*17.0.1.21* FREEI-1966 Submit &amp;amp; Reset button showing up in non-licensed 
+		*17.0.1.20* FREEI-1552 CRM restapi webhooks issue fixed 
+		*17.0.1.19* FREEI-1544 CRM MODULE DOES NOT POPULATE USER LIST 
+		*17.0.1.18* FREEI-1242 crm restapi end event missing 
+		*17.0.1.7* 17.0.1  release
+	</changelog>
+	<depends>
+		<version>17.0.1</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>framework ge 17.0.1</module>
+		<module>cdr</module>
+		<module>cel</module>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Sangomacrm" namespace="FreePBX\modules">chownFreepbx</method>
+		</framework>
+		<userman class="Userman" namespace="FreePBX\modules">
+			<method callingMethod="delUser" class="Sangomacrm" namespace="FreePBX\modules">usermanDelUser</method>
+			<method callingMethod="addUser" class="Sangomacrm" namespace="FreePBX\modules">usermanAddUser</method>
+			<method callingMethod="updateUser" class="Sangomacrm" namespace="FreePBX\modules">usermanUpdateUser</method>
+			<method callingMethod="myShowPage" class="Sangomacrm" namespace="FreePBX\modules">usermanShowPage</method>
+		</userman>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+			<method callingMethod="getModuleLicenseInformation" class="Sangomacrm" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+		</sysadmin>
+		<zulu class="Zulu" namespace="FreePBX\modules">
+			<method callingMethod="displayCallpopOptions" class="Sangomacrm" namespace="FreePBX\modules">displayCallpopOptions</method>
+			<method callingMethod="processCallpopType" class="Sangomacrm" namespace="FreePBX\modules">processCallpopType</method>
+			<method callingMethod="processCallpopValue" class="Sangomacrm" namespace="FreePBX\modules">processCallpopValue</method>
+		</zulu>
+	</hooks>
+	<console>
+		<command>
+			<name>crm</name>
+			<class>Sangomacrm</class>
+		</command>
+	</console>
+</module>

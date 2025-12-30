@@ -1,0 +1,251 @@
+<module>
+	<rawname>pms</rawname>
+	<name>Sangoma Property Management</name>
+	<version>17.0.2.33</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#spm</link>
+	</commercial>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<repo>commercial</repo>
+	<description>Sangoma Property Manager is a Property Management System designed specifically for FreePBX and PBXact phone systems. It is utilized via a customized dashboard, provided by the existing User Control Panel (UCP) of FreePBX and PBXact.</description>
+
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/35782839/Sangoma+Property+Management+SPM</more-info>
+	<info/>
+	<category>Applications</category>
+	<changelog>
+		*17.0.2.33* FREEI-1885 PHP issue 
+		*17.0.2.32* FREEI-1878 
+		*17.0.2.31* bump 
+		*17.0.1* 17.0.1 release
+	</changelog>
+	<menuitems>
+		<pms needsenginedb="yes">Property Management</pms>
+	</menuitems>
+	<depends>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>framework ge 17.0.15.26</module>
+		<module>voicemail ge 17.0.1</module>
+		<module>userman ge 17.0.1</module>
+		<module>hotelwakeup ge 17.0.1</module>
+		<module>cos ge 17.0.1</module>
+		<module>restapps ge 17.0.1</module>
+		<module>ucp ge 17.0.1</module>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<sysadmin namespace="FreePBX\modules" class="Sysadmin">
+			<method namespace="FreePBX\modules" class="Pms" callingMethod="getModuleLicenseInformation">sendModuleLicenseInformation</method>
+		</sysadmin>
+		<framework namespace="FreePBX\Console\Command" class="Chown">
+			<method namespace="FreePBX\modules" class="Pms" callingMethod="fwcChownFiles">chownFreepbx</method>
+		</framework>
+		<ucp class="Ucp">
+			<method callingMethod="constructModuleConfigPages" class="Pms" namespace="FreePBX\modules">ucpConfigPage</method>
+			<method callingMethod="addUser" class="Pms" namespace="FreePBX\modules">ucpAddUser</method>
+			<method callingMethod="updateUser" class="Pms" namespace="FreePBX\modules">ucpUpdateUser</method>
+			<method callingMethod="delUser" class="Pms" namespace="FreePBX\modules">ucpDelUser</method>
+			<method callingMethod="addGroup" class="Pms" namespace="FreePBX\modules">ucpAddGroup</method>
+			<method callingMethod="updateGroup" class="Pms" namespace="FreePBX\modules">ucpUpdateGroup</method>
+			<method callingMethod="delGroup" class="Pms" namespace="FreePBX\modules">ucpDelGroup</method>
+		</ucp>
+	</hooks>
+<database>
+    <table name="pms_config">
+        <field name="o_m" type="string" length="10" notnull="false" default="Hotel"/>
+        <field name="locked" type="integer" length="1" notnull="false" default="1"/>
+        <field name="cbr" type="integer" length="1" notnull="false" default="1"/>
+        <field name="rmbc" type="integer" length="1" notnull="false" default="1"/>
+        <field name="reception" type="string" length="5" notnull="false"/>
+        <field name="emergency" type="string" length="23" notnull="false"/>
+        <field name="cosci" type="string" length="50" notnull="false"/>
+        <field name="cosco" type="string" length="50" notnull="false"/>
+        <field name="cos" type="integer" length="1" notnull="false"/>
+        <field name="company" type="string" length="512" notnull="false"/>
+        <field name="logo" type="string" length="100" notnull="false"/>
+        <field name="logo64" type="text" notnull="false"/>
+        <field name="tourist_tax" type="decimal" precision="5" scale="2" notnull="false" default="0.00"/>
+        <field name="currency" type="string" length="5" notnull="false" default="en_US"/>
+        <field name="rounded" type="integer" length="1" notnull="false" default="0"/>
+        <field name="discount" type="decimal" precision="5" scale="2" notnull="false" default="0.00"/>
+        <field name="mail" type="string" length="50" notnull="false"/>
+        <field name="from_name" type="string" length="50" notnull="false"/>
+        <field name="subject" type="string" length="50" notnull="false"/>
+        <field name="body" type="string" length="512" notnull="false"/>
+        <field name="ticket_header" type="string" length="512" notnull="false"/>
+        <field name="ticket_body" type="string" length="2048" notnull="false"/>
+        <field name="ticket_footer" type="string" length="512" notnull="false"/>
+        <field name="hpms_dir" type="string" length="3" notnull="false"/>
+        <field name="version" type="string" length="10" notnull="false"/>
+        <field name="ip_address" type="string" length="15" notnull="false"/>
+        <field name="port" type="integer" length="11" notnull="false"/>
+    </table>
+	<table name="pms_minibar">
+        <field name="digit" type="integer" length="11" notnull="false"/>
+        <field name="label" type="string" length="50" notnull="false"/>
+        <field name="price" type="decimal" precision="10" scale="2" notnull="false"/>
+        <field name="vat" type="decimal" precision="5" scale="2" notnull="false" default="0.00"/>
+        <field name="charge" type="integer" length="11" notnull="false"/>
+    </table>
+	<table name="pms_banner">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="image" type="string" length="512" notnull="false" default="NULL"/>
+        <field name="title" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="label" type="string" length="2048" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_cos_oracle">
+        <field name="cs0" type="string" length="128" notnull="false" default="NULL"/>
+        <field name="cs1" type="string" length="128" notnull="false" default="NULL"/>
+        <field name="cs2" type="string" length="128" notnull="false" default="NULL"/>
+        <field name="cs3" type="string" length="128" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_rates_obrt">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="obrt" type="string" length="256" notnull="false" default="NULL"/>
+        <field name="fixed_charge" type="decimal" precision="10" scale="2" notnull="false"/>
+        <field name="increment" type="integer" length="11" notnull="false" default="NULL"/>
+        <field name="price" type="decimal" precision="10" scale="2" notnull="false"/>
+        <field name="taxe" type="decimal" precision="5" scale="2" notnull="false"/>
+        <field name="mask" type="integer" length="11" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_booking">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="room_id" type="string" length="20" notnull="false" default="NULL"/>
+        <field name="guest_id" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="date_ci" type="integer" notnull="false" default="NULL"/>
+        <field name="date_co" type="integer" notnull="false" default="NULL"/>
+        <field name="num_guest" type="integer" notnull="false" default="1"/>
+        <field name="payment_mode" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="money_advance" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="payment_mode_b" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="confirmed" type="integer" notnull="false" default="NULL"/>
+        <field name="canceled" type="integer" notnull="false" default="NULL"/>
+        <field name="checked_in" type="integer" notnull="false" default="NULL"/>
+        <field name="booking_number" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="comments" type="string" length="2048" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_calendar">
+        <field name="datefield" type="date" notnull="false"/>
+    </table>
+	<table name="pms_charges">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="formula" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="label" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="value" type="decimal" precision="5" scale="2" notnull="false"/>
+    </table>
+	<table name="pms_maid_services">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="service_number" type="string" length="2" notnull="false"/>
+        <field name="label" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="file" type="string" length="512" notnull="false" default="NULL"/>
+        <field name="priority_level" type="string" length="1" notnull="false"/>
+    </table>
+	<table name="pms_guest">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="first_name" type="string" length="20" notnull="false" default="NULL"/>
+        <field name="last_name" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="address" type="string" length="60" notnull="false" default="NULL"/>
+        <field name="cp" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="city" type="string" length="20" notnull="false" default="NULL"/>
+        <field name="phone" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="mobile" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="fax" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="mail" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="NIF" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="Off_Doc" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="lang" type="string" length="2" notnull="false"/>
+        <field name="comments" type="string" length="2048" notnull="false" default="NULL"/>
+    </table>
+	 <table name="pms_models">
+        <field name="room_model" type="string" length="40" notnull="false" default="NULL"/>
+        <field name="room_description" type="string" length="2048" notnull="false" default="NULL"/>
+        <field name="room_price" type="decimal" precision="12" scale="2" notnull="false" default="0.00"/>
+        <field name="room_guest" type="decimal" precision="12" scale="2" notnull="false" default="0.00"/>
+        <field name="room_vat" type="decimal" precision="5" scale="2" notnull="false"/>
+    </table>
+	<table name="pms_register">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="room_id" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="guest_id" type="string" length="10" notnull="false" default="NULL"/>
+        <field name="num_guest" type="integer" length="11" notnull="false" default="1"/>
+        <field name="date_ci" type="integer" length="11" notnull="false" default="NULL"/>
+        <field name="date_co" type="integer" length="11" notnull="false" default="NULL"/>
+        <field name="vm_pwd" type="integer" length="11" notnull="false" default="NULL"/>
+        <field name="status" type="integer" length="1" notnull="false" default="NULL"/>
+        <field name="billing_file" type="string" length="100" notnull="false" default="NULL"/>
+        <field name="invoice_number" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="paid" type="integer" length="1" notnull="false" default="NULL"/>
+        <field name="total_room" type="decimal" precision="12" scale="2" notnull="false"/>
+        <field name="total_bar" type="decimal" precision="12" scale="2" notnull="false"/>
+        <field name="restaurant" type="decimal" precision="12" scale="2" notnull="false"/>
+        <field name="total_call" type="decimal" precision="12" scale="2" notnull="false"/>
+        <field name="total_billing" type="decimal" precision="12" scale="2" notnull="false"/>
+        <field name="payment_mode" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="money_advance" type="string" length="15" notnull="false" default="NULL"/>
+        <field name="payment_mode_b" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="booking_number" type="string" length="15" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_restaurant">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="image" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="type" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="ref" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="label" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="price" type="decimal" precision="12" scale="2" notnull="false"/>
+        <field name="charge" type="integer" length="11" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_rest_sales">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="date" type="string" length="12" notnull="false" default="NULL"/>
+        <field name="room" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="guest" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="product" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="price" type="decimal" precision="12" scale="2" notnull="false"/>
+        <field name="charge" type="decimal" precision="5" scale="2" notnull="false"/>
+    </table>
+	<table name="pms_rooms">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="room_name" type="string" length="20" notnull="false" default="NULL"/>
+        <field name="guest_name" type="string" length="60" notnull="false" default="NULL"/>
+        <field name="guest_number" type="string" length="50" notnull="false" default="NULL"/>
+        <field name="last_call" type="string" length="11" notnull="false" default="NULL"/>
+        <field name="cos" type="string" length="255" notnull="false" default="128"/>
+        <field name="model" type="string" length="20" notnull="false" default="NULL"/>
+        <field name="extension" type="string" length="5" notnull="false" default="NULL"/>
+        <field name="groupe" type="string" length="20" notnull="false" default="NULL"/>
+        <field name="free" type="integer" length="1" notnull="false" default="1"/>
+        <field name="clean" type="integer" length="1" notnull="false" default="1"/>
+        <field name="mini_bar" type="string" length="100" notnull="false" default="NULL"/>
+        <field name="RACI" type="string" length="255" notnull="false" default="NULL"/>
+        <field name="RACO" type="string" length="255" notnull="false" default="NULL"/>
+        <field name="job" type="string" length="255" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_sched_discounting">
+        <field name="date" type="string" length="11" notnull="false" default="NULL"/>
+        <field name="rate" type="decimal" precision="5" scale="2" notnull="false"/>
+        <field name="label" type="string" length="50" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_sched_room">
+        <field name="date" type="string" length="11" notnull="false" default="NULL"/>
+        <field name="type" type="string" length="9" notnull="false" default="NULL"/>
+        <field name="price" type="decimal" precision="10" scale="2" notnull="false"/>
+        <field name="label" type="string" length="50" notnull="false" default="NULL"/>
+    </table>
+	<table name="pms_privileges">
+        <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+        <field name="pms_grp" type="string" length="30" notnull="false" default="NULL"/>
+        <field name="users_grp" type="string" length="30" notnull="false" default="NULL"/>
+    </table>
+</database>
+
+	<console>
+		<command>
+			<name>pms</name>
+		</command>
+	</console>
+</module>

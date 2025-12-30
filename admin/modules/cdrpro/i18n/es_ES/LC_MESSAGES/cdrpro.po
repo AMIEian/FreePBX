@@ -1,0 +1,719 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for cdrpro
+# Copyright (C) 2008-2023 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-29 01:59-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid " + ++g + "
+msgstr ""
+
+msgid " + Math.round(1e5 * Math.random()) } function s(t, e, n) { return t + "
+msgstr ""
+
+msgid " - "
+msgstr ""
+
+msgid " CDR DETAILED REPORT "
+msgstr ""
+
+#, php-format
+msgid "%s-%s-%s-Report-%s.%s"
+msgstr ""
+
+msgid ", every day will be considered for the report."
+msgstr ""
+
+msgid ""
+"1. The archives on this page can be downloaded and opened using a common "
+"tool like Winzip, or 7-Zip."
+msgstr ""
+
+msgid ""
+"<br />2. Only 1 archive will be stored in the system.  As archives are "
+"created, the oldest archive is deleted."
+msgstr ""
+
+msgid "<br />3. Archives are created on the 1st of every month."
+msgstr ""
+
+msgid "A"
+msgstr ""
+
+#, php-format
+msgid ""
+"A report scheduler automates the process of generating reports at predefined "
+"intervals. It allows you to schedule the generation and delivery of reports "
+"to specific recipients at specific times, without the need for manual "
+"intervention."
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Archive Enabled"
+msgstr ""
+
+msgid ""
+"Archive Enabled(Default is yes). Set to no if you do not want to generate "
+"the archives of cdr data"
+msgstr ""
+
+msgid "Archive Frequency and Limit"
+msgstr ""
+
+msgid "Archive all cdr data older than X weeks/months"
+msgstr ""
+
+#, perl-format
+msgid "Are you sure you wish to delete %s scheduled reports"
+msgstr ""
+
+msgid "Are you sure you wish to delete this scheduled report"
+msgstr ""
+
+msgid ""
+"Based on the settings chosen, below are the initial five iterations for your "
+"preview:"
+msgstr ""
+
+msgid ""
+"Based on the settings chosen, below are the initial iterations for your "
+"preview (max 5 entries). \n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\tIf the choosen 'Repeat' value is 'Once', then "
+"there will be only one entry based on the 'Period' value."
+msgstr ""
+
+#, php-format
+msgid ""
+"By default, data will be displayed as per the last 1 month. Please select "
+"the custom date range and report type to view the report for that period"
+msgstr ""
+
+msgid "CDR (Call History) is not enabled for this user."
+msgstr ""
+
+msgid "CDR Pro is not licensed."
+msgstr ""
+
+msgid "CDR REPORT Summary "
+msgstr ""
+
+msgid "CDR Report Pro"
+msgstr ""
+
+msgid "CDR Report Scheduler"
+msgstr ""
+
+#, php-format
+msgid "CDR scheduled report %s not sent"
+msgstr ""
+
+#, php-format
+msgid "CDR scheduled report %s sent"
+msgstr ""
+
+#, php-format
+msgid ""
+"CDR, or call detail record, maintenance refers to the process of managing "
+"the data contained in CDRs. This includes tasks such as backing up and "
+"archiving CDR data and offloading old(X months old) CDR data to 3rd party "
+"servers."
+msgstr ""
+
+msgid "CDRPRO License Expired"
+msgstr ""
+
+msgid "CDRpro  Reports"
+msgstr ""
+
+#, php-format
+msgid "Cdr Report Pro call list for %s"
+msgstr ""
+
+msgid "Cdrpro"
+msgstr ""
+
+msgid "Cdrpro  stopped"
+msgstr ""
+
+msgid "Cdrpro is not licensed."
+msgstr ""
+
+msgid "Cdrpro is not running"
+msgstr ""
+
+#, php-format
+msgid "Cdrpro service  Failed: %s"
+msgstr ""
+
+msgid "Cdrpro was not running"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Created / Uploaded Date"
+msgstr ""
+
+msgid "Creating Temp Table"
+msgstr ""
+
+msgid "DIDs"
+msgstr ""
+
+msgid "Data not found"
+msgstr ""
+
+#, php-format
+msgid "Date/Time: %s"
+msgstr ""
+
+#, php-format
+msgid "Date: %s"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Done Temp Table creation"
+msgstr ""
+
+msgid "Email Settings"
+msgstr ""
+
+msgid ""
+"Email address reminders are sent from. (*Note: Updates SysAdmin from "
+"address.)"
+msgstr ""
+
+msgid "Email address to send reminders to."
+msgstr ""
+
+msgid "Email body is required"
+msgstr ""
+
+msgid "Email settings saved successfully"
+msgstr ""
+
+msgid "Email subject is required"
+msgstr ""
+
+msgid "Email type is required"
+msgstr ""
+
+msgid "Enter 0 to backup the all  cdr data from the previous (week/month)"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Export CDR"
+msgstr ""
+
+#, perl-format
+msgid ""
+"Exporting %s CDR records as PDF may take a considerable amount of time. We "
+"suggest using alternative export formats for large datasets to expedite the "
+"process. Are you sure that you want to proceed with PDF export?"
+msgstr ""
+
+#, php-format
+msgid "Exporting Databases from %s"
+msgstr ""
+
+msgid "Extensions"
+msgstr ""
+
+msgid "Failed to start CDRpro"
+msgstr ""
+
+msgid "File Name"
+msgstr ""
+
+msgid "File does not exist"
+msgstr ""
+
+msgid "Filestore upload status"
+msgstr ""
+
+msgid "Filter by"
+msgstr ""
+
+msgid "Force update, Sync already synced data."
+msgstr ""
+
+msgid "Format"
+msgstr ""
+
+msgid "From Email"
+msgstr ""
+
+msgid "In CDR We must have linkedID column. Exiting sync"
+msgstr ""
+
+#, php-format
+msgid "Insufficient Data"
+msgstr ""
+
+msgid "Invalid Date Range"
+msgstr ""
+
+msgid "Invalid archive limit specified"
+msgstr ""
+
+msgid "Invalid confirmation text. Please enter DELETE to confirm"
+msgstr ""
+
+msgid "Invalid from email specified"
+msgstr ""
+
+msgid "Invalid reminder email specified"
+msgstr ""
+
+msgid "L"
+msgstr ""
+
+msgid "Loading data..."
+msgstr ""
+
+msgid "Local archive storage"
+msgstr ""
+
+msgid "Local storage location for the cdr archives."
+msgstr ""
+
+#, php-format
+msgid "Locale: %s"
+msgstr ""
+
+msgid ""
+"Location where all the archives will be uploaded. By default all the "
+"archives will be stored in local storage. Storage locations can be added/"
+"configured with the Filestore module"
+msgstr ""
+
+msgid "M"
+msgstr ""
+
+msgid "Mail Body"
+msgstr ""
+
+msgid "Mail Subject"
+msgstr ""
+
+msgid "Mail Type"
+msgstr ""
+
+msgid "Months"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Name for scheduled report"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No Archives available"
+msgstr ""
+
+msgid "No Dids Found"
+msgstr ""
+
+msgid "No Extensions Found"
+msgstr ""
+
+msgid "No Fields"
+msgstr ""
+
+msgid "No Queue Found"
+msgstr ""
+
+msgid "No Ring Group Found"
+msgstr ""
+
+msgid "No Storage Locations"
+msgstr ""
+
+msgid ""
+"No storage location selected for Backup. Please select atleast one storage "
+"location to save the backup"
+msgstr ""
+
+msgid "Not able to find scheduled report"
+msgstr ""
+
+#, php-format
+msgid "Not able to generate cdr report file due to %s"
+msgstr ""
+
+#, php-format
+msgid "Not able to send CDR scheduled report : %s"
+msgstr ""
+
+msgid "Occurance Type"
+msgstr ""
+
+msgid "Only the calls occurred between "
+msgstr ""
+
+msgid "Optional Filestore archive upload"
+msgstr ""
+
+#, php-format
+msgid "Please check %s log for more details"
+msgstr ""
+
+msgid "Please fill the required details"
+msgstr ""
+
+msgid ""
+"Please input a valid date format in the following pattern: year-month-day "
+"[0000-00-00]"
+msgstr ""
+
+msgid ""
+"Please install the cdrpro module again Or run the CLI command 'fwconsole "
+"setting TRANSIENTCDR 1' "
+msgstr ""
+
+msgid "Please select DID's"
+msgstr ""
+
+msgid "Please select DIDs to get the cdr reports"
+msgstr ""
+
+msgid "Please select Queues"
+msgstr ""
+
+msgid "Please select Queues to get the cdr reports"
+msgstr ""
+
+msgid "Please select Ring Groups"
+msgstr ""
+
+msgid "Please select Ring Groups to get the cdr reports"
+msgstr ""
+
+msgid "Please select date"
+msgstr ""
+
+msgid "Please select extensions"
+msgstr ""
+
+msgid "Please select extensions to get the cdr reports"
+msgstr ""
+
+msgid "Please select occurence type"
+msgstr ""
+
+#, php-format
+msgid "Processing Cdr for the month %s"
+msgstr ""
+
+msgid "Reminder Email"
+msgstr ""
+
+msgid "Report Duration : "
+msgstr ""
+
+msgid "Report Fields"
+msgstr ""
+
+msgid "Report Generated Date"
+msgstr ""
+
+msgid "Report Name"
+msgstr ""
+
+msgid "Report Name : "
+msgstr ""
+
+msgid "Report Period"
+msgstr ""
+
+msgid "Report Scheduled Successfully"
+msgstr ""
+
+msgid "Report Sent Date : "
+msgstr ""
+
+msgid "Report Type"
+msgstr ""
+
+msgid "Report Type : "
+msgstr ""
+
+#, php-format
+msgid "Report-%s.%s"
+msgstr ""
+
+msgid "Result not found"
+msgstr ""
+
+msgid ""
+"Run daily and generate the previous day's report based on the choosen time "
+"range."
+msgstr ""
+
+msgid ""
+"Run daily and generate the report from first of the month to the previous "
+"day based on the choosen time range."
+msgstr ""
+
+msgid ""
+"Run every 1st of the month and generate the report from first to last of the "
+"month based on the choosen time range."
+msgstr ""
+
+msgid ""
+"Run every week on Monday and generate the report of the previous week from "
+"Monday to Saturday based on the choosen time range."
+msgstr ""
+
+msgid ""
+"Run only once and generate the report based on the choosen date and time "
+"range."
+msgstr ""
+
+msgid ""
+"Run weekly and generate the report from first of the month to the previous "
+"day based on the choosen time range."
+msgstr ""
+
+#, php-format
+msgid "Running (Uptime: %s)"
+msgstr ""
+
+msgid "Save Email Settings"
+msgstr ""
+
+#, php-format
+msgid "Saving to: %s:'%s' instance ,File location: %s.\n"
+msgstr ""
+
+msgid "Scheduled report deleted successfully"
+msgstr ""
+
+msgid "Scheduled report not found"
+msgstr ""
+
+#, php-format
+msgid "Scheduled report not found. Report id : %s"
+msgstr ""
+
+msgid "Scheduled report sent successfully"
+msgstr ""
+
+msgid "Scheduled reports deleted successfully"
+msgstr ""
+
+msgid "Scheduler Preview"
+msgstr ""
+
+msgid "Schedules"
+msgstr ""
+
+msgid ""
+"Select 'Months' to run the archive scheduler on the first day of every month"
+msgstr ""
+
+msgid ""
+"Select 'Weeks' to run the archive scheduler on the first day of every week"
+msgstr ""
+
+msgid ""
+"Select one or more storage locations. Storage locations can be added/"
+"configured with the Filestore module"
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+#, php-format
+msgid "Started Cdrpro. PID is %s"
+msgstr ""
+
+msgid "Starting CDRpro Service ..."
+msgstr ""
+
+msgid "Stopped Cdrpro service "
+msgstr ""
+
+msgid "Stopped cdrpro"
+msgstr ""
+
+msgid "Stopping CDRpro Service..."
+msgstr ""
+
+msgid "Stopping cdrpro  service "
+msgstr ""
+
+msgid "Storage Location"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Syncronize data from cdr "
+msgstr ""
+
+msgid ""
+"Text to be used for the body of the CDR Scheduled Report email. Pre-defined "
+"variables are:"
+msgstr ""
+
+msgid ""
+"Text to be used for the subject of the CDR Scheduled Report email. Pre-"
+"defined variables are:"
+msgstr ""
+
+msgid "The given extension is empty."
+msgstr ""
+
+msgid ""
+"The report data can be filtered by selecting a specific column and providing "
+"a corresponding value."
+msgstr ""
+
+msgid "The time range of the call data to be considered for report generation."
+msgstr ""
+
+msgid "The way in which report will be sent"
+msgstr ""
+
+#, perl-format
+msgid "The window state is '%s'"
+msgstr ""
+
+msgid "There are no assigned extensions."
+msgstr ""
+
+msgid "There was an error updating setting"
+msgstr ""
+
+msgid ""
+"This date range will be used for report generation only if the \"Repeat\" "
+"value is \"Once\"."
+msgstr ""
+
+msgid ""
+"This date range will be used for report generation only if the \"Repeat\" "
+"value is \"once\"."
+msgstr ""
+
+msgid "This extension is not assigned to this user."
+msgstr ""
+
+msgid "This will sync just like cron job sync"
+msgstr ""
+
+#, php-format
+msgid "Time: %s"
+msgstr ""
+
+#, php-format
+msgid "Timezone: %s"
+msgstr ""
+
+msgid ""
+"To process the calls, In CDR We must have linkedID column. If linkedid is "
+"empty, System  will skip those Cdrs "
+msgstr ""
+
+msgid ""
+"To synchronize with a specific date,use the format Year-Month-Day (e.g., "
+"0000-00-00)."
+msgstr ""
+
+msgid "Transient CDR is disabled now"
+msgstr ""
+
+msgid "Type DELETE to confirm"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Use cdr table instead of transien_cdr table."
+msgstr ""
+
+msgid "User Settings go here"
+msgstr ""
+
+msgid ""
+"Utilize the available configuration options to receive a report via email on "
+"a regular and consistent basis."
+msgstr ""
+
+msgid "View all summary"
+msgstr ""
+
+msgid "View scheduled reports"
+msgstr ""
+
+msgid "We dont have transient_cdr. Enable transient_cdr from cdr module"
+msgstr ""
+
+msgid "Weeks"
+msgstr ""
+
+#, php-format
+msgid "What is CDR Maintenance"
+msgstr ""
+
+#, php-format
+msgid "What is CDR Report Scheduler"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+#, perl-format
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
+
+#, php-format
+msgid ""
+"Your Cdrpro module License has expired. Please renew the license to receive "
+"the scheduled Reports"
+msgstr ""
+
+msgid ""
+"Your Cdrpro module License has expired. Please renew the license to receive "
+"the scheduled Reports."
+msgstr ""
+
+msgid ""
+"Your Cdrpro module License has expired. Please renew the license to sync "
+"live calls."
+msgstr ""
+
+msgid "cdrpro is not running"
+msgstr ""
+
+msgid "cdrpro stopped"
+msgstr ""

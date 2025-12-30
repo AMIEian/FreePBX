@@ -1,0 +1,7 @@
+.modal-body {
+    overflow: auto;
+}
+
+.center-align {
+   vertical-align: middle !important;
+}  

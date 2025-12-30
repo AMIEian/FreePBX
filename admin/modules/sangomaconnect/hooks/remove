@@ -1,0 +1,5 @@
+#!/usr/bin/env php
+<?php
+require_once '/usr/lib/sysadmin/includes.php';
+exec('rm -rf /etc/logrotate.d/sangomaconnect', $output_lines, $ret);
+?>

@@ -1,0 +1,212 @@
+<module>
+	<rawname>cdrpro</rawname>
+	<repo>commercial</repo>
+	<name>CDR Reports Pro</name>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<description> CDR Reports Pro commercial module designed to enhance the user experience by providing a simplified presentation of Call Detail Records </description>
+	<category>Reports</category>
+	<version>17.0.4.31</version>
+  	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/22675564/Call+Recording+Module</more-info>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#cdrpro</link>
+	</commercial>
+
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<changelog>
+		*17.0.4.31* FREEI-2196 advance recovery backup failure fix for cdrpro 
+		*17.0.4.30* FREEI-2065 fix: Resolve collation mismatch in Cdrpro backup 
+		*17.0.4.29* FREEI-2020 cdrpro is not parsing + correctly, so recordings cannot be downloaded 
+		*17.0.4.28* DB connection issue 
+		*17.0.4.27* FREEI-1975 cdrpro sync error 
+		*17.0.4.26* FREEI-1956 cdrpro sync error 
+		*17.0.4.25* FREEI-1975 cdrpro sync error 
+		*17.0.4.24* FREEI-1971 duplicate Total Missed Calls items issue fix 
+		*17.0.4.23* FREEI-1962 cdrpro sync issue 
+		*17.0.4.22* FREEI-1956 undefined key 
+		*17.0.4.21* FREEI-1383 removed hardcoded dbnames from cdrpro report queries 
+		*17.0.4.20* FREEI-1947 undefined key errors fixed for cdrpro scheduler
+		*17.0.4.19* FREEI-1887-Applied a cap of 100 entries for NO ANSWER dispositions in queue call processing 
+		*17.0.4.18* FREEI-1864 sync error 
+		*17.0.4.17* FREEI-1854 -- CDRPRO MES data are not reflected in UCP 
+		*17.0.4.16* FREEI-1637 With asterisk 18.20.2, MES graph is not displayed in cdrpro 
+		*17.0.4.15* FREEI-1792-Fix: Resolved collation mismatch issue in DB query 
+		*17.0.4.14* FREEI-1810   CDRPRO licensed, but showing 'buy' 
+		*17.0.4.13* FREEI-1792 - Cleared previous data in the cdrpro kvstore table before restoring 
+		*17.0.4.12* FREEI-1637
+		*17.0.4.11* FREEI-1725 CDRPRO : Showing wrong disposition &amp;amp; time for inbound answered calls 
+		*17.0.4.10* FREEI-1713 Cdrpro : Unknown coloumn 'avgrxmes' in 'fieldlist' 
+		*17.0.4.9* FREEI-1638 CDRpro dashboard alignment issue with Extension 
+		*17.0.4.8* FREEI-1638 CDRpro dashboard alignment issue 
+		*17.0.4.7* FREEI-1636 CDRpro widget play option css issue 
+		*17.0.4.6* FREEI-1638 FREEI-1637 FREEI-1652 FREEI-1656 Cdrpro sync issue 
+		*17.0.4.5* FREEI-1629 In UCP, widgets shows wrong transcriptions for scribe entries in some cases 
+		*17.0.4.4* REEI-1623 extension report summary errors fix for v16 
+		*17.0.4.3* #629 Recent Scribe Icon fix causes uncaught TypeError 
+		*17.0.4.2* Add new Report type ,Extension summery report 
+		*17.0.4.1* bump 
+		*17.0.4* Fixing FREEI-1396 missing cdr enteries when filtering with extensions issue.
+	</changelog>
+	<menuitems>
+		<cdrpro category="Reports">CDR Reports Pro</cdrpro>
+		<cdrscheduler category="Reports">CDR Reports Scheduler</cdrscheduler>
+		</menuitems>
+	<database>
+		<table name="cdrpro_report_scheduler">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="reportname" type="string" length="40" notnull="true"/>
+			<field name="filestorage" type="text" notnull="false"/>
+			<field name="reporttype" type="string" length="40" notnull="true"/>
+			<field name="extensions" type="text" notnull="false"/>
+			<field name="dids" type="text" notnull="false"/>
+			<field name="format" type="string" length="40" notnull="true"/>
+			<field name="occurence" type="string" length="40" notnull="true"/>
+			<field name="scheduleddate" type="datetime"/>
+			<field name="lastrun" type="datetime" notnull="false"/>
+			<field name="fromtime" type="string" notnull="false"/>
+			<field name="totime" type="string" notnull="false"/>
+			<field name="daterange" type="string" length="40" notnull="false"/>
+			<field name="sendmail" type="boolean" default="1"/>
+		</table>
+		<table name="cdrpro_score_mes">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="uniqueid" type="string" length="100" notnull="true"/>
+			<field name="linkedid" type="string" length="100" notnull="true"/>
+			<field name="calldate" type="datetime"/>
+			<field name="var_name" type="string" length="40" notnull="true"/>
+			<field name="minrxmes" type="string" length="25"/>
+			<field name="maxrxmes" type="string" length="25"/>
+			<field name="avgrxmes" type="string" length="25"/>
+			<field name="stdevrxmes" type="string" length="25"/>
+			<field name="mintxmes" type="string" length="25"/>
+			<field name="maxtxmes" type="string" length="25"/>
+			<field name="avgtxmes" type="string" length="25"/>
+			<field name="stdevtxmes" type="string" length="25"/>
+			<key name="uniqueid" type="index">
+				<column name="uniqueid"/>
+			</key>
+		</table>
+		<table name="cdrpro_processed_uniqueids">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="uniqueid" type="string" length="50" notnull="true"/>
+			<field name="calldate" type="datetime"/>
+			<key name="uniqueid" type="index">
+				<column name="uniqueid"/>
+			</key>
+		</table>
+		<table name="cdrpro_unprocessed_uniqueids">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="uniqueid" type="string" length="50" notnull="true"/>
+			<field name="linkedid" type="string" length="50" notnull="true"/>
+			<field name="process_status" type="string" default="0" length="2"/>
+			<field name="calldate" type="datetime"/>
+			<key name="uniqueid" type="index">
+				<column name="uniqueid"/>
+			</key>
+		</table>
+		<table name="cdrpro_cdr">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="calldate" type="datetime"/>
+			<field name="clid" type="string" length="80"/>
+			<field name="src" type="string" length="80"/>
+			<field name="dst" type="string" length="80"/>
+			<field name="dcontext" type="string" length="80"/>
+			<field name="channel" type="string" length="80"/>
+			<field name="dstchannel" type="string" length="80"/>
+			<field name="lastapp" type="string" length="80"/>
+			<field name="lastdata" type="string" length="80"/>
+			<field name="duration" type="integer"/>
+			<field name="billsec" type="integer"/>
+			<field name="disposition" type="string" length="45"/>
+			<field name="amaflags" type="integer"/>
+			<field name="accountcode" type="string" length="20"/>
+			<field name="uniqueid" type="string" length="40"/>
+			<field name="userfield" type="string" length="255" notnull="false"/>
+			<field name="did" type="string" length="50"/>
+			<field name="recordingfile" type="string" length="255" notnull="false"/>
+			<field name="cnum" type="string" length="80"/>
+			<field name="cnam" type="string" length="80"/>
+			<field name="outbound_cnum" type="string" length="80"/>
+			<field name="outbound_cnam" type="string" length="80"/>
+			<field name="dst_cnam" type="string" length="80"/>
+			<field name="linkedid" type="string" length="80"/>
+			<field name="peeraccount" type="string" length="80"/>
+			<field name="call_direction" type="string" length="80" notnull="false"/>
+			<field name="call_type" type="string" length="80" notnull="false"/>
+			<field name="call_type_dest" type="string" length="150" notnull="false"/>
+			<field name="call_dest_answeredby" type="string" length="80" notnull="false"/>
+			<field name="dialData" type="boolean" default="0" notnull="false"/>
+			<field name="avgtxmes" type="string" length="25" notnull="false"/>
+			<field name="avgrxmes" type="string" length="25" notnull="false"/>
+			<key name="calldate_idx" type="index">
+				<column name="calldate"/>
+			</key>
+			<key name="src_idx" type="index">
+				<column name="src"/>
+			</key>
+			<key name="dst_idx" type="index">
+				<column name="dst"/>
+			</key>
+			<key name="disposition_idx" type="index">
+				<column name="disposition"/>
+			</key>
+			<key name="uniqueid_idx" type="index">
+				<column name="uniqueid"/>
+			</key>
+			<key name="call_direction_idx" type="index">
+				<column name="call_direction"/>
+			</key>
+			<key name="call_type_idx" type="index">
+				<column name="call_type"/>
+			</key>
+			<key name="call_type_dest_idx" type="index">
+				<column name="call_type_dest"/>
+			</key>
+			<key name="call_dest_answeredby_idx" type="index">
+				<column name="call_dest_answeredby"/>
+			</key>
+
+			<key name="did_idx" type="index">
+				<column name="did"/>
+			</key>
+		</table>
+		<table name="cdrpro_email_templates">
+			<field name="name" type="string" length="20" primarykey="true"/>
+			<field name="time" type="integer" default="0"/>
+			<field name="templateContent" type="blob" notnull="false"/>
+		</table>
+	</database>
+	<hooks>
+		<framework class="Reload" namespace="FreePBX">
+			<method callingMethod="postReload" class="Cdrpro" namespace="FreePBX\Modules">postReloadFreepbx</method>
+		</framework>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+            <method callingMethod="getModuleLicenseInformation" class="Cdrpro" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+        </sysadmin>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Cdrpro" namespace="FreePBX\modules">startFreepbx</method>
+		</framework>
+		<framework class="Stop" namespace="FreePBX\Console\Command">
+			<method callingMethod="preAsteriskHooks" class="Cdrpro" namespace="FreePBX\modules">stopFreepbx</method>
+		</framework>
+		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
+			<method callingMethod="getSummary" class="Cdrpro" namespace="FreePBX\Modules">dashboardService</method>
+                </dashboard>
+	</hooks>
+	<supported>
+		<version>17.0</version>
+	</supported>
+
+	<depends>
+		<module>cdr ge 17.0.4.12</module>
+		<module>filestore ge 17.0.1</module>
+		<module>manager ge 17.0.1</module>
+		<module>sysadmin ge 17.0.1</module>
+	</depends>
+	<console>
+		<command>
+			<name>cdrpro</name>
+		</command>
+	</console>
+</module>

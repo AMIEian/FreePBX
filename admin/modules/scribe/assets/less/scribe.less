@@ -1,0 +1,159 @@
+.content__wrapper {
+    margin-top: 2rem;
+
+    .heading {
+        color: #000;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+
+    .users_card {
+
+        display: flex;
+        flex-direction: row;
+        padding: 10px 20px;
+        align-items: center;
+        background: #F2F2F3;
+        margin-bottom: 10px;
+        border-radius: 5px;
+
+        .content {
+            h6 {
+                margin-bottom: 2px;
+                font-size: 17px;
+                color: #3e3e3e;
+            }
+
+            p {
+                margin-bottom: 0px;
+                font-size: 12px;
+            }
+        }
+
+        .count {
+            color: #606060;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: 24px;
+            letter-spacing: 0.15px;
+            margin-left: auto;
+        }
+    }
+}
+
+.cost__table {
+    thead {
+        tr {
+            th {
+                border: 1px solid rgba(94, 156, 125, 0.9) !important;
+            }
+        }
+    }
+}
+
+#transcriptionmodal {
+    .modal-header {
+        display: flex;
+
+        button[data-dismiss="modal"] {
+            margin-left: auto;
+        }
+    }
+}
+
+#usage-details {
+    padding: 26px;
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+    margin: 18px 15px;
+    .title{
+        font-size: 14px;
+        color: black;
+        font-weight: bold;
+        margin-bottom: 16px;
+        line-height: 18px;
+    }
+    .desc {
+        font-size: 14px;
+        color: black;
+        font-weight: normal;
+        margin-bottom: 16px;
+        line-height: 18px;
+    }
+}
+
+#usageModal {
+    .modal-lg {
+        #usage-details {
+            padding: 0px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+    }
+}
+
+.chart__dropdown>li>div {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+#voice__transcript__table .table-responsive {
+    margin-top: -50px;
+
+}
+
+.voice__transcription__card{
+    .users_card {
+        padding: 10px 20px;
+    }
+}
+
+#voice__transcript__table,
+#transcriptUsers {
+    margin-top: 2rem;
+}
+
+
+#transcriptUsers .bootstrap-table td:nth-last-child(-n+2) i.fa {
+    font-size: 150%;
+    margin-right: 5px;
+}
+
+#toolbar-users {
+
+    display: flex;
+    width: 100%;
+
+    #audioType {
+
+        margin-right: 5px;
+    }
+
+    #enable-users,
+    #disable-users {
+
+        min-width: 110px;
+    }
+}
+
+#datamodal{
+    margin-top: 6rem;
+}
+
+@media (min-width: 992px) {
+    #usageModal {
+        .modal-lg {
+            width: 1140px;
+        }
+    }
+}

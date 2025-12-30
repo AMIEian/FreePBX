@@ -1,0 +1,243 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for sangomartapi
+# Copyright (C) 2008-2025 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-03 02:25-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"<p>Choose a log level to control the level of detail in all logs within "
+"RTAPI Modules, including Feature Logs as well:</p><ul>\n"
+"\t\t\t\t\t\t\t\t<li><strong>DEBUG:</strong> Detailed debugging (Value: 10).</"
+"li>\n"
+"\t\t\t\t\t\t\t\t<li><strong>INFO:</strong> General information (Value: 20).</"
+"li>\n"
+"\t\t\t\t\t\t\t\t<li><strong>WARN:</strong> Potential issues (Value: 30).</"
+"li>\n"
+"\t\t\t\t\t\t\t\t<li><strong>ERROR:</strong> Critical errors (Value: 40).</"
+"li></ul>\n"
+"\t\t\t\t\t\t\t<p>Selecting a level also includes all higher levels. For "
+"example, choosing 'INFO' also includes 'WARN' and 'ERROR' logs.</p>"
+msgstr ""
+
+msgid ""
+"Add  cron job to restart Sangoma RT API. Eg: fwconsole sangomartapi rtapi-"
+"restart-cron add '32 * * * *'"
+msgstr ""
+
+msgid "Added sangomartapi restart cron job"
+msgstr ""
+
+msgid "Arguments"
+msgstr ""
+
+#, php-format
+msgid ""
+"Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
+"Aborting"
+msgstr ""
+
+msgid "Auto restarting Sangoma RT API Server"
+msgstr ""
+
+msgid "Begin setting up Queue database..."
+msgstr ""
+
+msgid "Command actions"
+msgstr ""
+
+msgid "Command to run (see --help)"
+msgstr ""
+
+msgid "DEBUG,INFO,WARN,ERROR"
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Done setting up Queue database..."
+msgstr ""
+
+msgid "ERROR"
+msgstr ""
+
+msgid "Enable Chat Logs"
+msgstr ""
+
+msgid "Enable Connection Logs"
+msgstr ""
+
+msgid "Enable General Logs"
+msgstr ""
+
+msgid "Enable RTAPI Logs"
+msgstr ""
+
+msgid "Enable SPD Request/Response Logs"
+msgstr ""
+
+msgid "Failed updating libraries!"
+msgstr ""
+
+msgid "Finished updating libraries!"
+msgstr ""
+
+#, php-format
+msgid "Home directory [%s] is not writable"
+msgstr ""
+
+msgid ""
+"If you set the cron job to run at working hours, it will affect the calls.\n"
+"It is strongly advised to set the cron to run only at off hours.\n"
+"To remove the cron run 'fwconsole sangomartapi rtapi-restart-cron remove'"
+msgstr ""
+
+msgid "Installing/Updating Required Libraries. This may take a while..."
+msgstr ""
+
+#, php-format
+msgid ""
+"NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
+"as root"
+msgstr ""
+
+msgid "Node Package Manager is not installed"
+msgstr ""
+
+msgid "Node is not installed"
+msgstr ""
+
+#, php-format
+msgid ""
+"Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
+"as root"
+msgstr ""
+
+msgid "RTAPI Autorestart Scheduled time"
+msgstr ""
+
+msgid "RTAPI Enable Autorestart"
+msgstr ""
+
+msgid ""
+"Remove cron job to restart Sangoma RT API. Eg: fwconsole sangomartapi rtapi-"
+"restart-cron remove"
+msgstr ""
+
+msgid "Removed existing sangomartapi restart cron job"
+msgstr ""
+
+msgid "Removed sangomartapi restart cron job"
+msgstr ""
+
+msgid ""
+"Restapps module not installed properly, kvstore_FreePBX_modules_Restapps "
+"table is missing"
+msgstr ""
+
+msgid "Restarting Sangoma RT API Server"
+msgstr ""
+
+msgid "Rtapi Heap Memory"
+msgstr ""
+
+msgid "Sangoma RT API Functions"
+msgstr ""
+
+#, php-format
+msgid "Sangoma RT API Server Failed: %s"
+msgstr ""
+
+#, php-format
+msgid "Sangoma RT API Server has already been running on PID %s for %s"
+msgstr ""
+
+msgid "Sangoma RT API Server is not running"
+msgstr ""
+
+msgid "Set RTAPI Log Level"
+msgstr ""
+
+#, php-format
+msgid "Started Sangoma RT API Server. PID is %s"
+msgstr ""
+
+msgid "Starting Sangoma RT API Server..."
+msgstr ""
+
+msgid "Stopped Sangoma RT API Server"
+msgstr ""
+
+msgid "Stopping Sangoma RT API Server..."
+msgstr ""
+
+msgid "Stopping old running processes..."
+msgstr ""
+
+msgid ""
+"The --max-old-space-size option in Node.js is used to specify the maximum "
+"size of the old generation heap in megabytes <br> Once you change the value "
+"you need to restart the Sangomartapi"
+msgstr ""
+
+msgid ""
+"The cron expression is configured to run every Sunday at 12:00 AM by "
+"default. Please update the cron expression as needed. For more information "
+"on cron expressions, refer to https://crontab.guru."
+msgstr ""
+
+msgid "Valid Commands:\n"
+msgstr ""
+
+msgid ""
+"When set to 'Yes', the Sangoma RT API logs (inside the directory /var/log/"
+"asterisk/sangomartapi) will show the maximum available logs. Otherwise it "
+"will show only minimal logs. When this is set to 'No', all the feature logs "
+"will be disabled. Use this feature judiciously to avoid overloading system "
+"resources"
+msgstr ""
+
+msgid ""
+"Whether yes or no to Auto retstart RTAPI server. If this is enabled, set the "
+"cron expression for when you want it to auto restart RTAPI."
+msgstr ""
+
+msgid ""
+"Whether yes or not add logs for Chat. Please Note: Ensure RTAPI Logs are "
+"enabled for this to function."
+msgstr ""
+
+msgid ""
+"Whether yes or not add logs for Request/Response from SPD to RTAPI. Please "
+"Note: Ensure RTAPI Logs are enabled for this to function."
+msgstr ""
+
+msgid ""
+"Whether yes or not add logs for auth.log, aststate.log, browserphone.log, "
+"realtime.log and rtapi.log. Please Note: Ensure RTAPI Logs are enabled for "
+"this to function."
+msgstr ""
+
+msgid ""
+"Whether yes or not add logs for socket connections in connection.log and "
+"httpProxy.log. Please Note: Ensure RTAPI Logs are enabled for this to "
+"function."
+msgstr ""
+
+msgid ""
+"You must indicate what type of action you wanna do, if add or remove the "
+"sangomartapi restart cron job"
+msgstr ""

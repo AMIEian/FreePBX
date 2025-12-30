@@ -1,0 +1,66 @@
+<module>
+	<rawname>broadcast</rawname>
+	<name>Broadcast</name>
+	<version>17.0.2</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<description>COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION.  The Broadcast module for FreePBX allows you to broadcast messages
+	to your custoemrs or clients.  You can create campaings and set start and end times.  From their you can direct where you want the call to be directed to based on if a humna being
+	or a answering machine answer the call.  Upload your CDS list of names and numbers and start your campaign.  You can also choose to get reports on your campaign daily or after the
+	campaign completes.</description>
+	<more-info>https://wiki.freepbx.org/display/FPG/Broadcast+XactDialer</more-info>
+	<repo>commercial</repo>
+	<category>Applications</category>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#xact</link>
+  	</commercial>
+	<menuitems>
+		<broadcast>Broadcast</broadcast>
+	</menuitems>
+	<changelog>
+		*17.0.2*  Fixing FREEI-1175 continuously dialing number issue 
+		*17.0.1*  17.0
+	</changelog>
+	<database>
+		<table name="broadcast_campaign_groups">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="campaign_id" type="integer"/>
+			<field name="group_id" type="integer"/>
+		</table>
+		<table name="broadcast_settings">
+    		<field name="concurrent_calls" type="integer" default="0"/>
+    		<field name="maximum_retry" type="integer" default="0"/>
+    		<field name="from_email" type="string" length="255" default=""/>
+		<field name="retrytime" type="integer" default="30"/>
+		<field name="waittime" type="integer" default="30"/>
+ 		</table>
+  		<table name="broadcast_callees">
+    		<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+    		<field name="name" type="string" length="40" default=""/>
+    		<field name="phonenum" type="string" length="30" default=""/>
+    		<field name="group_id" type="integer" default="0"/>
+    		<key name="phonenum" type="index">
+      			<column name="phonenum"/>
+    		</key>
+    		<key name="name" type="index">
+    			<column name="name"/>
+    		</key>
+    		<key name="broadcast_callees_group_id" type="index">
+    			<column name="group_id"/>
+    		</key>
+		</table>		 
+	</database>
+	<depends>
+    	<phpcomponent>ionCube PHP Loader</phpcomponent>
+    	<phpversion>8.2</phpversion>
+    	<module>sysadmin ge 17.0.1</module>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<methods>
+		<get_config pri="700">broadcast_get_config</get_config>
+	</methods>
+</module>

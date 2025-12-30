@@ -1,0 +1,58 @@
+.emojione{
+	width:20px;
+	height: auto;
+}
+.mr-2 {
+	margin-right: 1rem;
+}
+
+.get__report__btn {
+	text-align: right;
+	margin-top: 25px;
+	margin-bottom: 5px;
+	margin-left: auto;
+}
+
+.detailed__report__title {
+	position: absolute;
+	margin-top: 10px !important;
+}
+
+.bg-white {
+	background-color: white !important;
+}
+
+.sms__plus__report {
+	padding: 1rem !important;
+}
+
+.filter__divider {
+	background-color: #d6e4dd !important;
+	border: 1px solid rgb(222 222 222) !important;
+	height: 0px !important;
+	border-radius: 5px !important;
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+	width: 99% !important;
+}
+
+.filter__form__wrapper,
+.filter__form {
+	display: flex;
+	flex-direction: row;
+}
+
+@media (max-width:700px) {
+
+	.filter__form__wrapper,
+	.filter__form {
+		flex-direction: column !important;
+	}
+
+	.get__report__btn {
+		margin-right: auto;
+		margin-left: unset;
+		margin-top: 5px;
+		margin-bottom: 15px;
+	}
+}

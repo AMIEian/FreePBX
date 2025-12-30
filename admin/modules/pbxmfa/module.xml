@@ -1,0 +1,145 @@
+<module>
+	<rawname>pbxmfa</rawname>
+	<repo>commercial</repo>
+	<name>PBX MFA</name>
+	<description>Protect PBX with Multi-Factor Authentication. Each time user sign in to PBX, they need to verify thier identity.</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/36241789/PBX+MFA+Module</more-info>
+	<category>Admin</category>
+	<license>Commercial+</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<version>17.0.2.12</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<commercial>
+		<type>paid</type>
+		<link>https://www.freepbx.org/add-on/multi-factor-authentication-mfa/</link>
+	</commercial>
+	<changelog>
+		*17.0.2.12* Packaging of ver 17.0.2.12
+		*17.0.2.11* #issue 803 pbxmfa module errrs with console commands log file large 
+		*17.0.2.10* DSP-325 PBX MFA not working on browser based SCD 
+		*17.0.2.9* Packaging of ver 17.0.2.9
+		*17.0.2.8* Packaging of ver 17.0.2.8
+		*17.0.2.7* FREEI-1979 
+		*17.0.2.6* FREEI-1870 
+		*17.0.2.5* Adding MFA support for the Desktop client 
+		*17.0.1* 17.0.1 alpha release
+	</changelog>
+	<depends>
+		<version>17.0.1</version>
+                <phpcomponent>ionCube PHP Loader</phpcomponent>
+                <phpversion>8.2</phpversion>
+		<module>core ge 17.0.1</module>
+		<module>userman ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+		<module>ucp ge 17.0.1</module>
+	</depends>
+
+	<menuitems>
+		<pbxmfa>PBX MFA</pbxmfa>
+	</menuitems>
+	<database>
+		<table name="pbxmfa_auth_via_app">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="username" type="string" length="150" notnull="true"/>
+			<field name="usermail" type="text" notnull="true"/>
+			<field name="usertype" type="string" length="20" notnull="true"/>
+			<field name="secretcode" type="string" length="40" default=""/>
+			<field name="isUserHasConfiguredApp" type="boolean" default="0"/>
+		</table>
+		<table name="pbxmfa_auth_via_call">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="username" type="string" length="150" notnull="true"/>
+			<field name="extension" type="string" length="40" notnull="true"/>
+			<field name="usertype" type="string" length="20" notnull="true"/>
+			<field name="isauthenticated" type="boolean" default="0"/>
+			<field name="callstatus" type="string" length="20" notnull="false"/>
+			<field name="resendcount" type="integer" default="0"/>
+			<field name="message" type="text" default=""/>
+		</table>
+		<table name="pbxmfa_auth_via_email">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="username" type="string" length="150" notnull="true"/>
+			<field name="usermail" type="text" notnull="true"/>
+			<field name="usertype" type="string" length="20" notnull="true"/>
+			<field name="otp" type="integer" length="10"/>
+			<field name="attemptcount" type="integer" default="0"/>
+			<field name="resendcount" type="integer" default="0"/>
+			<field name="otpexpirytime" type="datetime"/>
+			<field name="session_id" type="string" length="40" default=""/>
+		</table>
+		<table name="pbxmfa_auth_via_all">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="username" type="string" length="150" notnull="true"/>
+			<field name="usertype" type="string" length="20" notnull="true"/>
+			<field name="usermail" type="text" notnull="true"/>
+			<field name="extension" type="string" length="40" default=""/>
+			<field name="isUserHasSelectedDefaultMFA" type="boolean" default="0"/>
+			<field name="defaultmfatype" type="string" length="10" default="email"/>
+		</table> 
+		<table name="pbxmfa_test_mail_functionality">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="testmail" type="string" length="40" default=""/>
+			<field name="otp" type="string" length="40"/>
+		</table>
+		<table name="pbxmfa_test_call_functionality">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="extension" type="string" length="40" default=""/>
+			<field name="isauthenticated" type="boolean" default="0"/>
+			<field name="callstatus" type="string" length="20"/>
+		</table>
+		<table name="pbxmfa_user_backupcodes">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="username" type="string" length="150" notnull="true"/>
+			<field name="usertype" type="string" length="20" notnull="true"/>
+			<field name="backupcodes" type="text" notnull="false"/>
+		</table>
+		<table name="pbxmfa_user_devices">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="username" type="string" length="150" notnull="true"/>
+			<field name="usertype" type="string" length="20" notnull="true"/>
+			<field name="browserinfo" type="text" notnull="true"/>
+			<field name="browsertoken" type="text" notnull="true"/>
+			<field name="ipaddress" type="string" length="20" default=""/>
+			<field name="date" type="string" length="20" notnull="true"/>
+		</table>
+		<table name="pbxmfa_email_templates">
+			<field name="name" type="string" length="150" primarykey="true"/>
+			<field name="time" type="integer" default="0"/>
+			<field name="templateContent" type="blob" notnull="false"/>
+		</table>
+	</database>
+	<hooks>
+		<userman class="Userman" namespace="FreePBX\modules">
+			<method callingMethod="addGroup" class="Pbxmfa" namespace="FreePBX\modules">usermanAddGroup</method>
+			<method callingMethod="updateGroup" class="Pbxmfa" namespace="FreePBX\modules">usermanUpdateGroup</method>
+			<method callingMethod="addUser" class="Pbxmfa" namespace="FreePBX\modules">usermanAddUser</method>
+			<method callingMethod="updateUser" class="Pbxmfa" namespace="FreePBX\modules">usermanUpdateUser</method>
+			<method callingMethod="myShowPage" class="Pbxmfa" namespace="FreePBX\modules">usermanShowPage</method>
+			<method callingMethod="delUser" class="Pbxmfa" namespace="FreePBX\modules">usermanDeleteUser</method>
+			<method callingMethod="resetPasswordWithToken" class="Pbxmfa" namespace="FreePBX\modules">resetUsermanPassword</method>
+		</userman>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="delDevice" class="Pbxmfa" namespace="FreePBX\modules">deleteExtensionForUser</method>
+		</core>
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
+			<method callingMethod="export" class="Pbxmfa" namespace="FreePBX\modules">bulkhandlerExport</method>
+			<method callingMethod="import" class="Pbxmfa" namespace="FreePBX\modules">bulkhandlerImport</method>
+		</bulkhandler>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+			<method callingMethod="getModuleLicenseInformation" class="Pbxmfa" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+		</sysadmin>
+	</hooks>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<methods>
+		<get_config pri="700">pbxmfa_get_config</get_config>
+	</methods>
+	<console>
+		<command>
+			<name>unlockucp</name>
+			<alias>unucp</alias>
+			<class>Unlockucp</class>
+		</command>
+	</console>
+</module>

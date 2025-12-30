@@ -1,0 +1,62 @@
+<module>
+	<rawname>parkpro</rawname>
+	<name>Parking Pro</name>
+	<version>17.0.1.5</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#parking-pro</link>
+	</commercial>
+	<repo>commercial</repo>
+	<description>
+		PARK PRO - COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Provides Multiple Parking Lots, per extension assignment for default lots, Park and Page Announce and other advanced parking features to come
+	</description>
+	<more-info>https://wiki.freepbx.org/display/FPG/Park+Pro</more-info>
+	<changelog>
+		*17.0.1.5* FREEI-1897 fix:Handled missing action key to prevent Woops error 
+		*17.0.1.3* Packaging of ver 17.0.1.3
+		*17.0.1.1 17.0.1.1
+		*17.0.1* 17.0.1
+	</changelog>
+	<category>Applications</category>
+	<popoverss>
+		<pannounce>
+			<display>pannounce</display>
+			<action>add</action>
+		</pannounce>
+ 	</popoverss>
+	<depends>
+		<engine>asterisk ge 1.8</engine>
+		<version>17.0.1</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+		<module>parking ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+	</depends>
+	<menuitems>
+		<pannounce needsenginedb="yes">Park and Announce</pannounce>
+	</menuitems>
+	<methods>
+		<get_config pri="250">parkpro_get_config</get_config>
+	</methods>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="delDevice" class="Parkpro">delDevice</method>
+			 <method callingMethod="getQuickCreateDisplay" class="Parkpro">getQuickCreateDisplay</method>
+			 <method callingMethod="processQuickCreate" class="Parkpro">processQuickCreate</method>
+		</core>
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
+			<method callingMethod="getHeaders" class="Parkpro">bulkhandlerGetHeaders</method>
+			<method callingMethod="import" class="Parkpro">bulkhandlerImport</method>
+			<method callingMethod="export" class="Parkpro">bulkhandlerExport</method>
+		</bulkhandler>
+	</hooks>
+	<location>release/2.11/parkpro-2.11.0.3.tgz</location>
+	<md5sum>24e17f9ef733511884ee1f4a66360f3d</md5sum>
+</module>

@@ -1,0 +1,1416 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for scribe
+# Copyright (C) 2008-2025 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-23 03:29-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid " (File path: "
+msgstr ""
+
+msgid " + ++g + "
+msgstr ""
+
+msgid " + Math.round(1e5 * Math.random()) } function s(t, e, n) { return t + "
+msgstr ""
+
+msgid " Response: "
+msgstr ""
+
+msgid " Sangoma Portal"
+msgstr ""
+
+msgid " Sentiments "
+msgstr ""
+
+msgid " This will allow up to"
+msgstr ""
+
+msgid " Transcription Summary "
+msgstr ""
+
+msgid " environment already set for PBX Scribe."
+msgstr ""
+
+msgid " is initiated."
+msgstr ""
+
+msgid ""
+" minutes per month and automatically renew your minutes each month until you "
+"cancel."
+msgstr ""
+
+msgid "% is below the required threshold "
+msgstr ""
+
+#, php-format
+msgid "%s Files Restored"
+msgstr ""
+
+#, php-format
+msgid "%s Transcription"
+msgstr ""
+
+#, php-format
+msgid "%s%% of license limit has been used. Remaining Time: %s"
+msgstr ""
+
+#, php-format
+msgid "%s:%s audio: Transcription Failed"
+msgstr ""
+
+msgid "A"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Add Tag"
+msgstr ""
+
+msgid "All Calls & Voicemails"
+msgstr ""
+
+msgid "Allow Call Recording Transcription"
+msgstr ""
+
+msgid "Allow Voicemail Transcription"
+msgstr ""
+
+msgid "Allow this user to view call recording transcriptions."
+msgstr ""
+
+msgid "Allow this user to view voicemail transcriptions."
+msgstr ""
+
+msgid "Allow users of this group to view call recording transcriptions."
+msgstr ""
+
+msgid "Allow users of this group to view voicemail transcriptions."
+msgstr ""
+
+msgid "Attach Recordings"
+msgstr ""
+
+msgid "Attach Transcriptions"
+msgstr ""
+
+msgid "Audio File Language"
+msgstr ""
+
+msgid "Audio Transcription"
+msgstr ""
+
+msgid "Audio converted successfully. : "
+msgstr ""
+
+msgid "Audio transcription completed successfully for transaction ID: "
+msgstr ""
+
+msgid "Audio transcription completed successfully for upload ID: "
+msgstr ""
+
+msgid "Audio transcription failed for transaction ID: "
+msgstr ""
+
+msgid "Audio transcription failed for upload ID: "
+msgstr ""
+
+msgid "Average Sentiment"
+msgstr ""
+
+msgid "Based on your average usage over the past three months"
+msgstr ""
+
+msgid "Based on your average usage over the past three months."
+msgstr ""
+
+msgid "Based on your usage patterns, you should purchase "
+msgstr ""
+
+msgid "Body"
+msgstr ""
+
+msgid "Call Direction"
+msgstr ""
+
+msgid "Call Direction : "
+msgstr ""
+
+msgid "Call From"
+msgstr ""
+
+msgid "Call Recording"
+msgstr ""
+
+msgid "Call Recording "
+msgstr ""
+
+msgid "Call Recording Duration(minutes)"
+msgstr ""
+
+msgid "Call Recording Usage"
+msgstr ""
+
+msgid "Call Recordings Transcription"
+msgstr ""
+
+msgid "Call To"
+msgstr ""
+
+msgid "Call recording usage"
+msgstr ""
+
+msgid "Caller "
+msgstr ""
+
+msgid "Caller ID"
+msgstr ""
+
+msgid "Caller Name"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Compeleted Transcriptions"
+msgstr ""
+
+msgid "Completed Transcription"
+msgstr ""
+
+msgid "Converting text to audio. : "
+msgstr ""
+
+msgid "Cost"
+msgstr ""
+
+msgid "Cost Predictor"
+msgstr ""
+
+msgid "Count"
+msgstr ""
+
+msgid "Date and Time"
+msgstr ""
+
+#, php-format
+msgid "Date/Time: %s"
+msgstr ""
+
+#, php-format
+msgid "Date: %s"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete After Transcribe"
+msgstr ""
+
+#, php-format
+msgid "Deleted %d uploaded files"
+msgstr ""
+
+msgid "Deployment ID not found"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Detail"
+msgstr ""
+
+msgid "Detailed sentiments"
+msgstr ""
+
+msgid "Directory created successfully : "
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disabled Successfully"
+msgstr ""
+
+msgid "Download PDF Report"
+msgstr ""
+
+msgid "Download Transcriptions"
+msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Duration: "
+msgstr ""
+
+msgid "Edit Tag"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email Options"
+msgstr ""
+
+msgid "Email address is required to send the notification."
+msgstr ""
+
+msgid "Email not sent: Match percentage "
+msgstr ""
+
+msgid "Email not sent: No matching tags found or transcription is empty."
+msgstr ""
+
+msgid ""
+"Email not sent: Tag record is missing, email is not set, or email "
+"notification is disabled."
+msgstr ""
+
+msgid "Email sent"
+msgstr ""
+
+#, php-format
+msgid ""
+"Email service is not working. Could not send email to %s with subject %s and "
+"content %s"
+msgstr ""
+
+msgid "Email to notify"
+msgstr ""
+
+msgid "Email to which the notification will be sent."
+msgstr ""
+
+msgid "Emailbody Not Found"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable Voicemail transcription"
+msgstr ""
+
+msgid "Enable notification"
+msgstr ""
+
+msgid "Enable transcription of inbound external calls."
+msgstr ""
+
+msgid "Enable transcription of internal calls."
+msgstr ""
+
+msgid "Enable transcription of on demand recording."
+msgstr ""
+
+msgid "Enable transcription of outbound external calls."
+msgstr ""
+
+msgid "Enabled Successfully"
+msgstr ""
+
+msgid ""
+"Enables creating multi-channel recording files. If enabled, this will "
+"override the post call recording script in the advanced settings."
+msgstr ""
+
+msgid ""
+"Enabling the Multi-Channel Call Recording will override the Post Call "
+"Recording Script in the Advanced Settings. Are you sure?"
+msgstr ""
+
+msgid ""
+"Enabling the Voicemail Email toggle will override the Voicemail Admin Mail "
+"command and Server Email. Are you sure?"
+msgstr ""
+
+msgid ""
+"Enabling the Voicemail Email toggle will override the Voicemail Admin Mail "
+"command. Are you sure?"
+msgstr ""
+
+msgid "Enter a name for this upload"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid ""
+"Error Auth Token Refresh , PBX Validation and License Key Refresh failed"
+msgstr ""
+
+msgid "Error converting Audio. :"
+msgstr ""
+
+msgid "Error converting Audio. : "
+msgstr ""
+
+msgid "Error encryption content "
+msgstr ""
+
+msgid "Error fetching usage details : "
+msgstr ""
+
+msgid "Error finding scribe tags in transcription: "
+msgstr ""
+
+msgid "Error in setting PBX Scribe ENV :"
+msgstr ""
+
+msgid "Error reading upload transcription from file: "
+msgstr ""
+
+msgid "Error retrieving voices "
+msgstr ""
+
+msgid "Error saving in post call record settings: "
+msgstr ""
+
+msgid "Error saving in voicemail email settings: "
+msgstr ""
+
+msgid "Error transcribing Audio :"
+msgstr ""
+
+msgid "Error transcribing Audio : "
+msgstr ""
+
+msgid "Error transcribing Upload Audio : "
+msgstr ""
+
+msgid "Error transcribing upload audio: "
+msgstr ""
+
+msgid "Error updating upload transcription data. "
+msgstr ""
+
+msgid "Error updating upload transcription status. "
+msgstr ""
+
+msgid "Error upserting transcription status. "
+msgstr ""
+
+msgid "Error while converting: "
+msgstr ""
+
+msgid "Error while sending scribe tags email: "
+msgstr ""
+
+msgid "Extension"
+msgstr ""
+
+msgid "Failed to attach the transcription."
+msgstr ""
+
+msgid "Failed to create directory: "
+msgstr ""
+
+msgid "Failed to delete uploaded files"
+msgstr ""
+
+msgid "Failed to download transcription"
+msgstr ""
+
+msgid "Failed to download upload pdf"
+msgstr ""
+
+msgid "Failed to get the license key"
+msgstr ""
+
+msgid "Failed to get the license key "
+msgstr ""
+
+msgid "Failed to parse channels from sox output. Output: "
+msgstr ""
+
+msgid "Failed to retrieve upload details"
+msgstr ""
+
+msgid "Failed to retrieve uploaded files"
+msgstr ""
+
+#, php-format
+msgid "Failed to save transcription. Path: %s. Error: %s"
+msgstr ""
+
+msgid "Failed to save upload record"
+msgstr ""
+
+msgid "Failed to save uploaded file"
+msgstr ""
+
+msgid "Failed to send Scribe Tag Email"
+msgstr ""
+
+msgid "Failed to start Scribe"
+msgstr ""
+
+msgid "Failed to transcript. Limit Reached"
+msgstr ""
+
+msgid "Fetching transcription usage details..."
+msgstr ""
+
+msgid "File Path : "
+msgstr ""
+
+msgid "File Size"
+msgstr ""
+
+msgid "File Size : "
+msgstr ""
+
+msgid "File does not exist"
+msgstr ""
+
+msgid "File does not exist."
+msgstr ""
+
+msgid "File does not exists : "
+msgstr ""
+
+msgid "File not exists : "
+msgstr ""
+
+msgid "File not found"
+msgstr ""
+
+msgid "File path required"
+msgstr ""
+
+msgid "File size exceeds maximum allowed size of "
+msgstr ""
+
+msgid "File size exceeds maximum allowed size: "
+msgstr ""
+
+msgid "File upload failed"
+msgstr ""
+
+msgid "File uploaded successfully. Transcription started."
+msgstr ""
+
+msgid "Filename"
+msgstr ""
+
+msgid "For User "
+msgstr ""
+
+msgid "Force refresh Scribe license key help"
+msgstr ""
+
+msgid "Generate"
+msgstr ""
+
+msgid ""
+"Here's an overview of your uploaded files and their transcription status"
+msgstr ""
+
+msgid "Here’s an overview of the transcripts"
+msgstr ""
+
+msgid "IMPORTANT :"
+msgstr ""
+
+msgid ""
+"If enabled, this will override the voicemail mail command, allowing the "
+"Scribe module to include transcriptions in the voicemail emails."
+msgstr ""
+
+msgid "Inbound Calls"
+msgstr ""
+
+msgid "Inbound External Calls"
+msgstr ""
+
+msgid "Inbound Voicemail"
+msgstr ""
+
+msgid "Inherit"
+msgstr ""
+
+msgid "Insufficient license minutes remaining"
+msgstr ""
+
+msgid "Internal Calls"
+msgstr ""
+
+msgid "Internal Voicemail"
+msgstr ""
+
+msgid "Internal calls"
+msgstr ""
+
+msgid "Keywords"
+msgstr ""
+
+msgid "L"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid ""
+"License is valid for 1 month (followed by auto renewal) and includes 1000 "
+"minutes of processed audio shared across all users on your PBX."
+msgstr ""
+
+msgid "License not exists"
+msgstr ""
+
+msgid "License required for file upload functionality"
+msgstr ""
+
+msgid "License setting not found"
+msgstr ""
+
+#, php-format
+msgid "Locale: %s"
+msgstr ""
+
+msgid "M"
+msgstr ""
+
+msgid "Mail Body"
+msgstr ""
+
+msgid "Mail Subject"
+msgstr ""
+
+msgid "Mail Type"
+msgstr ""
+
+msgid ""
+"Mailbox extension  Delete option is enabled , so not transcribing the audio "
+msgstr ""
+
+msgid "Mailbox extension is empty"
+msgstr ""
+
+msgid "Manage Users"
+msgstr ""
+
+msgid "Matched Keywords"
+msgstr ""
+
+msgid "Media Usage Overview"
+msgstr ""
+
+msgid "Minutes"
+msgstr ""
+
+msgid "Module is not licensed"
+msgstr ""
+
+msgid "Month"
+msgstr ""
+
+msgid "Multi-Channel Call Recording transcription "
+msgstr ""
+
+msgid "Negative"
+msgstr ""
+
+msgid "Negative Sentiments"
+msgstr ""
+
+msgid "Neutral"
+msgstr ""
+
+msgid "Neutral Sentiments"
+msgstr ""
+
+msgid "New Mailbox Message : "
+msgstr ""
+
+msgid "New VM Mailbox : "
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No Data Found"
+msgstr ""
+
+msgid "No rows selected"
+msgstr ""
+
+msgid "No transcription available."
+msgstr ""
+
+msgid "No transcription chat is available for this audio."
+msgstr ""
+
+msgid "No transcripts found for this audio"
+msgstr ""
+
+msgid "No transcripts found for this audio."
+msgstr ""
+
+msgid "Not able to find audio duration"
+msgstr ""
+
+msgid "Not able to send mail due to "
+msgstr ""
+
+msgid "Not able to transcribe due to "
+msgstr ""
+
+msgid "Note:"
+msgstr ""
+
+msgid ""
+"Note: PBX Scribe includes a feature to identify and distinguish between "
+"different speakers in your call recordings. Please be aware that in some "
+"cases, the system might default to a single speaker label (Speaker 0) if the "
+"audio is not clear or if it has difficulty separating speakers. For more "
+"accurate results, please ensure that the audio quality is clear and distinct."
+msgstr ""
+
+msgid "Notification Enabled"
+msgstr ""
+
+msgid "On Demand Recording"
+msgstr ""
+
+msgid "Outbound Calls"
+msgstr ""
+
+msgid "Outbound External Calls"
+msgstr ""
+
+msgid "Overall Sentiment : "
+msgstr ""
+
+msgid "Overall Sentiments"
+msgstr ""
+
+msgid "PBX Scribe ENV set to "
+msgstr ""
+
+msgid "PBX Scribe license key refreshed successfully"
+msgstr ""
+
+msgid "PM2 is not installed/enabled. Unable to start Scribe event listener"
+msgstr ""
+
+msgid "PM2 is not installed/enabled. Unable to start scribe event listener"
+msgstr ""
+
+msgid "Pending Transcriptions"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
+msgid "Playback error"
+msgstr ""
+
+msgid "Please confirm by selecting 'Yes' on at least one attachment."
+msgstr ""
+
+msgid "Please enter a descriptive name to identify this upload"
+msgstr ""
+
+msgid "Please enter atleast one keyword"
+msgstr ""
+
+msgid "Please fill the name of the tag"
+msgstr ""
+
+msgid "Please find the attached recordings/transcription"
+msgstr ""
+
+msgid "Please select an audio file"
+msgstr ""
+
+msgid "Positive"
+msgstr ""
+
+msgid "Positive Sentiments"
+msgstr ""
+
+msgid "Previous Media Usage"
+msgstr ""
+
+msgid "Provide a descriptive name to identify this upload"
+msgstr ""
+
+msgid "Quickly estimate the cost for using Scribe transcriptions."
+msgstr ""
+
+msgid "Recording Transcription"
+msgstr ""
+
+msgid "Recording Type"
+msgstr ""
+
+msgid "Refresh Scribe license key"
+msgstr ""
+
+msgid "Report Summary"
+msgstr ""
+
+msgid "Report Type"
+msgstr ""
+
+msgid "Require param is missing from cdr i.e Source/Destination/Channel"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Restarting Scribe"
+msgstr ""
+
+#, php-format
+msgid "Running (Uptime: %s)"
+msgstr ""
+
+msgid "SKU"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Scribe"
+msgstr ""
+
+msgid "Scribe  stopped"
+msgstr ""
+
+msgid ""
+"Scribe API requires the language used in the recording audio files "
+"(voicemail and call recording). Choosing a different language could break "
+"the voice transcription. Are you sure you want to continue?"
+msgstr ""
+
+msgid "Scribe Cost"
+msgstr ""
+
+msgid "Scribe Dashboard"
+msgstr ""
+
+msgid "Scribe License MetaData"
+msgstr ""
+
+msgid "Scribe Playback Transcription"
+msgstr ""
+
+msgid "Scribe Recording Transcription"
+msgstr ""
+
+msgid "Scribe Report "
+msgstr ""
+
+msgid "Scribe Sentiments"
+msgstr ""
+
+msgid "Scribe Settings"
+msgstr ""
+
+msgid "Scribe Tag Email sent successfully"
+msgstr ""
+
+msgid "Scribe Tag match percentage : "
+msgstr ""
+
+msgid "Scribe Tags"
+msgstr ""
+
+msgid "Scribe Tags "
+msgstr ""
+
+msgid "Scribe Tags found in call : "
+msgstr ""
+
+msgid "Scribe Top-Up"
+msgstr ""
+
+msgid "Scribe Usage"
+msgstr ""
+
+msgid "Scribe Users"
+msgstr ""
+
+msgid ""
+"Scribe integrates with Freepbx/PBXact voicemail and call recordings modules "
+"to transcribe the audio files. This module utilizes AI to generate a "
+"comprehensive summary of the transcription while also emphasizing overall "
+"customer satisfaction."
+msgstr ""
+
+msgid "Scribe is not licensed."
+msgstr ""
+
+msgid "Scribe is not running"
+msgstr ""
+
+#, php-format
+msgid "Scribe service  Failed: %s"
+msgstr ""
+
+msgid "Scribe stopped"
+msgstr ""
+
+msgid "Scribe was not running"
+msgstr ""
+
+msgid "Scribe your Audio"
+msgstr ""
+
+msgid "Select Audio File"
+msgstr ""
+
+msgid ""
+"Select the original language of the audio. Transcription will not translate "
+"to another language."
+msgstr ""
+
+msgid "Select the preferred language for transcription."
+msgstr ""
+
+msgid ""
+"Select the preferred language for transcription. This setting is ignored if "
+"a user-level or group-level <i>Audio File Language</i> is set in Userman for "
+"Scribe. <br> Note: <i>Sentiments</i> and <i>Transcription Summary </i> are "
+"not supported for languages other than English."
+msgstr ""
+
+msgid ""
+"Select this option to automatically delete the uploaded audio file once "
+"transcription is finished. If unchecked, the file will be retained."
+msgstr ""
+
+msgid "Send Email"
+msgstr ""
+
+msgid "Send Mail"
+msgstr ""
+
+msgid "Sending Email to: "
+msgstr ""
+
+msgid "Sending Scribe Tag Email"
+msgstr ""
+
+msgid "Sentiment"
+msgstr ""
+
+msgid "Sentiments"
+msgstr ""
+
+msgid "Sentiments : "
+msgstr ""
+
+msgid ""
+"Setting this field to 'Yes' will trigger an email notification to the "
+"specified email ID if the occurrences of keywords in a transcription meet or "
+"exceed the threshold percentage."
+msgstr ""
+
+msgid "Show Scribe usage"
+msgstr ""
+
+msgid "Show Scribe usage with forced license refresh"
+msgstr ""
+
+msgid "Skipping VMs in monitor dir."
+msgstr ""
+
+msgid "Sorry,Your requested data not found on system..!!"
+msgstr ""
+
+msgid "Sox command failed. Command output was: "
+msgstr ""
+
+#, php-format
+msgid "Started Scribe. PID is %s"
+msgstr ""
+
+msgid "Starting Scribe event listener"
+msgstr ""
+
+msgid "Starting transcription process..."
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Stereo Call Recording"
+msgstr ""
+
+msgid "Stopped Scribe"
+msgstr ""
+
+msgid "Stopped Scribe service "
+msgstr ""
+
+msgid "Stopping Scribe  service "
+msgstr ""
+
+msgid "Stopping Scribe Service"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Supported formats: WAV, MP3, MP4, M4A, FLAC, WebM, OGG. Maximum size: "
+msgstr ""
+
+msgid "Switch View"
+msgstr ""
+
+msgid "Tag"
+msgstr ""
+
+msgid "Tag Match"
+msgstr ""
+
+msgid "Tag Name"
+msgstr ""
+
+msgid "Tag added successfully"
+msgstr ""
+
+msgid "Tag deleted successfully"
+msgstr ""
+
+msgid "Tag details found"
+msgstr ""
+
+msgid "Tag details not found"
+msgstr ""
+
+msgid "Tag name already exists"
+msgstr ""
+
+msgid "Tag not found"
+msgstr ""
+
+msgid "Tag updated successfully"
+msgstr ""
+
+msgid ""
+"Tags are used to categorize transcriptions based on matching keywords. Each "
+"tag consists of a unique set of keywords."
+msgstr ""
+
+msgid "Tags found in audio transcription: "
+msgstr ""
+
+msgid ""
+"Text to be used for the body of the scribe tag email. Pre-defined variables "
+"are:"
+msgstr ""
+
+msgid ""
+"Text to be used for the subject of the scribe tag email. Pre-defined "
+"variables are:"
+msgstr ""
+
+msgid ""
+"The ${VM_MAILBOX} variable is missing in the Voicemail Admin email body. To "
+"enable Voicemail Email Transcription, please ensure it is included."
+msgstr ""
+
+msgid "The PBX Scribe environment is not configured for staging."
+msgstr ""
+
+msgid ""
+"The Scribe module is based on best-in-breed Large Language Model technology "
+"and partnerships that integrate easily with FreePBX/PBXact Voicemail and "
+"Call Recordings modules to transcribe audio files into smart text "
+"representations (also known as Scribes).  This module utilizes Artificial "
+"Intelligence to generate a comprehensive summary of the transcription while "
+"also emphasizing overall customer satisfaction.<br> Learn more on the <a "
+"href=\"https://sangomakb.atlassian.net/wiki/spaces/PG/pages/488898594/"
+"Scribe\" target=\"_blank\" style=\"text-decoration: underline\">Scribe Wiki</"
+"a> or <a href=\"https://sangomakb.atlassian.net/wiki/spaces/PG/"
+"pages/488800289/How+to+purchase+Scribe+License\"  target=\"_blank\" "
+"style=\"text-decoration: underline\">Purchase Scribe here </a>to get started!"
+msgstr ""
+
+msgid "The duration of audio file "
+msgstr ""
+
+msgid "The email body cannot be empty. Please enter a message before sending."
+msgstr ""
+
+msgid "The email field cannot be empty. Please enter a valid email address."
+msgstr ""
+
+msgid "The file format is "
+msgstr ""
+
+msgid ""
+"The subject field cannot be empty. Please enter a subject before proceeding."
+msgstr ""
+
+msgid ""
+"The threshold percentage at which a notification will be triggered and sent "
+"to the specified email."
+msgstr ""
+
+#, perl-format
+msgid "The window state is '%s'"
+msgstr ""
+
+msgid "There was an error getting tag details"
+msgstr ""
+
+msgid "There was an error updating the tag"
+msgstr ""
+
+msgid ""
+"These keywords will be searched in each transcription, and the transcription "
+"with the highest number of matching keywords will be categorized under the "
+"corresponding tag. The keywords must be separated by a new line."
+msgstr ""
+
+msgid "Threshold"
+msgstr ""
+
+msgid "Threshold %"
+msgstr ""
+
+msgid "Threshold is required to trigger the email notification."
+msgstr ""
+
+#, perl-format
+msgid "Time since you started this session: %s"
+msgstr ""
+
+#, php-format
+msgid "Time: %s"
+msgstr ""
+
+#, php-format
+msgid "Timezone: %s"
+msgstr ""
+
+#, php-format
+msgid "Token request API response message: %s"
+msgstr ""
+
+msgid ""
+"Top up Minutes are valid for 3 months from purchase and include 1000 minutes "
+"to process audio files. Minutes are shared across all users on your PBX."
+msgstr ""
+
+msgid "Total Calls"
+msgstr ""
+
+msgid "Total Calls & Voicemails"
+msgstr ""
+
+msgid "Total Inbound Calls"
+msgstr ""
+
+msgid "Total Inbound Voicemail"
+msgstr ""
+
+msgid "Total Internal Calls"
+msgstr ""
+
+msgid "Total Internal Voicemail"
+msgstr ""
+
+msgid "Total Minutes of Recordings & Voicemails in this system"
+msgstr ""
+
+msgid "Total Outbound Calls"
+msgstr ""
+
+msgid "Total Scribes"
+msgstr ""
+
+msgid "Total Users with Scribe Enabled"
+msgstr ""
+
+msgid "Total Voicemails"
+msgstr ""
+
+msgid "Transcribe Language."
+msgstr ""
+
+msgid ""
+"Transcribe the audio file by providing its file path. This feature is "
+"intended for developer use only."
+msgstr ""
+
+msgid "Transcript : "
+msgstr ""
+
+msgid "Transcript for this "
+msgstr ""
+
+msgid "Transcription Date"
+msgstr ""
+
+msgid ""
+"Transcription Service Estimate</h4><h4 class=\"desc\">Below is a summary of "
+"your media file usage, including voicemails and call recordings, from the "
+"past three months. This information will help us provide you with a quick "
+"estimate of the transcription service costs."
+msgstr ""
+
+#, php-format
+msgid "Transcription completed"
+msgstr ""
+
+msgid "Transcription found"
+msgstr ""
+
+msgid "Transcription has been successfully saved to "
+msgstr ""
+
+msgid "Transcription license key not found"
+msgstr ""
+
+msgid "Transcription not completed"
+msgstr ""
+
+msgid "Transcription not found"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Unable to add/update Tag"
+msgstr ""
+
+msgid "Unable to delete Tag"
+msgstr ""
+
+msgid "Unable to determine file duration"
+msgstr ""
+
+msgid "Unable to send email"
+msgstr ""
+
+msgid "Unique Id"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Unsupported file format"
+msgstr ""
+
+msgid "Unsupported file format. Please select a supported audio file."
+msgstr ""
+
+msgid "Upload & Transcribe"
+msgstr ""
+
+msgid "Upload Date"
+msgstr ""
+
+msgid "Upload ID required"
+msgstr ""
+
+msgid "Upload Name"
+msgstr ""
+
+msgid "Upload Transcription"
+msgstr ""
+
+msgid "Upload and Transcribe"
+msgstr ""
+
+msgid "Upload audio"
+msgstr ""
+
+msgid "Upload failed. Please try again."
+msgstr ""
+
+msgid "Upload failed: "
+msgstr ""
+
+msgid "Upload here"
+msgstr ""
+
+msgid "Upload not found"
+msgstr ""
+
+msgid "Upload transcription data updated successfully for upload ID: "
+msgstr ""
+
+msgid "Upload transcription error for ID "
+msgstr ""
+
+msgid ""
+"Upload your audio files for high-quality transcription with language "
+"selection and sentiment analysis."
+msgstr ""
+
+msgid "Uploaded Audio Transcript"
+msgstr ""
+
+msgid "Uploaded Audio Transcriptions"
+msgstr ""
+
+msgid "Uploaded Files"
+msgstr ""
+
+msgid "Uploading..."
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "Usage and Cost Predictor"
+msgstr ""
+
+msgid ""
+"Used to set environment variables in a staging or production environment."
+msgstr ""
+
+msgid "User "
+msgstr ""
+
+msgid "User Settings go here"
+msgstr ""
+
+msgid "Validity(in months)"
+msgstr ""
+
+msgid "Variable "
+msgstr ""
+
+msgid "View Dashboard"
+msgstr ""
+
+msgid "View Transcriptions"
+msgstr ""
+
+msgid "View here"
+msgstr ""
+
+msgid "View your uploaded audio files and their transcriptions."
+msgstr ""
+
+msgid "Voice Transcriptions (Scribes)"
+msgstr ""
+
+msgid "VoiceMail Duration(minutes)"
+msgstr ""
+
+msgid "Voicemail"
+msgstr ""
+
+msgid "Voicemail Deleted"
+msgstr ""
+
+msgid "Voicemail Email Setting"
+msgstr ""
+
+msgid "Voicemail Email Settings disabled."
+msgstr ""
+
+msgid "Voicemail Email Toggle "
+msgstr ""
+
+msgid "Voicemail Transcription"
+msgstr ""
+
+msgid "Voicemail Usage"
+msgstr ""
+
+msgid "Voicemail email attachment could not be saved. Filename: "
+msgstr ""
+
+msgid "Voicemail file has moved or deleted"
+msgstr ""
+
+msgid "Voicemail to Email"
+msgstr ""
+
+msgid "What is Scribe?"
+msgstr ""
+
+msgid "While generating the license, an error occurred. "
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+#, perl-format
+msgid "Your Moment date format is %s"
+msgstr ""
+
+#, perl-format
+msgid "Your Moment date/time format is %s"
+msgstr ""
+
+#, perl-format
+msgid "Your Moment time format is %s"
+msgstr ""
+
+msgid "Your Scribe module License has expired. Please renew the license."
+msgstr ""
+
+#, perl-format
+msgid "Your Timezone is %s"
+msgstr ""
+
+msgid "Your current usage for this month, based on the package you purchased."
+msgstr ""
+
+msgid "and"
+msgstr ""
+
+msgid "are not supported for languages other than English."
+msgstr ""
+
+msgid "failed to get the license key "
+msgstr ""
+
+msgid "failed to get the transcription project id "
+msgstr ""
+
+#, perl-format
+msgid "scribe has been loaded at %s"
+msgstr ""
+
+msgid "scribe is not running"
+msgstr ""
+
+msgid ""
+"scribe transcription is not running in pm2 service , Please restart the  "
+"Service by running the command `fwconsole pm2 --restart scribe` Or fwconsole "
+"ma install scribe"
+msgstr ""
+
+msgid "tag id not found"
+msgstr ""
+
+msgid "the file format is "
+msgstr ""
+
+msgid "x monthly FPBX-C01M-SCRIBE products from the "
+msgstr ""

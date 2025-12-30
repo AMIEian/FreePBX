@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+## copy the limit and haproxy-ctl file
+
+`cp /var/www/html/admin/modules/sysadmin/scripts/limits.conf /etc/security/limits.conf`
+`chmod 644  /etc/security/limits.conf`
+`cp /var/www/html/admin/modules/sysadmin/scripts/haproxy-ctl /usr/sbin/haproxy-ctl`
+`chmod 755  /usr/sbin/haproxy-ctl`
+

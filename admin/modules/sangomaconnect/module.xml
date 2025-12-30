@@ -1,0 +1,182 @@
+<module>
+	<rawname>sangomaconnect</rawname>
+	<name>SangomaConnect</name>
+	<version>17.0.3.30</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#zulu</link>
+	</commercial>
+	<repo>commercial</repo>
+	<type>tool</type>
+	<category>Admin</category>
+  	<description>SangomaConnect provides a mobile client application support for FreePBX</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/SS1/overview</more-info>
+
+	<changelog>
+		*17.0.3.30* FREEI-2134 sangomaconect autoupdate fails 
+		*17.0.3.29* FREEI-2052 Open SCD  web client from UCP 
+		*17.0.3.28* FREEI-2071 SANGOMACONNECTTLSWITHSIP added in restore 
+		*17.0.3.27* FREEI-2084 advr skip module resetting module is added 
+		*17.0.3.26* FREEI-2071,FREEI-2075 advr scd setting and userman settings issue after restore is resolved 
+		*17.0.3.25* FREEI-2051 scd widget UI changes in ucp 
+		*17.0.3.24* FREEI-2051 scd widget UI changes in ucp 
+		*17.0.3.23* FREEI-2024- Sangomaconnect - Adding Call activity button is disabled once we delete the call existing call activity 
+		*17.0.3.22* Fixing issue of adding emegrency numbers 
+		*17.0.3.19* Packaging of ver 17.0.3.19
+		*17.0.3.17* Fixing desktop client launch via ucp issues 
+		*17.0.3.17* FREEI-1991 
+		*17.0.3.16* FREEI-1995 
+		*17.0.3.15* FREEI-745 login via UCP 
+		*17.0.3.14* FREEI-1851  It looks like contact file permssion was causing the problem 
+		*17.0.3.13* FREEI-1916 fix: correct SCD queue/supervisor license check implemented 
+		*17.0.3.12* commerical tab 
+		*17.0.3.11* Added some logs to track where the install is failing 
+		*17.0.3.10* FREEI-1777-Fix: When changing the user email, set the sangomaconnect_enable_webrtc key to disabled 
+		*17.0.3.9* FREEI-1783 Regenerate all contact groups on scd settings update 
+		*17.0.3.8* FREEI-1808 Sangoma Connect - Apply config tab appears without giving submit 
+		*17.0.3.7* Packaging of ver 17.0.3.7
+		*17.0.3.5* Packaging of ver 17.0.3.5
+		*17.0.3.4* Packaging of ver 17.0.3.4
+		*17.0.3.3* search not working 
+		*17.0.3.2* Packaging of ver 17.0.3.2
+		*17.0.3.1* bump 
+		*17.0.1.55* FREEI-1583 Add countrycode for to address if not present 
+		*17.0.1.54* FREEI-1565 Sangomaconnect: We are able to add Queues and call activity group even 
+		*17.0.1.53* Beta period for UC deployment extented  till April 30 ,2025 
+		*17.0.1.52* FREEI-1565 We are able to add Queues and call activity group even when sangomaconnect is not enabled 
+		*17.0.1.51* FREEI-1526 Enable call activity group by default if SCD license 
+		*17.0.1.50* Cosole command  functionality changes 
+		*17.0.1.49* FREEI-1522 fix: Added hooks on call activity group delete And Cli command to enable Lic 
+		*17.0.1.48* FREEI-1523 Need fwconsole command to list/delete the Advance queue 
+		*17.0.1.47* Wiki link changed 
+		*17.0.1.46* Fixing FREEI-1457 and FREEI-1210 Talk app showing duplicate mms 
+		*17.0.1.45* Fixing FREEI-1469  MMS issue with the talk app
+		*17.0.1.44* FREEI-1438 reload failed 
+		*17.0.1.38* bump
+	</changelog>
+
+	<supported>
+	    <version>17.0</version>
+	</supported>
+  	<menuitems>
+	    <sangomaconnect needsenginedb="yes">SangomaConnect</sangomaconnect>
+	 </menuitems>
+	 <depends>
+	    <phpcomponent>ionCube PHP Loader</phpcomponent>
+	    <phpversion>8.2</phpversion>
+	    <module>userman ge 17.0.6.40</module>
+	    <module>sms ge 17.0.1</module>
+	    <module>sysadmin ge 17.0.2.6</module>
+	    <module>webrtc ge 17.0.1</module>
+	    <module>contactmanager ge 17.0.1</module>
+	    <module>restapps ge 17.0.1</module>
+	 </depends>
+	 <hooks>
+	 	<core class="Core" namespace="FreePBX\modules">
+	 		<method callingMethod="delUser" class="Sangomaconnect" namespace="FreePBX\modules">delUser</method>
+	 	</core>
+	 	<userman class="Userman" namespace="FreePBX\modules">
+	 		<method callingMethod="myShowPage" class="Sangomaconnect" namespace="FreePBX\modules">usermanShowPage</method>
+	 		<method callingMethod="addGroup" class="Sangomaconnect" namespace="FreePBX\modules">usermanSaveGroup</method>
+	 		<method callingMethod="updateGroup" class="Sangomaconnect" namespace="FreePBX\modules">usermanSaveGroup</method>
+	 		<method callingMethod="delGroup" class="Sangomaconnect" namespace="FreePBX\modules">usermanDelGroup</method>
+	 		<method callingMethod="delUser" class="Sangomaconnect" namespace="FreePBX\modules">usermanDelUser</method>
+	 		<method callingMethod="addUser" class="Sangomaconnect" namespace="FreePBX\modules">usermanSaveUser</method>
+	 		<method callingMethod="updateUser" class="Sangomaconnect" namespace="FreePBX\modules">usermanSaveUser</method>
+			<method callingMethod="sendWelcomeEmail" class="Sangomaconnect" namespace="FreePBX\modules">usermanSendEmail</method>
+			<method callingMethod="deleteCallActivityGroupByID" class="Sangomaconnect" namespace="FreePBX\modules">usermanDelCallActivityGroup</method>
+			 <method callingMethod="_updateCallActivityUsers" class="Sangomaconnect" namespace="FreePBX\modules">usermanupdateCallActivityGroup</method>
+		</userman>
+
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules" priority="151">
+			<method callingMethod="export" class="Sangomaconnect" namespace="FreePBX\modules">bulkhandlerExport</method>
+			<method callingMethod="import" class="Sangomaconnect" namespace="FreePBX\modules">bulkhandlerImport</method>
+		</bulkhandler>
+
+
+		<ucp class="Ucp">
+			<method namespace="FreePBX\Modules" class="Sangomaconnect" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method namespace="FreePBX\Modules" class="Sangomaconnect" callingMethod="addUser">ucpAddUser</method>
+			<method namespace="FreePBX\Modules" class="Sangomaconnect" callingMethod="updateUser">ucpUpdateUser</method>
+			<method namespace="FreePBX\Modules" class="Sangomaconnect" callingMethod="delUser">ucpDelUser</method>
+			<method namespace="FreePBX\Modules" class="Sangomaconnect" callingMethod="addGroup">ucpAddGroup</method>
+			<method namespace="FreePBX\Modules" class="Sangomaconnect" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method namespace="FreePBX\Modules" class="Sangomaconnect" callingMethod="delGroup">ucpDelGroup</method>
+		</ucp>
+
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+			<method callingMethod="getModuleLicenseInformation" class="Sangomaconnect" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+			<method callingMethod="notifyOnLicenseChange" class="Sangomaconnect" namespace="FreePBX\modules">updateLicense</method>
+		</sysadmin>
+
+		<backup class="Backup" namespace="FreePBX\modules">
+			<method callingMethod="getBackupSettingsDisplay" class="Sangomaconnect" namespace="FreePBX\modules">getBackupSettingsDisplay</method>
+			<method callingMethod="processBackupSettings" class="Sangomaconnect" namespace="FreePBX\modules">processBackupSettings</method>
+		</backup>
+
+		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
+		      <method callingMethod="getSummary" class="Sangomaconnect" namespace="FreePBX\modules">dashboardService</method>
+		</dashboard>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+		      <method callingMethod="postAsteriskHooks" class="Sangomaconnect" namespace="FreePBX\modules">startFreepbx</method>
+	        </framework>
+		<framework class="Stop" namespace="FreePBX\Console\Command">
+		      <method callingMethod="preAsteriskHooks" class="Sangomaconnect" namespace="FreePBX\modules">stopFreepbx</method>
+	    	</framework>
+		<framework class="Reload" namespace="FreePBX">
+			<method callingMethod="preReload" class="Sangomaconnect" namespace="FreePBX\Modules">preReloadFreepbx</method>
+		</framework>
+	  </hooks>
+ 	 <database>
+		 <table name="sangomaconnect_user_pre_setup">
+                         <field name="email" type="text"/>
+                         <field name="password" type="text"/>
+                 </table>
+		 <table name="sangomaconnect_user_setup">
+			 <field name="email" type="text"/>
+			 <field name="password" type="text"/>
+			 <field name="created_at" type="integer" notnull="false"/>
+			 <field name="updated_at" type="integer" notnull="false"/>
+			 <field name="sendcredentials" type="boolean" default="0"/>
+		 </table>
+		 <!-- check length for these values -->
+		 <table name="sangomaconnect_user_device">
+		         <field name="userman_id" type="integer" primarykey="true"/>
+		         <field name="build" type="string" length="50"/>
+		         <field name="platform" type="string" length="50"/>
+		         <field name="platformversion" type="string" length="50"/>
+		         <field name="version" type="string" length="50"/>
+		         <field name="locale" type="string" length="10"/>
+		         <field name="cpu" type="string" length="100"/>
+		         <field name="device" type="string" length="100"/>
+		         <field name="updated_at" type="integer" notnull="false"/>
+		 </table>
+		<table name="sangomaconnect_sngphone_sms_routing">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="did" type="string" length="45"/>
+			<field name="uid" type="integer"/>
+			<field name="didid" type="integer"/>
+		</table>
+		<table name="sangomaconnect_phone_locations">
+			<field name="location_id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="name" type="string" length="100"/>
+			<field name="cid_number" type="string" length="50"/>
+		</table>
+		<table name="sangomaconnect_account_phone_locations">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+            <field name="server_uuid" type="string" length="36" notnull="false"/>
+			<field name="account_id" type="integer"/>
+			<field name="location_id" type="integer"/>
+			<field name="location_info" type="string" length="255"/>
+		</table>
+	 </database>
+	 <console>
+		 <command>
+		         <name>sangomaconnect</name>
+		         <alias>sc</alias>
+		 </command>
+	 </console>
+</module>

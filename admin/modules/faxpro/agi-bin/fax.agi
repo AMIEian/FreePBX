@@ -1,0 +1,30 @@
+#!/usr/bin/php -q
+<?php //00459
+// 0 @Ioncube;
+// 
+// Fax Configuration Professional 17.0.1.22
+// Copyright 2025 by Sangoma Technologies Inc., All rights reserved
+// 
+// By installing, copying, downloading, distributing, inspecting or using
+// the materials provided herewith, you agree to all of the terms of use as
+// outlined in our End User Agreement which can be found and reviewed at
+// https://www.freepbx.org/legal/
+// 
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+HR+cPzc9Qv/iR53HwJB+lBJoLExmq9pbrBJ4mEQgBX5m2HdTqySDJE1gpqX3dAlEu4vFXzoLFJU+
+8pP++av9KR/KS/zmfl+42oF/Om1LDuvaYSRcBmY8RST6afCl7e4HMqxoicxADQPKOnyA0PuuwksS
+xYSHPyhPJiJl6+4nyNjsU7xiETDD3DPVny3+mzP1VjIMQwI7fQO7NUfWPoKveu99+l7N/wl56CQs
+BReIcBWXMvct83FIlf/clxsCAvaSCYr2Z5P7Z/Ie3QlDOIBufLe7kIZyPkG3SB62CVluOwfPWu9e
+DpgBV8KUng2LLSp1gjen615l3EVuj1dcaublRyuoyuRdO10UIemKh3WmdJZIA/XO1enh7fElqm0N
+9QQovw9AcRTjYiaMNpOFxE03Q3HR9ZVb28KGCCA7p/2BYkdkKpSrcl/vYa0tq5HaIgsot9U6pr3t
+Icqc1zZvcB/yt6MszmVkvWyq4aEMBM04d25pRGulhO4SodXjP2zhW2Mgo3AP0GunHJ7R/7K6QJfu
+7IjVcvIHrPVlsGcBK44Uh+F6UXzbwr6vlzjNajcHVK5go3yFPN71diC9XRjzaPq9xbcmg53eilg4
+/KSqJtBLlOLf8l5L13/WCkIRuzC8BqsJfmGB9qO+shu+QL6BZNXS//0fCkxkTg6rqnNRpl0DGGWI
+QwItlhPxmzZOAUpU+OVPptO27DvuU1Qdp+cg6XdVxjn0cpdRkogCmmsPC9+LZCZ2FGzn3AlRpR+U
+7nAFqwmxss/z5L6NSFaC8XhmCQVnSJP0b6xz+/D2dZAYGUDuo1pdwrS5vLV1xWACMzpeuNf8vlyQ
+efU5RvcRZpbWNgJMU9RRBIbo1eaZdWha7nkdA5PktUPUM+etiV2BQIwczFZ0YbuhY7TrRyeQHIU7
+xgUcU2nczD5wmJ7lGEhdmZPpRJqxNzmtfv8l/oIA50F75qM/xRoSaSiNcPHAtQ21j61nJWVRwonv
+NH715EuDsmS500DwINhj/65OPVORgJR/pXXtwWe81VfOTAeNNkIAnBXhCmU33F8cAzaD2a5Nrc+Y
+Bkbge0dSG7YEqPqR71cj6UwZ7qP/cPMeG/w6iZcVERC4ooN4ayi+y+quqWv4sBGTuWYnG4HTqkwR
+onNiIQRV9sJ2bvtPNKbwNGp591UzXJyVhW==

@@ -1,0 +1,205 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+#
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (FreePBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with FreePBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as FreePBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+#
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for tts
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-07 00:01-0500\n"
+"PO-Revision-Date: 2015-10-27 08:43+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/tts/"
+"ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.2-dev\n"
+
+#: functions.inc.php:18 page.tts.php:36
+msgid "AGI script not found"
+msgstr "AGIスクリプトが見つかりません"
+
+#: views/grid.php:10
+msgid "Actions"
+msgstr ""
+
+#: views/grid.php:2 /usr/src/freepbx/tts/views/rnav.php:2
+msgid "Add TTS"
+msgstr ""
+
+#: views/tts.php:134
+msgid "After the Text to Speech was played go to"
+msgstr ""
+
+#: tts.i18n.php:8
+msgid ""
+"Allows you to configure text to speech, and is derived from texttospeech "
+"provided in contributed modules."
+msgstr ""
+"TTSの設定を可能にし、また提供されたモジュールによってこれをtexttospeech から"
+"生成する。"
+
+#: tts.i18n.php:6
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: views/tts.php:79
+msgid "Choose an Engine"
+msgstr ""
+
+#: Tts.class.php:150
+msgid "Delete"
+msgstr "削除"
+
+#: views/tts.php:116
+msgid "Destintation"
+msgstr ""
+
+#: views/grid.php:9
+msgid "Engine"
+msgstr ""
+
+#: views/tts.php:64
+msgid "Enter the text you want to synthetize."
+msgstr "読み上げるテキストを入力してください、"
+
+#: views/tts.php:42
+msgid "Give this TTS Destination a brief name to help you identify it"
+msgstr ""
+
+#: views/rnav.php:3
+msgid "List TTS"
+msgstr ""
+
+#: views/tts.php:106
+msgid ""
+"List of TTS engine detected on the server. Choose the one you want to use "
+"for the current sentence."
+msgstr ""
+
+#: views/tts.php:24
+msgid "Main settings"
+msgstr "主要設定"
+
+#: views/grid.php:7 /usr/src/freepbx/tts/views/tts.php:32
+msgid "Name"
+msgstr "名前"
+
+#: views/no-ttsengines.php:3
+#, php-format
+msgid ""
+"Please install the TTS Engines module via %s or run `fwconsole ma install "
+"ttsengines` from the CLI`"
+msgstr ""
+
+#: Tts.class.php:155
+msgid "Reset"
+msgstr "リセット"
+
+#: Tts.class.php:160
+msgid "Submit"
+msgstr "送信"
+
+#: views/rnav.php:8
+msgid "TTS"
+msgstr ""
+
+#: uninstall.php:14
+msgid "TTS AGI script cannot be removed."
+msgstr "TTS AGIスクリプトは削除できませんでした。"
+
+#: views/tts.php:71
+msgid "TTS Engines"
+msgstr ""
+
+#: views/no-ttsengines.php:5
+msgid "TTS Engines Not Installed"
+msgstr ""
+
+#: views/grid.php:8 /usr/src/freepbx/tts/views/tts.php:52
+msgid "Text"
+msgstr "テキスト"
+
+#: tts.i18n.php:4 /usr/src/freepbx/tts/tts.i18n.php:10 views/tts.php:8
+msgid "Text To Speech"
+msgstr "音声読み上げ（TTS）"
+
+#: functions.inc.php:46
+#, php-format
+msgid "Text to Speech: %s"
+msgstr "TTS: %s"
+
+#: Tts.class.php:73
+msgid "This name already exists"
+msgstr "この名前はすでに存在します"
+
+#~ msgid "TTS AGI install failed. Module not usable."
+#~ msgstr "TTS AGIのインストールが失敗しました。使用できないモジュールです。"
+
+#~ msgid "Add a Text To Speech item"
+#~ msgstr "TTSアイテムを追加"
+
+#~ msgid "After the Text To Speech was played go to"
+#~ msgstr "TTSを再生後、次の場所に移動："
+
+#~ msgid "Choose an engine"
+#~ msgstr "エンジンを選択してください"
+
+#~ msgid "Delete text to speech"
+#~ msgstr "TTSを削除"
+
+#~ msgid "Give this TTS Destination a brief name to help you identify it."
+#~ msgstr "このTTS宛先に名前を付けます。"
+
+#~ msgid ""
+#~ "List of TTS engines detected on the server. Choose the one you want to "
+#~ "use for the current sentence."
+#~ msgstr ""
+#~ "サーバー内に検出されたTTSエンジンのリストです。この文章に対して使用したい"
+#~ "エンジンを選択してください。"
+
+#~ msgid "Note, does not delete the files from the server."
+#~ msgstr "注意：サーバーからファイルを削除しません。"
+
+#~ msgid "Submit Changes"
+#~ msgstr "変更を適用"
+
+#~ msgid "TTS Engine"
+#~ msgstr "TTSエンジン"
+
+#~ msgid "deleted"
+#~ msgstr "削除されました"

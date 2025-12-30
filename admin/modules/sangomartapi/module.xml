@@ -1,0 +1,151 @@
+<module>
+	<rawname>sangomartapi</rawname>
+	<name>Sangoma Realtime API</name>
+	<version>17.0.9.26</version>
+	<repo>commercial</repo>
+	<description>Sangoma Realtime API - COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION.  Used by some Phone Apps and SangomaConnect</description>
+	<category>Applications</category>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<more-info>https://wiki.freepbx.org/display/FPG/Phone+Apps</more-info>
+	<changelog>
+		*17.0.9.26* Packaging of ver 17.0.9.26
+		*17.0.9.25* Packaging of ver 17.0.9.25
+		*17.0.9.24* #issue 803  module errrs with console commands log file large 
+		*17.0.9.23* FREEI-2127 DSP Favorite contacts not working 
+		*17.0.9.22* FREEI-2106 + sign is missing for external call logs or voicemail in SCD 
+		*17.0.9.21* FREEI-2104 FREEI-2103  voicemail forward issue 
+		*17.0.9.20* FREEI-2081 FREEI-2098 Added parse messages for richmessage strings 
+		*17.0.9.19* FREEI-2070 Chat not working Sangoma Desktop app 
+		*17.0.9.18* FREEI-2068 Voicemail forward api requirement in RTAPI for DSP 
+		*17.0.9.17* FREEI-2021 SCD - Not able to add queue's number in my favorites in SCD 
+		*17.0.9.16* FREEI-2002 SCD call shows as missed for answered calls 
+		*17.0.9.15* ASTDEV-665 Delay in sending calls to the extension (takes approximately 10-13 seconds) 
+		*17.0.9.14* FREEI-1991 generate jwt token for the user when a user auto-login to scd from ucp 
+		*17.0.9.13* FREEI-745 generate jwt token for the user when a user auto-login to scd from ucp 
+		*17.0.9.12* FREEI-1974-favourite contact should be visible for only specific user 
+		*17.0.9.11* FREEI-1970 fetch username by extension and pass to mfa 
+		*17.0.9.10* FREEI-1904 Fetch distinct chat user details 
+		*17.0.9.9* FREEI-1666 Unable to get Queues DPMA app working 
+		*17.0.9.8* Added blind transfer event for queuemanager and added asterisk manager users 
+		*17.0.9.7* FREEI-1732 Removed hardcoded Phonebook callername from make calls with 
+		*17.0.9.6* FREEI-1750 fix: Added call monitoring call logs only to supervisor 
+		*17.0.9.5* FREEI-1765: Fixed missing getModuleSetting import 
+		*17.0.9.4* capture wizard activity logs 
+		*17.0.9.3* FREEI-1686 rtapi restapps port change 
+		*17.0.9.2* Reload supervisor permission 
+		*17.0.9.1* FREEI-1648 
+		*17.0.9* FREE-1619 fix: Push data to redis list sequentially 
+		*17.0.8* FREEI-1535 Display callername from callerid on call logs 
+		*17.0.7* FREEI-1752 Fix - Chat history missing on sangoma chat app 
+		*17.0.6* FREEI-1535 Fetch caller name from cdr and pass it in call logs 
+		*17.0.5* FREEI-1478 Delete last 5 messages from SCD 
+		*17.0.4* Fixing FREEI-1476 Making Call option not working issue
+		*17.0.3* Fixing FREEI-1046 Redis cache issue 
+		*17.0.1alpha* 17.0.1 alpha release
+	</changelog>
+	<depends>
+		<phpversion>8.2</phpversion>
+		<version>17.0.1</version>
+		<module>conferences ge 17.0.1</module>
+		<module>manager ge 17.0.7</module>
+		<module>sysadmin ge 17.0.1</module>
+		<module>userman ge 17.0.1</module>
+		<module>restapps ge 17.0.1.38</module>
+		<module>contactmanager ge 17.0.1</module>
+		<module>webrtc ge 17.0.1</module>
+		<module>pm2 ge 17.0.3.1</module>
+		<module>cdr ge 17.0.4.13</module>
+	</depends>
+	<database>
+		<!--Chat related database changes should be done in SangomartapiChatDb.class.php-->
+		
+		<table name="restapps_rtapi_conferences">
+			<field name="conferenceNumber" type="string" length="80"/>
+			<field name="userman_id" type="integer"/>
+			<key name="conference_user" type="unique">
+				<column name="conferenceNumber"/>
+				<column name="userman_id"/>
+			</key>
+		</table>
+		<table name="sangomartapi_registry">
+			<field name="key" type="string" length="64"/>
+			<field name="value" type="string" length="1024"/>
+			<key name="sangomartapi_registry_pkey" type="unique">
+				<column name="key"/>
+			</key>
+		</table>
+		<table name="sangomartapi_login_register">
+			<field name="id" type="integer" primaryKey="true" autoincrement="true"/>
+			<field name="uid" type="integer" notnull="false"/>
+			<field name="session_id" type="string" length="64" default="none"/>
+			<field name="default_extension" type="string" length="45" default="none"/>
+			<field name="login_time" type="datetime" notnull="true"/>
+		</table>
+
+		<table name="chat_push_tokens">
+			<field name="account_id" type="string" length="10"/>
+			<field name="app_instance_id" type="string" length="100"/>
+			<field name="push_type" type="string" length="20"/>
+			<field name="notify_token" type="text"/>
+			<field name="push_cert_id" type="integer"/>
+			<field name="rooms_supported" type="string" length="10"/>
+			<field name="voicemail_badge" type="string" length="10"/>
+			<field name="voicemail_details" type="string" length="10"/>
+			<field name="missed_badge" type="string" length="10"/>
+			<field name="missed_details" type="string" length="10"/>
+			<key name="idx" type="unique">
+				<column name="account_id"/>
+				<column name="app_instance_id"/>
+			</key>
+		</table>
+		<table name="sangomartapi_call_queue_members">
+			<field name="call_queue_member_id" type="integer" primaryKey="true" autoincrement="true"/>
+			<field name="person_account_id" type="integer" notnull="false"/>
+			<field name="call_queue_account_id" type="bigint" notnull="false"/>
+			<field name="queue_position" type="integer" default="1" notnull="false"/>
+			<field name="member_type" type="integer" default="1" notnull="false"/>
+			<field name="queue_name" type="string" length="128"/>
+			<field name="interface" type="string" length="128"/>
+			<field name="penalty" type="integer" default="0"/>
+			<field name="loggedin" type="integer" default="-1"/>
+			<field name="location" type="string" length="30"/>
+			<field name="multiple_calls" type="boolean" default="0"/>
+			<field name="pause_until" type="integer" length="30" default="0"/>
+			<field name="login_time" type="datetime" notnull="false"/>
+			<field name="missed_calls_allowed" type="integer" default="-1" notnull="false"/>
+			<field name="paused_since" type="integer" length="30" default="0" notnull="false"/>
+			<field name="tier" type="integer" default="1" notnull="false"/>
+		</table>
+
+	</database>
+	<hooks>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Sangomartapi" namespace="FreePBX\Modules">chownFreepbx</method>
+		</framework>
+		<framework class="Reload" namespace="FreePBX">
+			<method callingMethod="postReload" class="Sangomartapi" namespace="FreePBX\Modules">postReloadFreepbx</method>
+		</framework>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Sangomartapi">startFreepbx</method>
+		</framework>
+		<framework class="Stop" namespace="FreePBX\Console\Command">
+			<method callingMethod="preAsteriskHooks" class="Sangomartapi">stopFreepbx</method>
+		</framework>
+		<userman class="Userman" namespace="FreePBX\modules">
+	 		<method callingMethod="delUser" class="Sangomartapi" namespace="FreePBX\modules">usermanDelUser</method>
+	 		<method callingMethod="addUser" class="Sangomartapi" namespace="FreePBX\modules">usermanSaveUser</method>
+	 		<method callingMethod="updateUser" class="Sangomartapi" namespace="FreePBX\modules">usermanUpdateUser</method>
+		</userman>
+	</hooks>
+	<console>
+		<command>
+			<name>sangomartapi</name>
+			<alias>rtapi</alias>
+		</command>
+	</console>
+	<supported>
+		<version>17.0</version>
+	</supported>
+</module>

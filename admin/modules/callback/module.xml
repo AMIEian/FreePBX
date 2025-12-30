@@ -1,0 +1,43 @@
+<module>
+	<rawname>callback</rawname>
+	<repo>extended</repo>
+	<name>Callback</name>
+	<version>17.0.2.1</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<description>A callback will hang up on the caller and then call them back, directing them to the selected destination.</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Callback+Module</more-info>
+	<category>Applications</category>
+	<menuitems>
+		<callback needsenginedb="yes">Callback</callback>
+	</menuitems>
+	<popovers>
+		<callback>
+			<display>callback</display>
+		</callback>
+ 	</popovers>
+	<changelog>
+		*17.0.2.1 Packaging of ver 17.0.2.1
+		*17.0.2* Packaging of ver 17.0.2
+		*17.0.1alpha* 17.0.1 alpha release
+	</changelog>
+	<database>
+		<table name="callback">
+			<field name="callback_id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="description" type="string" length="50" notnull="false"/>
+			<field name="callbacknum" type="string" length="100" notnull="false"/>
+			<field name="destination" type="string" length="50" notnull="false"/>
+			<field name="sleep" type="integer" notnull="false"/>
+			<field name="deptname" type="string" length="50" notnull="false"/>
+			<field name="timeout" type="integer" notnull="false"/>
+			<field name="callerid" type="string" length="100" notnull="false"/>
+		</table>
+	</database>
+	<depends>
+		<version>13.0.5</version>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+</module>

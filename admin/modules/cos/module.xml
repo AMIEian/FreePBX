@@ -1,0 +1,35 @@
+<module>
+	<rawname>cos</rawname>
+	<name>Class of Service</name>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<repo>commercial</repo>
+	<version>17.0.1.1</version>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<license>Commercial</license>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#class-of-service</link>
+	</commercial>
+	<category>Admin</category>
+	<description>COMMERCIAL MODULE, REQUIRES A LICENSE.
+		Class of Service allows you to limit access, per extension, to feature codes, trunks, queues, ring groups, etc.</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/27361476/Class+of+Service</more-info>
+	<changelog>
+		*17.0.1.1* 17.0 release
+	</changelog>
+	<depends>
+		<module>core ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+		<module>sysadmin ge 17.0.1</module>
+		<phpversion>8.2.0</phpversion>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+	</depends>
+	<menuitems>
+		<cos>Class of Service</cos>
+	</menuitems>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<location/>
+	<md5sum/>
+</module>

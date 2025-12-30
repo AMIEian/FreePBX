@@ -1,0 +1,117 @@
+<module>
+	<rawname>adv_recovery</rawname>
+	<name>Advanced Recovery</name>
+	<version>17.0.10.1</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<repo>commercial</repo>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#advanced-recovery</link>
+	</commercial>
+	<category>Admin</category>
+	<description>COMMERCIAL MODULE, REQUIRES A LICENSE. Advanced Recovery makes it easy to setup a warm spare that can easily take over if your primary server fails.</description>
+  	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/35783290/Advanced+Recovery</more-info>
+	<menuitems>
+		<adv_recovery needsenginedb="yes">Advanced Recovery</adv_recovery>
+	</menuitems>
+	<changelog>
+		*17.0.10.1* FREEI-2242 advr syncback to primary issue resolved
+		*17.0.10* FREEI-2229-fix:forcefully refresh the access token when a 401 occurs 
+		*17.0.9* FREEI-2123 advr quick config error alert message added 
+		*17.0.8* FREEI-2054 gql error log removed, it is handled by an exception handler 
+		*17.0.7* #issue-755 adding both advr server ips into firewall's trusted netowork 
+		*17.0.6* FREEI-2055,FREEI-2054,FREEI-2012 advr issue fixed 
+		*17.0.5* FREEI-1853 advr issue resolved - replacing GQL by SSH restore 
+		*17.0.2.38* Packaging of ver 17.0.2.38
+		*17.0.2.26* FREEI-4898 AR heartbeat error 
+		*17.0.1* 17.0 release
+	</changelog>
+	<depends>
+		<module>filestore ge 17.0.1</module>
+		<version>17.0.1</version>
+		<module>api ge 17.0.1</module>
+		<module>backup ge 17.0.1</module>
+		<module>endpoint ge 17.0.1</module>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+            <method callingMethod="getModuleLicenseInformation" class="Adv_recovery" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+        </sysadmin>
+		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
+			<method callingMethod="getSummary" class="Adv_recovery" namespace="FreePBX\Modules">dashboardService</method>
+		</dashboard>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Adv_recovery" namespace="FreePBX\modules">chownFreepbx</method>
+		</framework>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Adv_recovery" namespace="FreePBX\modules">startFreepbx</method>
+		</framework>
+		<framework class="Stop" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Adv_recovery" namespace="FreePBX\modules">stopFreepbx</method>
+		</framework>
+	  	<Backup class="Backup" namespace="FreePBX\modules">
+			<method callingMethod="postrestoreModulehook" class="Adv_recovery" namespace="FreePBX\modules">postrestorehook</method>
+		</Backup>
+	</hooks>
+	<database>
+		<table name="adv_recovery_primary_server_settings">
+			<field name="id" type="integer" primaryKey="true" autoincrement="true"/>
+			<field name="key" type="string" length="50"/>
+			<field name="value" type="text" notnull="false"/>
+		</table>
+		<table name="adv_recovery_heartbeat_log">
+			<field name="id" type="integer" primaryKey="true" autoincrement="true"/>
+			<field name="timestamp" type="string" length="20"/>
+			<field name="from" type="string" length="20"/>
+			<field name="to" type="string" length="40"/>
+			<field name="response" type="string" length="20"/>
+		</table>
+		<table name="adv_recovery_backuprestore_log">
+			<field name="id" type="integer" autoincrement="true" primaryKey="true"/>
+			<field name="timestamp" type="integer"/>
+			<field name="type" type="string" length="20"/>
+			<field name="filename" type="string" length="100" notnull="false"/>
+			<field name="transactionID" type="string" length="40" notnull="false"/>
+			<field name="backup_status" type="string" length="50" notnull="false"/>
+			<field name="restore_status" type="string" length="50" notnull="false"/>
+			<field name="lastupdate" type="string" length="20" notnull="false"/>
+			<field name="Emailstatus" type="string" length="10" default="No" notnull="false"/>
+			<field name="totaltimetaken" type="string" length="10" default="0" notnull="false"/>
+		</table>
+		<table name="adv_recovery_notifications_log">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="timestamp" type="integer" notnull="false"/>
+			<field name="type" type="string" length="20" notnull="false"/>
+			<field name="notification_for" type="string" length="20" notnull="false"/>
+			<field name="server" type="string" length="40" notnull="false"/>
+			<field name="notified_to" type="string" length="100" notnull="false"/>
+			<field name="message" type="string" length="200" notnull="false"/>
+			<field name="service_run_id" type="string" length="20" notnull="false"/>
+		</table>
+		<table name="adv_recovery_serviceswitch_log">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="timestamp" type="integer" notnull="false"/>
+			<field name="service_run_id" type="string" length="20" notnull="false"/>
+			<field name="server" type="string" length="40" notnull="false"/>
+			<field name="activity" type="string" length="10" notnull="false"/>
+			<field name="comments" type="string" length="200" notnull="false"/>
+		</table>
+	</database>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<console>
+		<command>
+			<name>adv_recovery</name>
+			<alias>advr</alias>
+		</command>
+	</console>
+
+</module>

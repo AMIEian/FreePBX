@@ -1,0 +1,67 @@
+<module>
+	<rawname>sipstation</rawname>
+	<repo>commercial</repo>
+	<name>SIPSTATION</name>
+	<version>17.0.3.6</version>
+	<category>Connectivity</category>
+	<menuitems>
+		<sipstation needsenginedb="yes">SIPSTATION</sipstation>
+	</menuitems>
+	<description>
+		This module is used to configure, manage and troubleshoot your SIPSTATION(tm) FreePBX.com SIP trunks and DIDs. The license on this source code is NOT GPL Open Source, it is a proprietary Free to Use license.
+	</description>
+	<more-info>https://wiki.freepbx.org/display/FPG/SIPStation</more-info>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<changelog>
+		*17.0.3.6* Packaging of ver 17.0.3.6
+		*17.0.3.5* FREEI-2137 sipstation page error 
+		*17.0.3.3* 17.0.3.3  release
+	</changelog>
+	<depends>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>core ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+		<module>userman ge 17.0.1</module>
+		<module>sipsettings ge 17.0.1</module>
+		<module>certman ge 17.0.1</module>
+		<module>sms ge 17.0.1</module>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<sms namespace="FreePBX\modules" class="Sms">
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="loadAdaptor">smsAdaptor</method>
+		</sms>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="hookTabs" namespace="FreePBX\Modules" class="Sipstation">coreDIDHook</method>
+		</core>
+		<userman class="Userman" namespace="FreePBX\modules">
+			<method callingMethod="delGroup" namespace="FreePBX\Modules" class="Sipstation">usermanDelGroup</method>
+			<method callingMethod="addGroup" namespace="FreePBX\Modules" class="Sipstation">usermanAddGroup</method>
+			<method callingMethod="updateGroup" namespace="FreePBX\Modules" class="Sipstation">usermanUpdateGroup</method>
+			<method callingMethod="myShowPage" namespace="FreePBX\Modules" class="Sipstation">usermanShowPage</method>
+			<method callingMethod="delUser" namespace="FreePBX\Modules" class="Sipstation">usermanDelUser</method>
+			<method callingMethod="addUser" namespace="FreePBX\Modules" class="Sipstation">usermanAddUser</method>
+			<method callingMethod="updateUser" namespace="FreePBX\Modules" class="Sipstation">usermanUpdateUser</method>
+		</userman>
+		<ucp class="Ucp">
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="addUser">ucpAddUser</method>
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="updateUser">ucpUpdateUser</method>
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="delUser">ucpDelUser</method>
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="addGroup">ucpAddGroup</method>
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method namespace="FreePBX\Modules" class="Sipstation" callingMethod="delGroup">ucpDelGroup</method>
+		</ucp>
+	</hooks>
+	<oobe method="oobeHook" priority="5000"/>
+	<console>
+		<command>
+			<name>sipstation</name>
+		</command>
+	</console>
+</module>

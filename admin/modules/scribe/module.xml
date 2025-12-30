@@ -1,0 +1,251 @@
+<module>
+	<rawname>scribe</rawname>
+	<repo>commercial</repo>
+	<name>Scribe</name>
+	<description>
+	Scribe is a new commercial module in FreePBX/PBXact that enhances your communication capabilities through advanced transcription services. 
+        This module seamlessly integrates with Freepbx/PBXact voicemail and call recordings modules to transcribe the audio files.
+	This module also generates the Artificial intelligence driven sentiment analysis applied to recorded calls.
+	</description>
+	<category>Reports</category>
+	<version>17.0.5.3</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/488898594/PBX+Scribe+Module</more-info>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<changelog>
+		*17.0.5.3* Packaging of ver 17.0.5.3
+		*17.0.5.2* Packaging of ver 17.0.5.2
+		*17.0.5.1* Packaging of ver 17.0.5.1
+		*17.0.4* Packaging of ver 17.0.4
+		*17.0.3*    FREEI-2361 Scribe Dashboard Usage data is incorrect.
+		*17.0.2.67* Packaging of ver 17.0.2.67
+		*17.0.2.66* FREEI-2177 FREEI-2183  Scribe TTS and Scribe your Audios files Features 
+		*17.0.2.65* FREEI-2177 FREEI-2183  Scribe TTS and Scribe your Audios files Features 
+		*17.0.2.64* Packaging of ver 17.0.2.64
+		*17.0.2.63* FREEI-2185 - Corrected Scribe minutes usage data with updated license meta fields 
+		*17.0.2.62* FREEI-2162 Deepgram - Migrate to token-based auth from Temp keys 
+		*17.0.2.61* Packaging of ver 17.0.2.61
+		*17.0.2.60* #issue 803  module errrs with console commands log file large 
+		*17.0.2.59* FREEI-2116 Voicemail Admin restore issues in Advanced Recovery 
+		*17.0.2.58* FREEI-2099 Scribe transcription is not working if call recording path changed 
+		*17.0.2.57* FREEI-2022 Fix:Added checks to prevent playback/download of deleted/moved voicemails 
+		*17.0.2.56* FREEI-1925-implement keep-alive queries to prevent idle DB disconnects 
+		*17.0.2.55* bump 
+		*17.0.2.54* FREEI-1925 and FREEI-1926 
+		*17.0.2.53* FREEI-1955 and FREEI-1926 
+		*17.0.2.52* FREEI-1957 List down Deepgram supported languages for scribe 
+		*17.0.2.51* FREEI-1953 Except English, other languages transcripts are not showing in STALK app 
+		*17.0.2.50* FREEI-1957 List supported languages 
+		*17.0.2.49* FREEI-1928 
+		*17.0.2.48* FREEI-1855 Scribe multi language is not working with few languages 
+		*17.0.2.47* FREEI-1898 Scribe tag mail sending issue 
+		*17.0.2.46* FREEI-1788 Voicemail usage should show on Scribe dashboard 
+		*17.0.2.45* FREEI-1863 resolved voicemail download issue in scribe 
+		*17.0.2.44* FREEI-1888 css issue 
+		*17.0.2.43* FREEI-1888 css issue 
+		*17.0.2.42* FREEI-1863-fix: handle voicemail path change from INBOX to Old when status is Read 
+		*17.0.2.41* FREEI-1839 scribe issues fix for FREEI-1839,FREEI-1820,FREEI-1838 
+		*17.0.2.40* FREEI-1821 scribe tag bug fixes for FREEI-1821,FREEI-1820,FREEI-1849,FREEI-1850 
+		*17.0.2.39* FREEI-1510 tag feature bugs resolved jira: FREEI-1510,FREEI-1821,FREEI-1820,FREEI-1824,FREEI-1825 
+		*17.0.2.38* FREEI-1828 resolve Scribe Visual Voicemail mismatch 
+		*17.0.2.37* FREEI-1819 undefined key error on editing userman group is fixed 
+		*17.0.2.36* FREEI-1510 Scribe tags featue 
+		*17.0.2.35* FREEI-1788 FREEI-1681  Voicemail usage should show on Scribe dashboard if delete vm is set to yes 
+		*17.0.2.34* FREEI-1798
+		*17.0.2.33* FREEI-1687 Scribe Trial Voicemail Transcription Issues 
+		*17.0.2.32* FREEI-1676 Inbound call was not able to get the  direction 
+		*17.0.2.31* FREEI-1676 Anonymous inbound call was not able to get the  direction 
+		*17.0.2.30* FREEI-1670 PBXact Cloud Demo Instance Shows Errors on GUI 
+		*17.0.2.29* FREEI-1629 In UCP, widgets shows wrong transcriptions for scribe entries in some cases 
+		*17.0.2.28* FREEI-1627 Transcription window heading alignment issue 
+		*17.0.2.27* FREEI-1597 Scribe stuck on older recordings 
+		*17.0.2.26* FREEI-1575 FREEI-1508 database server has gone away error not scribing anymore 
+		*17.0.2.25* FREEI-1575 Scribe icon issue in UCP 
+		*17.0.2.24* FREEI-1576 CDR reports not showing scribe icon 
+		*17.0.2.23* FREEI-1557 scribe - After enabling voicemail to email under Scribe, all emails are bouncing 
+		*17.0.2.22* FREEI-1508 database server has gone away error not scribing anymore - issue is actually that setting 
+		*17.0.2.21* FREEI-1569 reverted back the scribe settings tab under ucp to allow transcription in other widgets 
+		*17.0.2.20* FREEI-1553 Internal server error on scribe 
+		*17.0.2.19* FREEI-1546 scribe floating navbar issue fixed for 17 system 
+		*17.0.2.18* FREEI-1527 SCD inbound calls transcription issue 
+		*17.0.2.17* FREEI-1466 Scribe Emails Not Working 
+		*17.0.2.16* Fixing FREEI-1461 playbar css issue 
+		*17.0.2.15* Fixing FREEI-1473 CSS issue. 
+		*17.0.2.14* Fixing FREEI-1477 Outbound calls transcription is not working with callerID issue.
+		*17.0.2.13* Fixing FREEI-1461 playbar styling issue 
+		*17.0.2.12* FREEI-1442 Fixing backup issue. FREEI-1460 invalid filedate for downloaded scribe pdf
+		*17.0.2.11* Fixing FREEI-1449 playback window alignment issue and FREEI-1447 undefined variable error. 
+		*17.0.2.10* Fixing Github #555 Undefined variable error. 
+		*17.0.2.9* FREEI-1365 Adding download scribe functionality, FREEI-1345 and FREEI-1370 Add call direction and queue details into the scribe and fixing FREEI-1442 Fixing backup issue.  
+		*17.0.2.8* bump 
+		*17.0.1* Initial release
+	</changelog>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#scribe</link>
+	</commercial>
+	<depends>
+		<module>cdr ge 17.0.4.24</module>
+		<module>voicemail ge 17.0.5.23</module>
+		<version>17.0.19.17</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+	</depends>
+
+	<menuitems>
+		<scribe>Scribe</scribe>
+	</menuitems>
+	<hooks>
+		<ucp class="Ucp">
+			<method namespace="FreePBX\Modules" class="Scribe" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method namespace="FreePBX\Modules" class="Scribe" callingMethod="addUser">ucpAddUser</method>
+			<method namespace="FreePBX\Modules" class="Scribe" callingMethod="updateUser">ucpUpdateUser</method>
+			<method namespace="FreePBX\Modules" class="Scribe" callingMethod="delUser">ucpDelUser</method>
+			<method namespace="FreePBX\Modules" class="Scribe" callingMethod="addGroup">ucpAddGroup</method>
+			<method namespace="FreePBX\Modules" class="Scribe" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method namespace="FreePBX\Modules" class="Scribe" callingMethod="delGroup">ucpDelGroup</method>
+		</ucp>
+		<voicemail class="Voicemail" namespace="FreePBX\modules">
+			<method callingMethod="hookExtNotify" class="Scribe" namespace="FreePBX\modules">extNotify</method>
+		</voicemail>
+		<userman class="Userman" namespace="FreePBX\modules">
+			<method callingMethod="myShowPage" class="Scribe" namespace="FreePBX\modules">usermanShowPage</method>
+			<method callingMethod="updateGroup" class="Scribe" namespace="FreePBX\modules">usermanUpdateGroup</method>
+			<method callingMethod="updateUser" class="Scribe" namespace="FreePBX\modules">usermanUpdateUser</method>
+		</userman>
+		<framework class="Reload" namespace="FreePBX">
+			<method callingMethod="postReload" class="Scribe" namespace="FreePBX\Modules">postReloadFreepbx</method>
+		</framework>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Scribe" namespace="FreePBX\modules">startFreepbx</method>
+		</framework>
+		<framework class="Stop" namespace="FreePBX\Console\Command">
+			<method callingMethod="preAsteriskHooks" class="Scribe" namespace="FreePBX\modules">stopFreepbx</method>
+		</framework>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+			<method callingMethod="notifyOnLicenseChange" class="Scribe" namespace="FreePBX\modules">updateLicense</method>
+		</sysadmin>
+		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
+			<method callingMethod="getSummary" class="Scribe" namespace="FreePBX\Modules">dashboardService</method>
+		</dashboard>
+	</hooks>
+	<database>
+		<table name="scribe_transcriptions">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="trans_req_id" type="string" length="40" default=""/>
+			<field name="unqid" type="string" length="80"/>
+			<field name="cnum" type="string" length="80"/>
+			<field name="cnam" type="string" length="80"/>
+			<field name="uniqueid" type="string" length="80"/>
+			<field name="filedate" type="integer"/>
+			<field name="filetype" type="string" length="25"/>
+			<field name="filepath" type="string" length="255" notnull="false"/>
+			<field name="duration" type="integer" length="5"/>
+			<field name="callFrom" type="string" length="150"/>
+			<field name="callTo" type="string" length="150"/>
+			<field name="callDirection" type="string" length="150"/>
+			<field name="user" type="string" length="150"/>
+			<field name="user_id" type="integer" length="11"/>
+			<field name="status" type="string" default="initiated" length="30" notnull="false"/>
+			<field name="error" type="string" default="" length="255" notnull="false"/>
+			<field name="transcriptionPath" type="text" notnull="true"/>
+			<field name="averageSentiment" type="string" length="50"/>
+			<field name="voicemailEmail" type="integer" default="0" notnull="false"/>
+			<field name="destinationType" type="string" length="150"/>
+			<field name="voicemailDeleted" type="integer" default="0" notnull="false"/>
+			<field name="tagname" type="string" length="80" notnull="false"/>
+			<field name="transrpition_date" type="datetime" default="0000-00-00 00:00:00" notnull="true"/>
+			<key name="unqid_idx" type="index">
+				<column name="unqid"/>
+			</key>
+			<key name="transrpition_date_idx" type="index">
+                                <column name="transrpition_date"/>
+                        </key>
+			<key name="filedate_idx" type="index">
+				<column name="filedate"/>
+			</key>
+			<key name="callDirection_idx" type="index">
+				<column name="callDirection"/>
+			</key>
+			<key name="filetype_idx" type="index">
+				<column name="filetype"/>
+			</key>
+			<key name="status_idx" type="index">
+				<column name="status"/>
+			</key>
+			<key name="averageSentiment_idx" type="index">
+				<column name="averageSentiment"/>
+			</key>
+			<key name="filepath_idx" type="index">
+				<column name="filepath"/>
+			</key>
+		</table>
+		<table name="scribe_tags">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="tagname" type="string" length="80" notnull="true"/>
+			<field name="tagwords" type="text" notnull="true"/>
+			<field name="enableNotification" type="string" length="10" notnull="false"/>
+			<field name="email" type="string" length="80" notnull="false"/>
+			<field name="threshold" type="integer" length="11" notnull="false"/>
+			<field name="emailtype" type="string" length="10" notnull="false"/>
+			<field name="subject" type="string" length="180" notnull="false"/>
+			<field name="body" type="text" notnull="false"/>
+		</table>
+		<table name="scribe_uploads">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="upload_id" type="string" length="40" notnull="true"/>
+			<field name="upload_name" type="string" length="500" notnull="false"/>
+			<field name="user_id" type="integer" length="11" notnull="true"/>
+			<field name="username" type="string" length="150" notnull="true"/>
+			<field name="original_filename" type="string" length="255" notnull="true"/>
+			<field name="stored_filename" type="string" length="255" notnull="true"/>
+			<field name="file_path" type="string" length="500" notnull="true"/>
+			<field name="file_size" type="integer" length="20" notnull="true"/>
+			<field name="duration" type="integer" length="10" notnull="true"/>
+			<field name="language" type="string" length="10" notnull="true"/>
+			<field name="transcriptionPath" type="text" notnull="false"/>
+			<field name="sentiment" type="string" length="50" notnull="false"/>
+			<field name="status" type="string" length="30" default="uploading" notnull="true"/>
+			<field name="delete_after_transcription" type="integer" length="1" default="0" notnull="false"/>
+			<field name="file_deleted" type="integer" length="1" default="0" notnull="false"/>
+			<field name="upload_date" type="integer" length="11" notnull="false"/>
+			<field name="transcription_date" type="integer" length="11" notnull="false"/>
+			<field name="type" type="string" length="10" default="stt" notnull="false"/>
+			<key name="upload_id_idx" type="index">
+				<column name="upload_id"/>
+			</key>
+			<key name="user_id_idx" type="index">
+				<column name="user_id"/>
+			</key>
+			<key name="status_idx" type="index">
+				<column name="status"/>
+			</key>
+			<key name="upload_date_idx" type="index">
+				<column name="upload_date"/>
+			</key>
+		</table>
+		<table name="scribe_tts">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="user_id" type="integer" length="11" notnull="false"/>
+         		<field name="username" type="string" length="150" notnull="false"/>
+			<field name="text_to_convert" type="text" notnull="true"/>
+			<field name="filename" type="string" length="80" notnull="true"/>
+			<field name="duration" type="integer" length="5" notnull="false"/>
+			<field name="voice_lang" type="string" length="25" notnull="true"/>
+			<field name="filedate" type="datetime" default="0000-00-00 00:00:00" notnull="false"/>
+			<key name="filedate_idx" type="index">
+				<column name="filedate"/>
+			</key>
+		</table>
+	</database>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<console>
+		<command>
+			<name>scribe</name>
+			<alias>pbxs</alias>
+		</command>
+	</console>
+</module>

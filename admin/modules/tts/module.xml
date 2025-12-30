@@ -1,0 +1,43 @@
+<module>
+	<rawname>tts</rawname>
+	<name>Text To Speech</name>
+	<version>17.0.3</version>
+	<repo>extended</repo>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<type>setup</type>
+	<description>Allows you to configure text to speech, and is derived from texttospeech provided in contributed modules.</description>
+  	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26640584/Text+to+Speech+Engines+Module</more-info>
+	<category>Applications</category>
+	<menuitems>
+		<tts needsenginedb="yes">Text To Speech</tts>
+	</menuitems>
+	<depends>
+		<engine>asterisk ge 1.6</engine>
+		<module>ttsengines</module>
+		<version>17.0.1</version>
+	</depends>
+	<changelog>
+		*17.0.3* Github #821 Fixing propolys TTS AGI 
+		*17.0.2* Github #627 Fix issues with TTS module dialplan generation 
+		*17.0.1* 17.0
+	</changelog>
+	<popovers>
+		<tts>
+			<display>tts</display>
+		</tts>
+	</popovers>
+    <database>
+        <table name="tts">
+            <field name="id" type="integer" primarykey="true" autoincrement="true"/>
+            <field name="name" type="string" length="100"/>
+            <field name="text" type="text"/>
+            <field name="goto" type="string" length="50" notnull="false"/>
+            <field name="engine" type="string" length="50" notnull="false"/>
+        </table>
+    </database>
+	<supported>
+		<version>17.0</version>
+	</supported>
+</module>

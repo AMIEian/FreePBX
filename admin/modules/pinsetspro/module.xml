@@ -1,0 +1,37 @@
+<module>
+	<rawname>pinsetspro</rawname>
+	<name>Pinsets Pro</name>
+	<version>17.0.2</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<category>Reports</category>
+	<repo>commercial</repo>
+	<changelog>
+		*17.0.2* 17.0.2  release
+	</changelog>
+	<description>COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Provides reports on calls based on the account code used</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/34111801/PINSet+Pro</more-info>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#pinset-pro</link>
+	</commercial>
+	<depends>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+		<module>core</module>
+		<module>pinsets ge 17.0.1</module>
+	</depends>
+	<methods>
+		<get_config pri="750">pinsetspro_hook_pinsets_get_config</get_config>
+	</methods>
+	<menuitems>
+		<pinset_report>Pinsets Code Reports</pinset_report>
+	</menuitems>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<location>release/2.11/pinsetspro-2.11.0.5.tgz</location>
+	<md5sum>501d07f34a5ed2a8a75feac8ac0d41d0</md5sum>
+</module>

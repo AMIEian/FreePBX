@@ -1,0 +1,49 @@
+<module>
+	<rawname>calllimit</rawname>
+	<name>Outbound Call Limit</name>
+	<version>17.0.1.2</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<repo>commercial</repo>
+	<category>Connectivity</category>
+	<menuitems>
+		<calllimit>Outbound Call Limit</calllimit>
+	</menuitems>
+	<description>COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Restrict Outbound Calls at an outbound route level</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/34177148/Outbound+Call+Limit</more-info>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#outbound-call-limiting</link>
+	</commercial>
+	<changelog>
+		*17.0.1.2* 17.0.1.2
+		*17.0.1alpha* 17.0.1 alpha release
+	</changelog>
+	<database>
+		<table name="calllimit_usage">
+    		<field name="calllimit_id" type="integer"/>
+    		<field name="dispname" type="string" length="30" default="" primarykey="true"/>
+    		<field name="foreign_id" type="string" length="30" default="" primarykey="true"/>
+  		</table>
+		<table name="calllimit">
+			<field name="key" type="string" length="64" default="" primarykey="true"/>
+			<field name="value" type="string" length="64" default=""/>
+		</table>
+	</database>
+	<depends>
+		<version>17.0</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+		<module>recordings ge 17.0.1</module>
+	</depends>
+	<hooks>
+	    <sysadmin class="Sysadmin" namespace="FreePBX\modules">
+    	    <method class="Calllimit" namespace="FreePBX\modules" callingMethod="getModuleLicenseInformation">sendModuleLicenseInformation</method>
+    	</sysadmin>
+	</hooks>
+	<supported>
+		<version>17.0</version>
+	</supported>
+</module>

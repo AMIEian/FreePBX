@@ -1,0 +1,42 @@
+#borderDriveUsage {
+    width: 100%;
+    padding: 7px;
+    margin: 20px 0 0px -10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#driveUsageHeading {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+#meter {
+	width: 100%;
+}
+
+#checkbox-label {
+    margin-left: 12px;
+}
+
+#driveUsage-span {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: small;
+    white-space: nowrap;
+}
+
+#driveUsageHelp:hover #driveUsage-span {
+    display: block;
+}
+
+#driveUsageHelp {
+    position: relative;
+    display: inline-block;
+}

@@ -1,0 +1,30 @@
+#!/usr/bin/php -q
+<?php //0044d
+// 0 @Ioncube;
+// 
+// Outbound Call Limit 17.0.1.2
+// Copyright 2024 by Sangoma Technologies Inc., All rights reserved
+// 
+// By installing, copying, downloading, distributing, inspecting or using
+// the materials provided herewith, you agree to all of the terms of use as
+// outlined in our End User Agreement which can be found and reviewed at
+// https://www.freepbx.org/legal/
+// 
+if(extension_loaded('ionCube Loader')){die('The file '.__FILE__." is corrupted.\n");}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+HR+cPtmK5X25ukedKA+3CuqiKx5h4ShYRrk3GTuC8GCPIRC/9xTzHC/PbQkQmI7q4mU/YAcr4j0I
+9k+P8X9+gU+/FMioES3EG0v7GBVexCs77AVi0Scuw1aDJRtdtV+gjwIDPwxZ/hDN6UsZdJ1RNiL/
+ah+bix2fV37lboBBf+ycv3xW/7r3PvD/JEtuLKtc4QHtnOaI36CmMaHhisPTfJvJKwbTO/LthRO9
+RJFPqrMrlVWry5yBu2RxpOClzzvAU3+5/SddY14m5qyvW5wgJrI2XRkJiULoQqCtuJYUQuHXKDEL
+L/SfJV+6y9VJqNwOIg3UW3qZm2IYbNQQ94Q30y8pXq293heY+QWEoANGgH2kKGdMcSuuori8c1ov
+YqLIRGrfVBr2nVgiNgPjzk9Zr8/A2+Cs9Ph+r4qcJaMUN28PWZXIpDZtRIbLc8Elrx1f/zl5LLL9
+60UebWu3qOzZCRrkU8jxVGLU5NvN64lSG2mv9LwA+Fjk1E9WFfVc+0YbyHvzP99HlsNdP+P+Q7Zc
+xun8RQKzXr6dkJ6HNAve2jWS2k4qrnCjU7vkTLxw0wAuDP7yoNbRQ+cJ7e9kr8XJf/sBJAsjMGTH
+sfVXcux81OkoLFIri4FL31nyPHPHbMq6flQjkXRkY1qH6mgrjxUJ/PfwadmPwec6idHE5HjERUyb
+f0wnxv5D5f3jn/kD6roPk1L1Z5UqgmTbexsbMPdg0KoIsTRLc+NJcXUZhT/tl9U4aA7v/zYRFOgD
+6cc33FpEFz/l+L/7kbcEEbrSvMv7s+qjkUiBPkFWwUWUzG+icwYA+mfDvRpRBQJsQplFMBsuLES2
+qGhcMA/0BwxGJo4toZu/GUl76iLD/bSp5IXZGvZsi6jNuvDeX16MutnIvim4pMVClfVeM/bMYOQM
+9MIZAxioQr3KGCV3AGzaGR9ViOZTEbWnQ4YXmhrxIOMCyZNHzMWH8TaKpYIBKvoVP4wF88tdjNG4
+eitBYVT3ZSFrkM5vUrMQeLr2i+R8N0+6zSLKuJqmZuF/fcdfMHtv79mrtTlds+HKkU7Cg9BQJLSp
+pA8dXnrf4Q/At73o4Wr9mo2r/aoWZQNOHe5S54qVCQbuXE3iWHM3hYpuIGW51M6c1xq15hznI6KZ
+yTYK+dtlXRBxE48o7fblMd+RtO7kOWtiLbL7GaEbhdmWvuX8l8vHI2C=

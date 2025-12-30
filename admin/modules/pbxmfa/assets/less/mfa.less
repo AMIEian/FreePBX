@@ -1,0 +1,95 @@
+.table__heading {
+    position: absolute;
+    margin-top: 16px;
+    font-size: 18px;
+}
+
+#ucpUsers,
+#adminUsers {
+    margin-top: 1rem;
+    padding: 1rem;
+
+    .display {
+        padding: 0.5rem 2rem;
+    }
+}
+#adminUsers,
+#ucpUsers {
+    #toolbar-ucp {
+        display: flex;
+    }
+    #toolbar-admin {
+        display: flex;
+    }
+
+    .user__license__count {
+        margin-right: 25px;
+        text-align: center;
+        margin-bottom: -40px;
+        padding: 5px 10px;
+
+        span {
+            font-weight: bold;
+        }
+    }
+}
+#submitMfaSettings .col-md-12 {
+    display: flex;
+    justify-content: end;
+    margin: 10px 7px 4px 0px;
+}
+
+#timertext{
+    color:#0f5a59;
+}
+.bootstrap-table td:nth-last-child(-n+3) i.fa {
+    font-size: 150%;
+    margin-right: 5px;
+}
+#MFASettingsTabContent,
+#EmailSettingsTabContent {
+    .display.full-border {
+        border-top: none;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+}
+
+.Editor-container {
+    margin-top: 0px;
+    font-family: inherit;
+}
+
+.custom-mail-wrapper .element-container:nth-child(even) {
+    background-color: #f5f5f5 !important;
+}
+
+.custom-mail-wrapper .element-container:nth-child(odd) {
+    background-color: #fff !important;
+}
+
+#otpEmailBody-help {
+    position: absolute;
+    top: -29rem;
+    width: 25%;
+}
+
+#qrcodeEmailBody-help {
+    position: absolute;
+    top: -29rem;
+    width: 25%;
+}
+#adminTabContent .panel-body,
+#ucpTabContent .panel-body {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+@media(max-width:1200px) {
+    .user__license__count {
+        margin-right: 0px !important;
+        text-align: left !important;
+        margin-bottom: 0px !important;
+        padding: 5px 0px !important;
+    }
+}

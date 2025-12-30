@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+$path = '/var/spool/asterisk/sangoma_phone_service';
+// Change ownership to user:group (e.g., asterisk:asterisk)
+exec("chown -R asterisk:asterisk " . escapeshellarg($path));
+// Give full permissions to owner, read/execute to group, none to others
+exec("chmod -R 750 " . escapeshellarg($path));
+?>

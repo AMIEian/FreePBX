@@ -1,0 +1,130 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for extensionsettings
+# Copyright (C) 2008-2016 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-20 05:50+0000\n"
+"PO-Revision-Date: 2018-06-26 14:07+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"Language-Team: German <http://*/projects/freepbx/extensionsettings/de/>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.19.1\n"
+
+#: views/view.grid.php:24
+msgid "Busy"
+msgstr ""
+
+#: views/view.grid.php:34
+msgid "CF"
+msgstr ""
+
+#: views/view.grid.php:35
+msgid "CFB"
+msgstr ""
+
+#: views/view.grid.php:36
+msgid "CFU"
+msgstr ""
+
+#: views/view.grid.php:32
+msgid "CW"
+msgstr ""
+
+#: views/view.grid.php:20
+msgid "Call status"
+msgstr "Anrufstatus"
+
+#: Extensionsettings.class.php:64
+msgid "Command not found!"
+msgstr ""
+
+#: extensionsettings.i18n.php:8
+msgid ""
+"Creates a list of all extensions and their current settings for CW, CF, CFB, "
+"CFU, VMXB and VMXU"
+msgstr ""
+"Erstellt eine Liste aller Nebenstellen und deren aktuellen Einstellungen für "
+"CW, CF, CFB, CFU, VMXB und VMXU"
+
+#: views/view.grid.php:33
+msgid "DND"
+msgstr ""
+
+#: assets/js/extensionsettings.js:18
+msgid "Edit"
+msgstr ""
+
+#: views/view.grid.php:17
+msgid "Extension"
+msgstr "Nebenstelle"
+
+#: extensionsettings.i18n.php:4 extensionsettings.i18n.php:10
+#: views/page.main.php:4
+msgid "Extension Settings"
+msgstr "Einstellungen für Nebenstellen"
+
+#: Extensionsettings.class.php:131
+msgid "Extensions"
+msgstr ""
+
+#: views/view.grid.php:30
+msgid "FM"
+msgstr ""
+
+#: views/view.grid.php:31
+msgid "FM-list"
+msgstr ""
+
+#: views/view.grid.php:19
+msgid "Follow-Me"
+msgstr "Folge-mir"
+
+#: Extensionsettings.class.php:174 views/view.grid.php:26
+msgid "Operator"
+msgstr ""
+
+#: Extensionsettings.class.php:96
+#, php-format
+msgid "Page Not Found (%s)!!!!"
+msgstr ""
+
+#: views/view.grid.php:27
+msgid "Press 0"
+msgstr ""
+
+#: views/view.grid.php:28
+msgid "Press 1"
+msgstr ""
+
+#: views/view.grid.php:29
+msgid "Press 2"
+msgstr ""
+
+#: extensionsettings.i18n.php:6
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: views/view.grid.php:23
+msgid "Status"
+msgstr "Status"
+
+#: views/view.grid.php:25
+msgid "Unavail"
+msgstr ""
+
+#: views/view.grid.php:18
+msgid "VmX Locator"
+msgstr "VmX-Finder"
+
+#~ msgid "FreePBX Extension Settings"
+#~ msgstr "Einstellungen für FreePBX-Nebenstellen"

@@ -1,0 +1,106 @@
+<module>
+	<rawname>pagingpro</rawname>
+	<repo>commercial</repo>
+	<name>Paging Pro</name>
+	<version>17.0.1.7</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<category>Applications</category>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#paging-pro</link>
+	</commercial>
+	<changelog>
+		*17.0.1.7* FREEI-1118 Silience added in the master calll 
+		*17.0.1.5* Packaging of ver 17.0.1.5
+		*17.0.1.1* Packaging of ver 17.0.1.1
+		*17.0.1* 17.0.1 alpha release
+	</changelog>
+	<depends>
+		<version>17.0.1</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+		<module>paging ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+	</depends>
+	<database>
+		<table name="pagingpro">
+			<field name="page_id" type="string" length="50" primaryKey="true" default=""/>
+			<field name="busypage" type="string" length="50" notnull="false"/>
+			<field name="intro_recording" type="string" length="50" notnull="false"/>
+			<field name="cid_prepend" type="string" length="50" notnull="false"/>
+			<field name="timezone" type="string" length="50" notnull="false"/>
+			<field name="autoanswer" type="boolean" default="1" notnull="false"/>
+			<field name="enable_scheduler" type="boolean" default="0" notnull="false"/>
+			<field name="enable_calendar" type="boolean" default="0" notnull="false"/>
+			<field name="calendar_id" type="string" default="100" notnull="false"/>
+			<field name="calendar_group_id" type="string" default="100" notnull="false"/>
+			<field name="announce_count" type="boolean" default="1" notnull="false"/>
+		</table>
+		<table name="pagingpro_scheduler_events">
+			<field name="event_num" type="string" length="4" default=""/>
+			<field name="page_id" type="string" length="10" default=""/>
+			<field name="times" type="blob" notnull="false"/>
+		</table>
+		<table name="pagingpro_scheduler_range">
+			<field name="page_id" type="string" length="10" default=""/>
+			<field name="starttime" type="integer" notnull="false"/>
+			<field name="endtime" type="integer" notnull="false"/>
+		</table>
+		<table name="pagingpro_scheduler_exclusions">
+			<field name="page_id" type="string" length="10" default=""/>
+			<field name="time" type="integer" notnull="false"/>
+			<field name="comment" type="string" length="250" default=""/>
+		</table>
+		<table name="pagingpro_scheduler_crons">
+			<field name="page_id" type="string" length="10" default=""/>
+			<field name="cron_name" type="string" length="50" default=""/>
+			<field name="time" type="integer" notnull="false"/>
+		</table>
+	</database>
+	<hooks>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+		       <method callingMethod="getModuleLicenseInformation" class="Pagingpro" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+               </sysadmin>
+
+	       <framework class="Chown" namespace="FreePBX\Console\Command">
+	       		<method callingMethod="fwcChownFiles" class="Pagingpro" namespace="FreePBX\modules">chownFreepbx</method>
+	       </framework>
+	       <framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Pagingpro" namespace="FreePBX\modules">startFreepbx</method>
+	       </framework>
+	</hooks>
+	<description>
+		COMMERCIAL MODULE REQUIES A LICENSE FOR IT TO FUNCTION. This Module expands the normal Paging module in
+		FreePBX to add the following features:
+
+		Outbound Notifications - Enables the ability to notify a group of phone(s) when a user dials a specific number, ie:
+		911. Any page group can be linked in the outbound routes
+		module. When a call is placed a page will go out to the page group notifying the page group of what number was failed
+		and what user dialed the number. Any user of the page
+		group can dial *1 to barge into the call and speak.
+
+		Valet Style Paging (Airport Style) - You can now choose to have your pages recorded and when you hang up have it send
+		the audio file to all the devices that are part of the
+		page group. This setting is done on a per page group. You can also tell the system to only use Valet if someone dials
+		the page group and it is in use already.
+
+		Prepend Recording - You can now have the page group weather normal or valet style play a recorded message to all
+		participants of the page group before the pager can start
+		speaking.
+
+		Scheduled Pages - You can now define custom schedules to have the system page a group of devices and play a
+		recording. This is a great replacement for school bell systems or lunch break buzzers.
+	</description>
+	<more-info>https://wiki.freepbx.org/display/FPG/Page+Pro</more-info>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<console>
+		<command>
+			<name>pagingpro</name>
+		</command>
+	</console>
+</module>

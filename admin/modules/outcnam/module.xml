@@ -1,0 +1,32 @@
+<module>
+	<rawname>outcnam</rawname>
+	<repo>unsupported</repo>
+	<name>Outbound CNAM</name>
+	<version>17.0.2</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<category>Admin</category>
+	<menuitems>
+		<outcnam>Outbound CNAM</outcnam>
+	</menuitems>
+	<changelog>
+		*17.0.2* outcnam/issues/1 Removed online version check 
+		*17.0.1*  fix splice fail if no trunks/outroutes
+	</changelog>
+	<database>
+		<table name="outcnam_config">
+			<field name="outcnam_index" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="enable_cdr" type="string" length="50"/>
+			<field name="enable_rpid" type="string" length="50"/>
+			<field name="scheme" type="string" length="50"/>
+		</table>
+	</database>
+	<depends>
+		<version>ge 17.0.1</version>
+	</depends>
+
+ 	<supported>
+ 		<version>17.0</version>
+ 	</supported>
+</module>

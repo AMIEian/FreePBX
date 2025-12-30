@@ -1,0 +1,327 @@
+#!/usr/bin/env php
+<?php
+require '/usr/lib/sysadmin/includes.php';
+
+// If you add install steps
+// please update this to have a semi-accurate view
+// of all calls to indicate_progress()
+// the previous automatic logic based on grepping
+// this file breaks when code obfuscation kicks in
+define('INSTALL_STEP_COUNT', 8);
+if(class_exists('\Sangoma\Licensing\Ioncube') && \Sangoma\Licensing\Ioncube::isFileEncoded(__FILE__)) {
+	$v = new \Sysadmin\Validator("sangomaconnect");
+	$v->secureInclude('hooks/utils.php');
+} else {
+	include __DIR__ . '/utils.php';
+}
+
+$lockFile = "/tmp/install_proxy_client.lock";
+if (file_exists($lockFile)) {
+    $lastRunTime = file_get_contents($lockFile);
+    $currentTime = currentTimeInSeconds();
+    // Check the time difference
+    if (($currentTime - $lastRunTime) < 2) {
+        exit();
+    }
+}
+
+file_put_contents($lockFile, currentTimeInSeconds());
+$kvstore = new \Sysadmin\Kvstore("Sangomaconnect");
+
+class InstallResponse {
+	public $code;
+	public $message;
+}
+function currentTimeInSeconds() {
+    return time();
+}
+function finish($code, $message) {
+	global $kvstore;
+	$rsp = new InstallResponse();
+	$rsp->code = $code;
+	$rsp->message = $message;
+	$kvstore->setConfig('proxy_install_response', $rsp);
+	print $message . "\n";
+	clear_request();
+	clear_start_time();
+	exit($code);
+}
+
+function indicate_progress($message) {
+	global $kvstore;
+	static $progress_id = 0;
+	$key =  "proxy_install_progress_{$progress_id}";
+	$kvstore->setConfig($key, $message, 'proxy_install_progress');
+	$progress_id++;
+	print $message . "\n";
+}
+
+function fetch_request() {
+	global $kvstore;
+	return $kvstore->getConfig('proxy_install_request');
+}
+
+function clear_request() {
+	global $kvstore;
+	$kvstore->setConfig('proxy_install_request', false);
+}
+
+function clear_start_time() {
+	global $kvstore;
+	$kvstore->setConfig('proxy_install_start_time', false);
+}
+
+function init() {
+	// Init some database settings and clear any previous state
+	global $kvstore;
+	$kvstore->setConfig('proxy_install_response', false);
+	$kvstore->setConfig('proxy_install_steps', INSTALL_STEP_COUNT);
+	$kvstore->setConfig('proxy_install_start_time', false);
+}
+
+function configure_service($service, $metadata) {
+	$basepath = "/usr/local/proxy-client";
+	$metadata_file = "$basepath/config/{$service}-metadata";
+	file_put_contents($metadata_file, $metadata);
+	exec("chown -R asterisk:asterisk " . $basepath);
+	exec("chown -R asterisk:asterisk " . $metadata_file);
+	exec("touch /var/log/asterisk/{$service}.log && chown -R asterisk:asterisk /var/log/asterisk/{$service}.log");
+	exec("touch /var/log/asterisk/{$service}-out.log && chown -R asterisk:asterisk /var/log/asterisk/{$service}-out.log");
+	exec("touch /var/log/asterisk/{$service}-err.log && chown -R asterisk:asterisk /var/log/asterisk/{$service}-err.log");
+	$service_file = "/usr/lib/systemd/system/{$service}.service";
+	exec("rm -f {$service_file}");
+
+	$service_data = <<<EOT
+[Unit]
+Description=Sangoma $service
+Documentation=https://wiki.freepbx.org/display/SMAR/Getting+Started+with+SmartOffice#GettingStartedwithSmartOffice-EnableSmartOfficeCloudConnect
+After=network.target
+
+[Service]
+EnvironmentFile=$metadata_file
+WorkingDirectory=/usr/local/proxy-client/
+Environment=NODE_ENV=development
+Environment=NODE_CONFIG_DIR=/usr/local/proxy-client/config
+Environment=LOG_LEVEL=debug
+Environment=LOG_FILE_NAME=/var/log/asterisk/$service.log
+Environment=SERVICE_NAME=$service
+Type=simple
+User=asterisk
+ExecStart=/usr/local/proxy-client/bin/proxy-client --remoteHost \${REMOTE_HOST}  --appHost \${SMARTOFFICE_DOMAIN} --appPort \${SMARTOFFICE_PORT} --appProtocol \${SMARTOFFICE_APP_PROTOCOL} --sid \${SMARTOFFICE_UUID} --webProtocol \${WEB_PROTOCOL} --webPort \${WEB_PORT} --token \${PROXY_TOKEN} >> /var/log/asterisk/$service-out.log 2>&1
+Restart=on-failure
+StandardOutput=append:/var/log/asterisk/$service-out.log
+StandardError=append:/var/log/asterisk/$service-err.log
+
+[Install]
+WantedBy=multi-user.target
+EOT;
+
+	file_put_contents($service_file, $service_data);
+
+	$logrotate_data = <<<EOT
+/var/log/asterisk/$service.log  {
+	daily
+	missingok
+	notifempty
+	dateext
+	dateformat -%d%m%Y
+	rotate 10
+	size 10M
+	create 0600 asterisk asterisk
+	su asterisk asterisk
+	postrotate
+		systemctl restart $service
+	endscript
+}
+
+/var/log/asterisk/$service-err.log {
+        size 50M
+        missingok
+        rotate 5
+        dateext
+        notifempty
+        sharedscripts
+        create 0664 asterisk asterisk
+        su asterisk asterisk
+}
+
+/var/log/asterisk/$service-out.log {
+        size 50M
+        missingok
+        rotate 5
+        dateext
+        notifempty
+        sharedscripts
+        create 0664 asterisk asterisk
+        su asterisk asterisk
+}
+
+
+EOT;
+	file_put_contents("/etc/logrotate.d/{$service}", $logrotate_data);
+	exec('systemctl daemon-reload', $output_lines, $ret);
+	client_ctl($service, 'enable');
+}
+
+function start_agent($service, $metadata, $running) {
+
+	configure_service($service, $metadata);
+
+	// Try to start the service
+	indicate_progress("Finalizing cloud connect agent install");
+	/*$ret = client_ctl($service, 'start');
+	if ($ret == 0) {
+		$start_status = "Started cloud connect agent";
+	} else {
+		// do not fail completely if it fails to start
+		// the user can re-try starting it or collect logs, etc
+		// but the client is already installed/provisioned
+		$output = implode("\n", $output_lines);
+		$start_status = "Failed to start cloud connect agent:\n{$output}";
+	}*/
+	indicate_progress('Cloud Connect agent ready to be started');
+	if ($running) {
+		client_ctl($service, 'restart');
+	}
+}
+
+function stop_agent($service) {
+
+	indicate_progress("Stopping cloud connect agent");
+	$ret = client_ctl($service, 'stop');
+	if ($ret == 0) {
+		$stop_status = "Service now stopped";
+	} else {
+		$stop_status = "Failed to stop cloud connect agent:\n";
+	}
+	indicate_progress($stop_status);
+}
+
+function get_package_version($arch) {
+
+	exec("dpkg -l | grep service-proxy-client", $output_lines, $ret);
+	if ($ret != 0) {
+		return null;
+	}
+	$output = isset($output_lines[0]) ? $output_lines[0] : null; // first line has package name
+	$output = isset($output) ? explode('service-proxy-client-', $output) : null;
+	$output = isset($output[1]) ? $output[1] : null;
+	$output = isset($output) ? explode('.' . $arch, $output) : null;
+	$output = isset($output[0]) ? $output[0] : null;
+	return $output;
+}
+
+function main() {
+	global $argv;
+
+	// Make sure any files we create are only writable by us
+	umask(0077);
+	$dest_dir = "/tmp/smartofficedownload";
+
+	init();
+
+	indicate_progress("Processing install request");
+	if (isset($argv[1])) {
+		$cloud_creds = $argv[1];
+		$force = isset($argv[2]) && $argv[2] == 'force' ? true : false;
+		$cloud_url = isset($argv[3]) ? isset($argv[3]) : "https://sr.iot.sangoma.tech:443";
+		$client_version =isset($argv[4]) ? $argv[4] : '1.0.0-7';
+		$metadata = isset($argv[5]) ? $argv[5] : '';
+		$service = isset($argv[6]) ? $argv[6] : 'proxy-client';
+		$running = isset($argv[7]) ? $argv[7] : false;
+	} else {
+		// No node key argument was provided, try to get it from the database
+		$request = fetch_request();
+		if (!$request) {
+			finish(1, "Token not found");
+		}
+		$cloud_creds = $request->cloud_creds;
+		$cloud_url = $request->cloud_url;
+		$client_version = $request->client_version;
+		$force = $request->force;
+		$metadata = $request->metadata;
+		$service = $request->service;
+		$running = $request->running;
+	}
+
+	indicate_progress("Validating install information");
+	$cloud_creds = json_decode($cloud_creds, true);
+	if (!is_array($cloud_creds)) {
+		finish(1, "Invalid cloud credentials");
+	}
+
+	stop_agent($service); // The installer requires the service to be stopped
+
+	$uname = posix_uname();
+	if (isset($uname['release']) && str_contains($uname['release'], "amd64")) {
+		$arch = 'amd64';
+	} else {
+		$arch = ($uname['machine'] == 'x86_64') ? 'x86_64' : 'i686';
+	}
+	$curr_ver = get_package_version($arch);
+	$installer_name = "service-proxy-client_{$client_version}_{$arch}.deb";
+
+	if (!$curr_ver || $curr_ver != $client_version) {
+
+		$opts = array(
+			'http'=>array(
+				'method'=>"GET",
+				'header'=> "Authorization: " . json_encode(array('key' => $cloud_creds['access_key'], 'token' => $cloud_creds['access_token'])),
+          	)
+		);
+		$context = stream_context_create($opts);
+
+		$download_url = "{$cloud_url}/static/files/{$installer_name}";
+		$stream = fopen($download_url, 'rb', false, $context);
+		if (!$stream) {
+			finish(1, "Failed to download installer: {$download_url} Error: " . print_r(error_get_last(), true));
+		}
+		indicate_progress("Downloading installer from: {$download_url}");
+		shell_exec("rm -rf {$dest_dir}");
+
+		if (!mkdir($dest_dir, 0700, true)) {
+			finish(1, "Failed to create download directory");
+		}
+
+		$dest_installer = "{$dest_dir}/{$installer_name}";
+		if (!file_put_contents($dest_installer, $stream)) {
+			finish(1, "Failed to download installer: {$download_url}");
+		}
+
+		// file_put_contents seems to ignore the executable
+		// bit in our umask, possibly for security reasons
+		chmod($dest_installer, 0700);
+
+		$cmd_args = array(
+			'dpkg',
+			'-i',
+			$dest_installer,
+		);
+		if ($force) {
+			$cmd_args[] = '--force-all';
+		}
+		$cmd_args[] = '2>&1';
+		$cmd = implode(' ', $cmd_args);
+		indicate_progress("Executing installer: {$cmd}");
+		exec($cmd, $output_lines, $ret);
+		$output = implode("\n", $output_lines);
+		if ($ret === null || !in_array($ret, [0, 1])) {
+			finish($ret, "Installer failed with status {$ret}:\n{$output}");
+		} else if ($ret == 1 &&  strpos($output, 'is already installed') !== false ) {
+			start_agent($service, $metadata, $running);
+			finish(0, "The installation is up to date");
+		} else if ($ret == 1) {
+			finish($ret, "Installer failed with status {$ret}:\n{$output}");
+		}
+	} else {
+		indicate_progress("Package {$installer_name} already installed");
+		indicate_progress("Configuring service {$service}");
+		$ret = 0;
+	}
+	start_agent($service, $metadata, $running);
+	finish($ret, "Successfully installed {$service} service");
+}
+
+main();
+unlink($lockFile);
+?>

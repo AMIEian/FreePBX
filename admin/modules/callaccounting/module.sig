@@ -1,0 +1,184 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+;################################################
+;#        FreePBX Module Signature File         #
+;################################################
+;# Do not alter the contents of this file!  If  #
+;# this file is tampered with, the module will  #
+;# fail validation and be marked as invalid!    #
+;################################################
+
+[config]
+version=1
+hash=sha256
+signedwith=B53D215A755231A3
+signedby='FreePBX Mirror Servers <security@freepbx.org>'
+repo=commercial
+timestamp=1713345881.3309
+[hashes]
+AccountingDB.php = e597c2e47109a5d3bbccb5b12dcf515366673cc0563de26d3479bdb21712ac51
+Backup.php = b06a694f14e2617cad02e488d43f4c16b7f59b49e5f6adeacaa4e10e854ae1e9
+Callaccounting.class.php = 447f232c69683665f41668478c3fc681e59ce2a697260de77d1a6c6cbe087cb4
+LICENSE = d012ce07f6ec81aeae4f3aa64794d8624511e10e21f3413ef5991174d68ce58a
+README.md = 84f0a47a4770c96d821e715477d9785fae1e28573e672b6bf5922affa908f070
+Restore.php = 5c79ef32befa2096a694790f1c53a418c06ae0317508e925e7e7f6da39d1bf70
+agi-bin/callaccounting_find_ratecard.php = 9316dd56dd2588fb01b6baa3146aa07edc99273fa61d3ca8eecc895036e96fec
+agi-bin/callaccounting_hangup.agi = e0642f6826cb7c6e2b3e048d51bf24ffb76ae5e701ef8514b6ec41e45ba94b85
+assets/js/callaccounting.js = ef9e6df15b871532a21d3f39c3149aa0ff06f78916fa17c495925bef802601f4
+callhangupprocess.php = 991722b76382f5b436ff3b29755149375fef685c7ce39aef04a4384b1ec6dcf6
+composer.phar = bc6cbcd2c0fbc03c7ab87442b5f1fbc9407f0b9900bddc10d755bdc81bbe7b6e
+functions.inc.php = 848a9f2cb8fe257c8bd98d08e29e713a54a05201d8732a3445162daf9f245dab
+includes/callaccounting.extend.class.php = 57627e4b59d4420f66ce13ee843624c42fa826bec55b6e72c36cef0f4c9519c5
+includes/fpdf.ext.class.php = 643b038b0f79185315e9bc92deb58371687b5a69c74151eacf716e1e67a120ce
+install.php = 82f7ccfd1db4bbc1ec55a8ab01ea5dfc3303a8f86184421006790cd5da61874e
+module.xml = 891e8d4702fdf82b7a392c47e8b0c001992f438e4543ae782d6537adba67524a
+page.callaccounting.php = f5d83f63b069d3f18142ceede12d78d457fef8a2e5dc54d00b8908fb5a6063e1
+vendor/autoload.php = dbd6ffa380194e556ed03779e0f1ed3f46ca65847bc53da93f3ac021c75e3d4c
+vendor/composer/ClassLoader.php = d4ce58f19733611958bb3eca4b945c5291368b31ede2a071dfb3ed37ea6dde09
+vendor/composer/InstalledVersions.php = 04103ddfbc3c906af1d6216045599021ce346d920fdd55f88f5f2a05c08d8f1a
+vendor/composer/LICENSE = c8cce4b6b9729f264ffdf9296d505d63432497feeed1f586d1902b942197e024
+vendor/composer/autoload_classmap.php = d170870197e7c2f3273f262d40b67f3d7b23847b8859df61dd9ab73c16b5d069
+vendor/composer/autoload_namespaces.php = 1543fe48bcb4afafdf9093413a31bd8c457d5a7a17a045f8bd63fa9666b50750
+vendor/composer/autoload_psr4.php = dc777fc633a02a9b2e0fdaf5ba9c2e27431f948d273343e49b36e43c5874e88a
+vendor/composer/autoload_real.php = 013f50ea81a4f0194b8040a9e4877f8ee73c7eabdc81607ed7518e3699bd96b1
+vendor/composer/autoload_static.php = b228c4551705e64fd73aeefa61fef41eaced7bff4ee8a47f724095904498acb6
+vendor/composer/installed.json = e93fd26267f51009e118973996ce7f817b9f5136cf4e44e43cefe4b3e56f77aa
+vendor/composer/installed.php = 3d95932326ad5cb1117bd897bc4ddf3c7ee4127edcee6fbfce9cff21cae67795
+vendor/setasign/fpdf/FAQ.htm = b3f44914ca38f85862ecbf3d96a5cd2b8bef9054623cfd091427f80e11edfe59
+vendor/setasign/fpdf/README.md = c9dbb99d5412164ae02c0e5bf94de167594f219d846c040140ec9689a2292add
+vendor/setasign/fpdf/changelog.htm = d2b99ae46686bd2bd6fca4af9c764eb9fb7ecdec058e5b702ffee249051004aa
+vendor/setasign/fpdf/doc/__construct.htm = 93b5893ed99ef27ac9035e51c61626ea8e7f8d3762d2f4a6417bf06478d04d15
+vendor/setasign/fpdf/doc/acceptpagebreak.htm = 8b362436e85344c7bc44163359d8a48abfea8a30e303a0aa6302e41a4128134c
+vendor/setasign/fpdf/doc/addfont.htm = 504ccd1aa387e7fa114d7e6b1ced037654591dc9e2958495d329cef6bbe24a0c
+vendor/setasign/fpdf/doc/addlink.htm = a1101e1710fcbc7713ca28e3ac8b34d023a9e5d71a026f26cc1415e6e8519ae0
+vendor/setasign/fpdf/doc/addpage.htm = faa049a5acc66a53384ca92ceccf392c1b1af097346eaa06692296c9831d550c
+vendor/setasign/fpdf/doc/aliasnbpages.htm = 2c92889f3bf7ab2c5d8a10f8c356fd9780c779c0d9ac21fac0949c90edb9931c
+vendor/setasign/fpdf/doc/cell.htm = 7adbcebb411e8713d5af96e40d6196aa8c85e7ed6a04268e9290c50a453311bf
+vendor/setasign/fpdf/doc/close.htm = 94e69c5de5ec205beb583db49ad0f8423747ad88a2bb335e83779f85e9b2d27b
+vendor/setasign/fpdf/doc/error.htm = 39caa17526f7398482688d85e078682435d23d2f00e6764c522596faa8bad1a6
+vendor/setasign/fpdf/doc/footer.htm = 40c0fa6b79e21a8f164930a88d8ca2b72c9cf508f78af4c2fbe8fb65b36d6ce3
+vendor/setasign/fpdf/doc/getpageheight.htm = e4a9257045bd0ad4bfa16f6b347c53607d5c14616bf430c346ae4f55650bfbbb
+vendor/setasign/fpdf/doc/getpagewidth.htm = a321b9ec6c15120cb5ee289825e73efcbc691ff3f5f8eed98eabd20322c774fe
+vendor/setasign/fpdf/doc/getstringwidth.htm = aee8b89589ea1723320d764f0d3cac90a596404a65f64aa01d71831eb8d51ad6
+vendor/setasign/fpdf/doc/getx.htm = b58f718a9a65f62b0b44ee301ce716209e06f6379148a10704ea5500c1fc9cc7
+vendor/setasign/fpdf/doc/gety.htm = 5315133ac739802dcc8384feaebc5100bbd58fc2d0679ccaab45885ede572810
+vendor/setasign/fpdf/doc/header.htm = 7dbf57a4c730f38f45d8608199b6847b0224dc9ddc1ec84c9cd174d7fe2e266f
+vendor/setasign/fpdf/doc/image.htm = 0a6abee9061763b1f39003e5a4594d79c37d4050bd63ef7fe575f0cb9e0184c0
+vendor/setasign/fpdf/doc/index.htm = 6fdaefbfc1f4e355ce9e700218a0364ce5207909a57d295a35ca3a44b9102585
+vendor/setasign/fpdf/doc/line.htm = 7c77887d6e078c7cf3625b91aa1a45463344ca624bb639ce494a69fcafb7e877
+vendor/setasign/fpdf/doc/link.htm = 2a6f59a7087cd694b5c23d9d04170e6a04cab3859735da8e42f449ff20e41491
+vendor/setasign/fpdf/doc/ln.htm = 9e49e61783fac7db151acb085dfc08c3928d6c242f374fd26743091ef1b099af
+vendor/setasign/fpdf/doc/multicell.htm = f81c2b8da74a05f467b5df08945d079ee0f04789526d7e069259a89d07016fd3
+vendor/setasign/fpdf/doc/output.htm = fafa68bb03c06ef19e50eb7a802fd7a7a210162a2c8d3a581c13af32f68a713b
+vendor/setasign/fpdf/doc/pageno.htm = 51be9785db5af86019be5a3bf45d78e360ee7013fd805e4b6a2e8351e85e8308
+vendor/setasign/fpdf/doc/rect.htm = b229cf50870435da53703b433bfac33e158601fd0439e88992af21b76090cb89
+vendor/setasign/fpdf/doc/setauthor.htm = dcb40d4fe210f0ba44059cb171a4c6a39d037e1eb789d9a2bbc2d3970b4e7bf0
+vendor/setasign/fpdf/doc/setautopagebreak.htm = ab92d8ee1e5ce953bcbc6397f7e6d60312889b5c926a706397920455f3aeed8b
+vendor/setasign/fpdf/doc/setcompression.htm = e810dc50824bdfac458b4ca417ed97aefeb5bd85f27a98d79218e75dcb9ccbf5
+vendor/setasign/fpdf/doc/setcreator.htm = 33101835442410583a813a43884cf07c6dbf8e26878abb02ee24c4596f69b4cf
+vendor/setasign/fpdf/doc/setdisplaymode.htm = f83cf593b88a147c80efba3c123db2050453ede5b0c5aef63da6ce2937b1d286
+vendor/setasign/fpdf/doc/setdrawcolor.htm = 94f3dd43ec2b8f313ba7808facf1287712058f4791035969337e03fba9a3c8f5
+vendor/setasign/fpdf/doc/setfillcolor.htm = bfcc3ab2c72d0c5a66566d9dd402bb775abffb487263b351e27dc9840198eb8c
+vendor/setasign/fpdf/doc/setfont.htm = 37f520b6d5ae4293a2228084c8a4c7e6ac7ba95f188e67e76b606979f892f9ae
+vendor/setasign/fpdf/doc/setfontsize.htm = 9d9546c741e6778ce9194b8a0b0aaf8acbdbe6ececc428141abb6239da01e72b
+vendor/setasign/fpdf/doc/setkeywords.htm = d34d8b7cfcede13d798dc8ea47d777300f86810482d776eff643ad7e12af65c2
+vendor/setasign/fpdf/doc/setleftmargin.htm = 8032f953c21b56a5f23cfd142f97415a10464e06f22a6f1d8bb4246ec9b654c9
+vendor/setasign/fpdf/doc/setlinewidth.htm = a7f760aeeb980c19de3d29fa119287ef06c2feaa98f675f94996146ad79e68ef
+vendor/setasign/fpdf/doc/setlink.htm = 2ada8de52b6e4889c1f4560142b0ffb1931fca957969de74ad635ef3d42df23d
+vendor/setasign/fpdf/doc/setmargins.htm = 10ccc7956b40500f9f22523f7596e2e3ac179d698fd4c1b61db8fbd52703ded1
+vendor/setasign/fpdf/doc/setrightmargin.htm = a4fd17aecbff25aa44fae6d98ccd874a0894154723992fd772d2d54d0beadea3
+vendor/setasign/fpdf/doc/setsubject.htm = d687d5b9ccb0373b6fbfa6fd5e7e961b04144d9816612df9280b6a631e14a214
+vendor/setasign/fpdf/doc/settextcolor.htm = 5da115c0b94627f96c6eb23555823b20645ae8f2ec2e382d35a656535c391fc0
+vendor/setasign/fpdf/doc/settitle.htm = 85ee2f1d6265da3735cedd0e712ab499e3a388139180eba46c868890b1afb999
+vendor/setasign/fpdf/doc/settopmargin.htm = b460cbfde4762fd11bfa1b1c78300416e81575474d02e6c7d8e473bb59006522
+vendor/setasign/fpdf/doc/setx.htm = a8371211b43469ac28cef515791169663c10e58c2c57ad43bb6e7f35a93d19cc
+vendor/setasign/fpdf/doc/setxy.htm = 35616377d4e999e836c11c6bca1acad8c3b80e8e50138b5dba9b5cf57f68feea
+vendor/setasign/fpdf/doc/sety.htm = 408e325ccda256df40baf1845cd48f9873617ac632dd42f7eeef321d343fa5ef
+vendor/setasign/fpdf/doc/text.htm = e92b93a9408c8378fde0b38f9215f600cb9a1fceae36a7cb2150c2ab817eef89
+vendor/setasign/fpdf/doc/write.htm = 9acb5c0ad2ebad9ffc920721b2ce3471426312446ef407c933becf2ba767b1b3
+vendor/setasign/fpdf/font/courier.php = a739c1cdb96c9d3cb692c340a7153a1dbcfabedfa1a2e6b3e2b8616d949f691b
+vendor/setasign/fpdf/font/courierb.php = fdfae92e06e10183701f069050cd1635a67855c019683fad0692bf29fb71477a
+vendor/setasign/fpdf/font/courierbi.php = 51f1e3eb3707bc1ed3a15c5989c428e39712c950712d108309cffd9ef2bc473b
+vendor/setasign/fpdf/font/courieri.php = d1dfe28b5323dd723dc2ec8ebe4a60215340c0509905827eff2c4af3a9f1b4f8
+vendor/setasign/fpdf/font/helvetica.php = 32b0ba18daeb4d3d00d99a9183463ce517b55d2d0c586f190b07ee2e6b1703ba
+vendor/setasign/fpdf/font/helveticab.php = 39d239fdb90598de2f212541d215285c289a6835167f1af85a9b53417d7e25c2
+vendor/setasign/fpdf/font/helveticabi.php = f5d92e85147e78dc68166e175b554555f442faa70c2e7b8c4adca938bab13824
+vendor/setasign/fpdf/font/helveticai.php = 602e574d06fcdb00b352cfd6576dcf5e11d539c305f53d9209d2fbdb696a81a0
+vendor/setasign/fpdf/font/symbol.php = 5a2bc9266f24ea36fad58b548dc1a0e4582a430eff17d9e5065f21e59f9145b0
+vendor/setasign/fpdf/font/times.php = 7d958ff0741d747b5aabb0ab1a9078e32e62ac9539e96245880398c66133aaae
+vendor/setasign/fpdf/font/timesb.php = 7d395c7a291e6f65e33e545278b5213ef31063237f72372682ea448ca97dcf8b
+vendor/setasign/fpdf/font/timesbi.php = 3ab5eadfdeba11ea68b36cd1489245350855d93d82bdd04f4ffd27898ddb1b9d
+vendor/setasign/fpdf/font/timesi.php = 91fef3f65a4e462e6052b00cbe012d6c7b5e4e22de42404b10afc92d1b72622f
+vendor/setasign/fpdf/font/zapfdingbats.php = 0dc33f8533d10587a2c3ffb176ec5457d3be14519c8c5170fc01f31af13fad88
+vendor/setasign/fpdf/fpdf.css = 1642beaa51e53872480869307556a66b7372fd3955d03948d63b0ca4776d955f
+vendor/setasign/fpdf/fpdf.php = 9dacfa83b230f0f573b557b92b125d1a615c9f7fd7f7f86057e450873ce8a586
+vendor/setasign/fpdf/makefont/cp1250.map = 1f066ac80d413996ea573b7b7f5ab538f69935529f694815eaf155f4a487a28e
+vendor/setasign/fpdf/makefont/cp1251.map = 1ac1898fb1eea72798cd1955671f782350dc583e536a844a20435f2357762868
+vendor/setasign/fpdf/makefont/cp1252.map = 0e86449f41c6ddb555035043b357cf14b3f62b73b2689d551a011e814268f66d
+vendor/setasign/fpdf/makefont/cp1253.map = 9deca8de9b942161427810f50d912018ea0d702a5efe4e6643b1efae7d843c63
+vendor/setasign/fpdf/makefont/cp1254.map = a315c4702d79764001d9ecb7452b0d9eed1fd15432c440608aed8d18b0bbab4a
+vendor/setasign/fpdf/makefont/cp1255.map = 76b6ad5b40bd62a92ef1f9e06e2a956a3f3b818815558c59d9980063aba04c2d
+vendor/setasign/fpdf/makefont/cp1257.map = ad0a233ec62a1f43905118e2e7b3d68a263576cc53c08b609300add0e46919f7
+vendor/setasign/fpdf/makefont/cp1258.map = 66bb92568ca7517b27cc8796f8396dac0fa6419d8dcfd6f7c944fcd44759c10d
+vendor/setasign/fpdf/makefont/cp874.map = 73e1adb50c80d112fe12e0aa2d3bd5d9fc88d385b916637234328d29ddef4b07
+vendor/setasign/fpdf/makefont/iso-8859-1.map = 4610c0447829ab94d9bd15130f57dc60ac524b79ed5e9c46e04c6b9ff96b5674
+vendor/setasign/fpdf/makefont/iso-8859-11.map = a1e0ad79a8dfc00c4d4cad59f6f734403b8d1e4281ec39d0012d8a2d1160cac4
+vendor/setasign/fpdf/makefont/iso-8859-15.map = ff13201689af608fb834eb11d4b02a714f24953ebe54d9faff15cad5a41bbeee
+vendor/setasign/fpdf/makefont/iso-8859-16.map = e792b80fa17b08bd9a90d891c0034173c4abfb394e4e2932ee1b06acff5a7fd8
+vendor/setasign/fpdf/makefont/iso-8859-2.map = 4b569d73ac29b3ab5dbd14989e7398d993069cbddcd80a008b1093ca17521ce4
+vendor/setasign/fpdf/makefont/iso-8859-4.map = 3d8b417e076cf51dd610fe5c27e8749a96be7b79854132435b120600c3dd524a
+vendor/setasign/fpdf/makefont/iso-8859-5.map = 505823fe910cb90831b1ea50037cf8343ef94b7a64112db3118a1b6aa3f5dd6b
+vendor/setasign/fpdf/makefont/iso-8859-7.map = ba728c29fac64d7d9336f9003f659db94235fe3c8487acfcefac0fa774ac5c8f
+vendor/setasign/fpdf/makefont/iso-8859-9.map = 3bc7fc6710c800c6da91750b0ab57ac0ac60a1222d4003b586372d73a6c81b5f
+vendor/setasign/fpdf/makefont/koi8-r.map = 770135967b723a1b5a31fc25d90172a40648a8143d92c1a29f5817639108cd9d
+vendor/setasign/fpdf/makefont/koi8-u.map = 9b765ae7cdf70a88ddcd8782f4c4202315b106e4f73c288c44ae88a05ef73864
+vendor/setasign/fpdf/makefont/makefont.php = f166c21b888c14bc02faac8c31aefc0207559445be09390634a120235340fbe3
+vendor/setasign/fpdf/makefont/ttfparser.php = fdf6f4dd6229655d8986b42bf302c2acc9f433174b31eb835e172e03a1efd02f
+vendor/setasign/fpdf/tutorial/calligra.php = a7336c3d7476aa90ca1f7df7cd7e458d2a2df9bd56be0ccb946826704f9610d6
+vendor/setasign/fpdf/tutorial/calligra.ttf = 5905c12f9a3c71f7a783647e74e90c7ed0b6c76b73e9e02a558b69858a2a4351
+vendor/setasign/fpdf/tutorial/calligra.z = 20a8270449d31ffb84474817603ea99cf3b91ff08c3bac66ec09182b656ba6f0
+vendor/setasign/fpdf/tutorial/index.htm = f35f5b8b60777338542d2a9fbc3938f4f3cd798fd4bc5af21f35e9f9b0152e72
+vendor/setasign/fpdf/tutorial/logo.png = 8cbba01bc0cfbc2f48967a22cac8353a840493c9076d73ce139d431abb70831b
+vendor/setasign/fpdf/tutorial/makefont.php = d48c470ec0bd265be5295958f83e6d678990409aba315eb074ea609c357bee70
+vendor/setasign/fpdf/tutorial/tuto1.htm = 4de3cadee1a32543f3b4962a7b1f71cd04239ac3c1eaa2ed6c53ea51ae005b00
+vendor/setasign/fpdf/tutorial/tuto1.php = d7476717f3565b85c00a5511ade05b4ba15fed674ec636fbce1063942189f6f0
+vendor/setasign/fpdf/tutorial/tuto2.htm = 1f5ca88ce1d337624cf6cbbe9d826d348f87e07e2cd83174824ed67827230417
+vendor/setasign/fpdf/tutorial/tuto2.php = 624cb9055e4a1d433c8d9c5ff40d407d442dc72d8a2126d199e4db959abbb121
+vendor/setasign/fpdf/tutorial/tuto3.htm = 23b32776663f5948374cca1969b2632aaa936647c97388eeffc5d5c958c1f224
+vendor/setasign/fpdf/tutorial/tuto3.php = 192e4ae1d5339951ebef6e129af88f1eb1cace1837ba5886409918a5898bc550
+vendor/setasign/fpdf/tutorial/tuto4.htm = 02ccbaeaee0871309ff8bd41c324460e9ee94244c47d3b0d5004bbcdb7baf585
+vendor/setasign/fpdf/tutorial/tuto4.php = 932118546a06541793d593c720d08207d39c9d25a2b61e23899fcb21785f3463
+vendor/setasign/fpdf/tutorial/tuto5.htm = 371eb4ddedaeaaf0f6b9dcc7ccc4b51f68395dc5345f6d95ebe403c6e167878f
+vendor/setasign/fpdf/tutorial/tuto5.php = abeac26d566267544695799b6f0887140ea072651bef6df5504fefce81526cd2
+vendor/setasign/fpdf/tutorial/tuto6.htm = 94401d7929486725af78fc0885e7ad69a7ad172fc0620acf2e198fe642008b72
+vendor/setasign/fpdf/tutorial/tuto6.php = 261646f0a992b6584cb8234d8c9aec41aa7521b5e410681da246d556243c67f1
+vendor/setasign/fpdf/tutorial/tuto7.htm = e4f5c0ade868db9dc2cfbdbe5d3f6258e0c3a40c6f083f93e63c16d509e30edc
+vendor/setasign/fpdf/tutorial/tuto7.php = 011d9806bb70c2b8cceae7577be12bf474fc72f8593dcddf57ac653e25bb1afe
+views/add_deck_dial_pattern.php = 2802d8704a6dbfdaf41d769c1c0b55560a9ec9c11620d2afa059421a49ca272a
+views/add_ratedeck.php = b06b932533ef7f192e10c1593e8a6a90456fa4f6eb859e5dda5d511807749d81
+views/ca_list_dialpatterns.php = 139c1e3d69dc70b9927509048a8e4dc18544aa25098ed0d037691e8876ddc788
+views/ca_list_view.php = 7663b1141ade6ce6d5c408a4d8566288e3e789b621936ce03b8e1072cabcc677
+views/deck_cdr_list.php = 8227276aabd172391475d09c3eb0e207280b64b228de5d146e07b30157c2fe84
+views/overview.php = ab6f315448dd11dfbbfe0e5a6344c04f23446fdaf8eb55b072d968348edaf809
+views/ratepattens.php = abcd4415f7933edd9c19a935119ef71ee638c180140d7719559b84fc265d48d9
+views/rnav.php = f664bb88edd373664bba5f78e20514df2ed2b8a5259a7c95d51cc8fdbdeb8471
+views/userman_hook.php = 0fdfe08bfcd5946fa566bdb84aee1f44b93e53e9606610400081a8fa16307408
+;# End
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+iQIcBAEBAgAGBQJmH5VZAAoJELU9IVp1UjGjFlsP/1Ja708PQ9gQJsDVkWv8NbXJ
+YcVcNCcwGca/8t5pha8wPJjd/nDdR4AjZmmbNumJ7NSHblCPr5j5tueY2Dfijjij
+k44vR6RN3kzkzKRXkM+HalO7yiBMXZYrZolX7xReJGy6K2HtX5yzFf7N6qXVHyCk
+l/92JVKDZ++axSS0HQrclaMhucFkRRWxMINOjO2iWDlkHlqIg/sxqG8fdj6ASIt6
+Td3xWJseHUxV2wwtCGHmRcLwCogYUhz3fUDWxspZt3JF5yX7vOixjfom2NuU+MHG
+6fw00I45DFuNMrMFmonW5D87BGDKXDMlzIVTUrNhR+pSbZOk1HqFFCeCNO4EKKz8
+fCTak6O7CQifQfXX1Ef2YiJrYpjnhYTSWrR8PIKweZERKMl84BlQ0Tp5NK5UvMpY
+rl6A0TgiRxXidKSGA49rJmR4UWKn8SBkFmnyeIFq1S/KXJUAKZQI3SdeKFgdJRhi
+78g5CKrH7yX+QQwQ/dmvl0MI3J3pX7SbrShMgsBE7dP4jYjOqbTr9J0t0rm5c0MQ
+HW2j4U9qyvoRSd5+JisO2zwp+dL5RLsSu71qoIEsoq3YNdr49z8bzpDsNGvfyP7w
+pWqFuUpjHgwRkZpxhbZrO9W3F0QHkGc+CUGZn/7pVzfqDG2gCjI85LvOakCXIvbF
+B17wrgI1wBBbE4saKyQC
+=eLhI
+-----END PGP SIGNATURE-----

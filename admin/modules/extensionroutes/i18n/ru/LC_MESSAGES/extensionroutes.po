@@ -1,0 +1,80 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for extensionroutes
+# Copyright (C) 2008-2020 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-22 23:26-0500\n"
+"PO-Revision-Date: 2022-04-13 13:00+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/fpbxc/"
+"extensionroutes/ru/>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
+
+msgid "Allowed Extensions"
+msgstr "Разрешенные внутр.номера"
+
+msgid "Allowed Routes"
+msgstr "Разрешенные маршруты"
+
+msgid "Blocked Extensions"
+msgstr "Заблокированные внутр.номера"
+
+msgid ""
+"By checking this box it will select all extension routes, unchecking this "
+"box will uncheck all extension routes."
+msgstr ""
+"Установив этот флажок, будут выбраны все дополнительные маршруты, а при "
+"снятии этого флажка будут сняты все дополнительные маршруты."
+
+msgid "Check/Uncheck All Routes"
+msgstr "Выбрать/не выбрать все маршруты"
+
+msgid "Class Of Service is enabled"
+msgstr "Класс обслуживания включен"
+
+msgid "Creating default Extension Routes.."
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Extension Routing"
+msgstr "Маршрутизация внутр.номера"
+
+#, php-format
+msgid "Failed inserting %s to %s"
+msgstr "Ошибка вставки %s в %s"
+
+msgid "If checked this route is accessible to this user/extension"
+msgstr ""
+"Если выбрано - этот маршрут доступен для этого пользователя/внутр.номера"
+
+msgid "Note: Extension Routes is not registered"
+msgstr ""
+
+msgid "Optional: Select extensions that are able to use this route."
+msgstr ""
+
+msgid "Please use CoS to manage your routes."
+msgstr ""
+
+msgid "WARNING: Cannot connect to Asterisk Manager, fields will remain stale"
+msgstr ""
+
+msgid "done"
+msgstr ""
+
+msgid "removing AMPUSER outroute field.."
+msgstr ""

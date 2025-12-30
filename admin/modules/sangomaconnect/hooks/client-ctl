@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+require_once '/usr/lib/sysadmin/includes.php';
+define('CTL_REQ_KEY', 'proxy_client_ctl_request');
+define('CTL_RSP_KEY', 'proxy_client_ctl_response');
+
+if(class_exists('\Sangoma\Licensing\Ioncube') && \Sangoma\Licensing\Ioncube::isFileEncoded(__FILE__)) {
+	$v = new \Sysadmin\Validator("sangomaconnect");
+	$v->secureInclude('hooks/utils.php');
+} else {
+	include __DIR__ . '/utils.php';
+}
+
+$kvstore = new \Sysadmin\Kvstore("Sangomaconnect");
+$operation = $kvstore->getConfig(CTL_REQ_KEY);
+if (!$operation) {
+	print "Failed to fetch a valid operation request\n";
+	exit(-1);
+}
+
+$operation = json_decode($operation);
+
+print "Performing client operation: {$operation->action}\n";
+if($operation->action == "start" || $operation->action == "restart") {
+	file_put_contents("/usr/local/proxy-client/config/" . $operation->service ."-metadata", $operation->metadata);
+	exec("chown -R asterisk:asterisk /usr/local/proxy-client/config/" . $operation->service ."-metadata");
+}
+
+$rc = client_ctl($operation->service, $operation->action);
+if($operation->action == "start" || $operation->action == "restart") {
+	client_ctl($operation->service, "enable");
+} else if ($operation->action == "stop") {
+	client_ctl($operation->service, "disable");
+}
+$kvstore->setConfig(CTL_RSP_KEY, $rc);
+$kvstore->setConfig(CTL_REQ_KEY);
+print "Client operation finished\n";

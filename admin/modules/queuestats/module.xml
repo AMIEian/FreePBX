@@ -1,0 +1,183 @@
+<module>
+	<rawname>queuestats</rawname>
+	<name>Queue Wallboard</name>
+	<version>17.0.1.7</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<commercial>
+		<type>paid</type>
+	    <link>//freepbx.org/</link>
+	</commercial>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<repo>commercial</repo>
+	<category>Reports</category>
+	<description>The Queue Wallboard module allows you to easily view real-time information related to queues in the UCP module of FreePBX or PBXact.</description>
+	<more-info>https://wiki.freepbx.org/display/FPG/Queue+Wallboard</more-info>
+	<changelog>
+		*17.0.1.7* bump 
+		*17.0.1.1* 17.0.1  release
+	</changelog>
+	<depends>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>cdr ge 17.0.1</module>
+	</depends>
+	<menuitems>
+		<queuestats>Queue Wallboard</queuestats>
+	</menuitems>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<location>legacy</location>
+	<md5sum>legacy</md5sum>
+	<!-- Note that the CDRDB 'queuelog' table is created as part of install -->
+	<database>
+		<table name="qs_queuestats">
+			<field name="id" type="bigint" primaryKey="true" autoincrement="true"/>
+			<field name="serverid" type="string" length="36"/>
+			<field name="queuename" type="string" length="64"/>
+			<field name="incomingcalls" type="integer"/>
+			<field name="answeredcalls" type="integer"/>
+			<field name="abandoned" type="integer"/>
+			<field name="ivrabandoned" type="integer"/>
+			<field name="shortestholdsec" type="integer"/>
+			<field name="shortestholdid" type="string" length="20"/>
+			<field name="longestholdsec" type="integer"/>
+			<field name="longestholdid" type="string" length="20"/>
+			<field name="totalagents" type="integer"/>
+			<field name="agentsavail" type="integer"/>
+			<field name="agentsunavail" type="integer"/>
+			<field name="agentsinuse" type="integer"/>
+			<field name="callswaiting" type="integer"/>
+			<field name="periodstart" type="integer"/>
+			<field name="periodend" type="integer"/>
+			<field name="activecalls" type="integer"/>
+			<field name="completedcalls" type="integer"/>
+			<field name="averageholdsec" type="integer"/>
+			<field name="shortesttalksec" type="integer"/>
+			<field name="shortesttalkid" type="string" length="20"/>
+			<field name="averagetalksec" type="integer"/>
+			<field name="longesttalksec" type="integer"/>
+			<field name="longesttalkid" type="string" length="20"/>
+			<field name="slapercent" type="decimal" precision="10" scale="5"/>
+			<key name="periodindex" type="index">
+				<column name="periodstart"/>
+				<column name="periodend"/>
+			</key>
+		</table>
+		<table name="qs_callstats">
+			<field name="callid" type="string" length="32" primaryKey="true"/>
+			<field name="serverid" type="string" length="36"/>
+			<field name="did" type="string" length="32"/>
+			<field name="callerid" type="string" length="32"/>
+			<field name="queuename" type="string" length="20"/>
+			<field name="entryposition" type="integer"/>
+			<field name="entrytime" type="integer"/>
+			<field name="holdtime" type="integer"/>
+			<field name="talktime" type="integer"/>
+			<field name="status" type="string" length="20"/>
+			<field name="complete" type="boolean" default="0"/>
+			<field name="agentname" type="string" length="40"/>
+			<field name="lastevent" type="string" length="20"/>
+			<field name="lasteventtime" type="integer"/>
+			<field name="lasteventid" type="integer"/>
+			<field name="relatedcallid" type="string" length="32"/>
+			<field name="answertime" type="integer"/>
+			<field name="completetime" type="integer"/>
+			<key name="callstatus" type="index">
+				<column name="status"/>
+			</key>
+			<key name="relatedindex" type="index">
+				<column name="relatedcallid"/>
+			</key>
+			<key name="startindex" type="index">
+				<column name="entrytime"/>
+			</key>
+			<key name="endindex" type="index">
+				<column name="lasteventtime"/>
+			</key>
+			<key name="answerindex" type="index">
+				<column name="answertime"/>
+			</key>
+		</table>
+		<table name="qs_livestats">
+			<field name="uuid" type="string" primaryKey="true" length="42"/>
+			<field name="serverid" type="string" length="36"/>
+			<field name="timestamp" type="integer"/>
+			<key name="ts_indexs" type="index">
+				<column name="timestamp"/>
+			</key>
+		</table>
+		<table name="qs_agentstats">
+			<field name="id" type="bigint" primaryKey="true" autoincrement="true"/>
+			<field name="serverid" type="string" length="36"/>
+			<field name="statstart" type="integer"/>
+			<field name="statend" type="integer"/>
+			<field name="agentid" type="string" length="64"/>
+			<field name="missedcalls" type="integer"/>
+			<field name="answeredcalls" type="integer"/>
+			<field name="avgtalktime" type="integer"/>
+			<field name="mintalktime" type="integer"/>
+			<field name="mintalkcallid" type="string" length="20"/>
+			<field name="maxtalktime" type="integer"/>
+			<field name="maxtalkcallid" type="string" length="20"/>
+			<field name="completedcalls" type="integer"/>
+			<field name="pausedsec" type="integer"/>
+			<field name="idlesec" type="integer"/>
+			<field name="talksec" type="integer"/>
+			<field name="wrapupsec" type="integer"/>
+			 <key name="timeindex" type="index">
+                                <column name="statstart"/>
+                                <column name="statend"/>
+                                <column name="serverid"/>
+                        </key>
+		</table>
+		<table name="qs_agentlog">
+			<field name="id" type="bigint" primaryKey="true" autoincrement="true"/>
+			<field name="serverid" type="string" length="36"/>
+			<field name="agentid" type="string" length="64"/>
+			<field name="event" type="string" length="64"/>
+			<field name="queuename" type="string" length="20"/>
+			<field name="eventstart" type="integer"/>
+			<field name="eventend" type="integer"/>
+			<field name="eventlength" type="integer"/>
+			<field name="eventdata" type="string" length="32"/>
+			<key name="agent" type="index">
+				<column name="agentid"/>
+			</key>
+			<key name="fullindex" type="index">
+				<column name="event"/>
+				<column name="eventstart"/>
+				<column name="eventend"/>
+			</key>
+			<key name="eventindex" type="index">
+				<column name="event"/>
+			</key>
+		</table>
+	</database>
+	<hooks>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Queuestats" namespace="FreePBX\modules">chownFreepbx</method>
+		</framework>
+		<framework class="Reload" namespace="FreePBX">
+			<method callingMethod="preReload" class="Queuestats" namespace="FreePBX\Modules">preReloadFreepbx</method>
+		</framework>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+			<method callingMethod="getModuleLicenseInformation" class="Queuestats" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+		</sysadmin>
+		<ucp class="Ucp">
+			<method namespace="FreePBX\modules" class="Queuestats" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method namespace="FreePBX\modules" class="Queuestats" callingMethod="addUser">ucpAddUser</method>
+			<method namespace="FreePBX\modules" class="Queuestats" callingMethod="updateUser">ucpUpdateUser</method>
+			<method namespace="FreePBX\modules" class="Queuestats" callingMethod="delUser">ucpDelUser</method>
+			<method namespace="FreePBX\modules" class="Queuestats" callingMethod="addGroup">ucpAddGroup</method>
+			<method namespace="FreePBX\modules" class="Queuestats" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method namespace="FreePBX\modules" class="Queuestats" callingMethod="delGroup">ucpDelGroup</method>
+		</ucp>
+	</hooks>
+	<console>
+                <command>
+                        <name>queuestats</name>
+                </command>
+        </console>
+</module>

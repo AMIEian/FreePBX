@@ -1,0 +1,204 @@
+<module>
+	<rawname>vqplus</rawname>
+	<name>Queues Pro</name>
+	<version>17.0.9</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/15/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.pdf</licenselink>
+	<repo>commercial</repo>
+	<description>
+		(Formerly Virtual Queue Plus) MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Queue Pro adds additional advanced features to Queues module.
+	</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/35586407/Queue+Pro+VQ+Plus</more-info>
+	
+	<changelog>
+		*17.0.9* FREEI-2133 Queue Callback calls caller back only once if first callback gets a busy 
+		*17.0.8* FREEI-1645 do not call if there is a live call back call in the queue 
+		*17.0.7* FREEI-1813 php issue 
+		*17.0.6* FREEI-1813 php issue 
+		*17.0.5* FREEI-1813 made changes accpect calls from any destinations 
+		*17.0.4* FREEI-1813 made changes accpect calls from any destinations 
+		*17.0.3* FREEI-1351 Callback Queue setting in Queue Callback does not seem toFREEI-1242 crm restapi end event missing 
+		*17.0.2* Fixing Github #525 vqplus generating multiple callbacks issue 
+		*17.0.1* 17.0.1 alpha release
+	</changelog>
+	<category>Applications</category>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#queues-pro</link>
+	</commercial>
+	<menuitems>
+		<vqueue>Virtual Queues</vqueue>
+		<queuecallback>Queue Callback</queuecallback>
+		<queuepausecodes category="Admin">Queue Pause Codes</queuepausecodes>
+		<queuecallbackreport category="Reports">Queue Callback Report</queuecallbackreport>
+		<qrules category="Admin">Queue Penalty Rules</qrules>
+	</menuitems>
+	<popovers>
+		<vqueue>
+			<display>vqueue</display>
+		</vqueue>
+		<queuecallback>
+			<display>queuecallback</display>
+		</queuecallback>
+		<queuepausecodes>
+			<display>queuepausecodes</display>
+		</queuepausecodes>
+	</popovers>
+	<depends>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+		<module>queues ge 17.0.1</module>
+		<module>pm2 ge 17.0.1</module>
+		<version>17.0.1</version>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
+			<method callingMethod="getSummary" class="Vqplus" namespace="FreePBX\Modules">dashboardService</method>
+		</dashboard>
+		<queues class="Queues" namespace="FreePBX\modules">
+			<method callingMethod="hookTabs" class="Vqplus" namespace="FreePBX\Modules">tabhookQueues</method>
+		</queues>
+		<feature class="Featurecodeadmin" namespace="FreePBX\modules">
+			<method callingMethod="hookModuleCustomFeaturecodesview" class="Vqplus" namespace="FreePBX\Modules">tabhookPauseCode</method>
+		</feature>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Vqplus" namespace="FreePBX\modules">chownFreepbx</method>
+		</framework>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Vqplus" namespace="FreePBX\modules">startFreepbx</method>
+		</framework>
+		<framework class="Stop" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Vqplus" namespace="FreePBX\modules">stopFreepbx</method>
+		</framework>
+	</hooks>
+	<database>
+		<table name="virtual_queue_config">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="name" type="string" length="40" default=""/>
+			<field name="priority" type="integer" notnull="false"/>
+			<field name="position" type="integer" notnull="false"/>
+			<field name="min_penalty" type="integer" notnull="false"/>
+			<field name="max_penalty" type="integer" notnull="false"/>
+			<field name="raise_penalty" type="integer" notnull="false"/>
+			<field name="rule_id" type="integer" notnull="false"/>
+			<field name="joinannounce_id" type="integer" notnull="false"/>
+			<field name="agentannounce_id" type="integer" notnull="false"/>
+			<field name="music" type="string" length="100" notnull="false"/>
+			<field name="maxwait" type="string" length="8" notnull="false"/>
+			<field name="cidpp" type="string" length="100" default=""/>
+			<field name="alertinfo" type="string" length="254" default=""/>
+			<field name="language" type="string" length="50" default=""/>
+			<field name="callconfirm_id" type="integer" notnull="false"/>
+			<field name="dest" type="string" length="100" default=""/>
+			<field name="cdest" type="string" length="100" default=""/>
+			<field name="adest" type="string" length="100" default=""/>
+			<field name="gotodest" type="string" length="100" default=""/>
+			<field name="full_dest" type="string" length="100" default=""/>
+			<field name="joinempty_dest" type="string" length="100" default=""/>
+			<field name="leaveempty_dest" type="string" length="100" default=""/>
+			<field name="joinunavail_dest" type="string" length="100" default=""/>
+			<field name="leaveunavail_dest" type="string" length="100" default=""/>
+		</table>
+		<table name="vqplus_queue_config">
+			<field name="queue_num" type="string" length="20" default="" primarykey="true"/>
+			<field name="min_penalty" type="integer" notnull="false"/>
+			<field name="max_penalty" type="integer" notnull="false"/>
+			<field name="raise_penalty" type="integer" notnull="false"/>
+			<field name="rule_id" type="integer" notnull="false"/>
+			<field name="cdest" type="string" length="100" default=""/>
+			<field name="adest" type="string" length="100" default=""/>
+			<field name="full_dest" type="string" length="100" default=""/>
+			<field name="joinempty_dest" type="string" length="100" default=""/>
+			<field name="leaveempty_dest" type="string" length="100" default=""/>
+			<field name="joinunavail_dest" type="string" length="100" default=""/>
+			<field name="leaveunavail_dest" type="string" length="100" default=""/>
+			<field name="upil" type="string" length="6" default="no"/>
+			<field name="lazymembers" type="string" length="6" default="no"/>
+		</table>
+		<table name="vqplus_qrule_config">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="name" type="string" length="40" default=""/>
+		</table>
+		<table name="vqplus_qrule_detail">
+			<field name="rule_id" type="integer" primarykey="true"/>
+			<field name="elapsed" type="integer" primarykey="true"/>
+			<field name="min_penalty" type="string" length="10" default=""/>
+			<field name="max_penalty" type="string" length="10" default=""/>
+			<field name="queue_raise_penalty" type="string" length="10" default=""/>
+		</table>
+		<table name="vqplus_callback_config">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="name" type="string" length="40" default=""/>
+			<field name="cid" type="string" length="100" notnull="false"/>
+			<field name="numprepend" type="string" length="20" notnull="false"/>
+			<field name="patterns" type="text" notnull="false"/>
+			<field name="announcement" type="string" length="100" notnull="false"/>
+			<field name="recordname" type="boolean" notnull="false"/>
+			<field name="promptreqnum" type="string" length="100" notnull="false"/>
+			<field name="promptreqname" type="string" length="100" notnull="false"/>
+			<field name="promptreqconfirm" type="string" length="100" notnull="false"/>
+			<field name="promptcb" type="string" length="100" notnull="false"/>
+			<field name="promptcbaccept" type="string" length="100" notnull="false"/>
+			<field name="cbqueue" type="string" length="20" notnull="false"/>
+			<field name="timeout" type="integer" notnull="false"/>
+			<field name="retries" type="integer" notnull="false"/>
+			<field name="retrydelay" type="integer" notnull="false"/>
+			<field name="maxcallbacks" type="integer" notnull="false"/>
+			<field name="forcecid" type="boolean" notnull="false"/>
+			<field name="cbdfcountry" type="string" length="20" notnull="false"/>
+			<field name="cbstarttime" type="string" length="8" notnull="false"/>
+			<field name="cbendtime" type="string" length="8" notnull="false"/>
+			<field name="cbtiming" type="boolean" notnull="false"/>
+			<field name="qannouncements" type="boolean" notnull="false" default="1"/>
+		</table>
+		<table name="vqplus_callback_calls">
+			<field name="queue_num" type="string" length="20"/>
+			<field name="uniqueid" type="string" length="40" primarykey="true"/>
+			<field name="cbid" type="integer"/>
+			<field name="position" type="integer"/>
+			<field name="callback" type="string" length="20"/>
+			<field name="queue_entry_time" type="string" length="20"/>
+		</table>
+		<table name="vqplus_callback_log">
+			<field name="timestamp" type="integer"/>
+			<field name="queue_num" type="string" length="20"/>
+			<field name="uniqueid" type="string" length="40" primarykey="true"/>
+			<field name="cbid" type="integer"/>
+			<field name="callback" type="string" length="20"/>
+			<field name="success" type="boolean" notnull="false"/>
+			<field name="reason" type="string" length="80"/>
+			<field name="linkedids" type="string" length="200"/>
+		</table>
+		<table name="vqplus_callback_daemon_log">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="uniqueid" type="string" length="40"/>
+			<field name="queue" type="string" length="20"/>
+			<field name="cbid" type="integer" notnull="false"/>
+			<field name="channel" type="string" length="100"/>
+			<field name="callerid" type="string" length="20"/>
+			<field name="position" type="integer" length="3" notnull="false"/>
+			<field name="queuejointime" type="string" length="20"/>
+			<field name="event" type="string" length="20"/>
+			<field name="reason" type="string" length="50"/>
+			<field name="result" type="string" length="100"/>
+			<field name="event_link" type="string" length="50"/>
+			<field name="eventtime" type="datetime"/>
+		</table>
+
+		<table name="vqplus_qpause_codes">
+			<field name="id" type="integer" primarykey="true" autoincrement="true"/>
+			<field name="code" type="string" length="20"/>
+			<field name="reason" type="string" length="40"/>
+		</table>
+	</database>
+	<console>
+		<command>
+			<name>vqplus</name>
+		</command>
+	</console>
+</module>

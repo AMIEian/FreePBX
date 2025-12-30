@@ -1,0 +1,60 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for asterisk-cli
+# Copyright (C) 2008-2016 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-13 12:36+0000\n"
+"PO-Revision-Date: 2017-06-04 10:29+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
+"asterisk-cli/vi/>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
+
+#: assets/js/asterisk-cli.js:68
+msgid "All Ready"
+msgstr ""
+
+#: page.cli.php:15
+msgid "Asterisk CLI"
+msgstr "Asterisk CLI ( giao diện dòng lệnh)"
+
+#: page.cli.php:25
+msgid "CLI Command"
+msgstr "Lệnh CLI"
+
+#: assets/js/asterisk-cli.js:72
+msgid "Error getting list of commands!!"
+msgstr ""
+
+#: assets/js/asterisk-cli.js:19 assets/js/asterisk-cli.js:45
+msgid "Loading..."
+msgstr "Đang tải..."
+
+#: Asteriskdashcli.class.php:68
+msgid "No Output Returned"
+msgstr "Không có đầu ra được trở lại"
+
+#: page.cli.php:33
+msgid "Send Command"
+msgstr "Gửi lệnh"
+
+#~ msgid "Admin"
+#~ msgstr "Quản trị viên"
+
+#~ msgid ""
+#~ "Provides an interface allowing you to run a command as if it was typed "
+#~ "into Asterisk CLI"
+#~ msgstr ""
+#~ "Cung cấp một giao diện cho phép bạn chạy một lệnh như thể nó được định "
+#~ "dạng vào Asterisk CLI"

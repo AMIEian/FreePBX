@@ -1,0 +1,294 @@
+.anchorSmlink{
+    border: 1px solid rgba(94, 156, 125, 0.9);
+    background: #d6e4dd;
+    color: #0f5a59;
+    display: inline-block;
+    position: relative;
+    line-height: 1.42857143;
+    touch-action: manipulation;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    overflow: visible;
+    font-size: 14px;
+    padding: 5px 18px;
+    font-weight: bold;
+    min-height: 31px;
+    min-width: 45px;
+    margin: 0;
+    margin-right: 5px;
+    white-space: nowrap;
+    cursor: default;
+    -moz-box-shadow: 5px 5px 8px #888;
+    -webkit-box-shadow: 5px 5px 8px #888;
+    box-shadow: 5px 5px 8px #888;
+    padding: 13px;
+    border-radius: 8px;
+    height: 60px;
+    width: 230px;
+}
+
+.smlist{
+    position: relative;
+    display: block;
+    /* margin: 0; */
+    /* padding: 0 3px; */
+    border: 0 solid #e0e0e0;
+    float: left;
+    flex-grow: unset !important;
+}
+
+.smUl{
+    position: relative; */
+    /* display: block; */
+    /* float: left; */
+    list-style: none;
+    /* padding: 0; */
+    margin: 10px 0;
+    clear: both;
+    border: 0 solid #ccc;
+    background: transparent;
+    margin: 10px;
+}
+
+.stepNumber{
+    position: relative;
+    float: left;
+    width: 30px;
+    text-align: left;
+    padding: 0 -5px 5px;
+    font: bold 45px Verdana, Arial, Helvetica, sans-serif;
+}
+
+.stepDesc{
+    position: relative;
+    display: block;
+    float: left;
+    text-align: left;
+    padding: 5px;
+    font: bold 20px Verdana, Arial, Helvetica, sans-serif;
+}
+
+.stepContainer{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0 solid #ccc;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    clear: both;
+}
+
+.StepTitle{
+    display: block;
+    position: relative;
+    margin: 0;
+    border: 1px solid rgba(94, 156, 125, 0.9);
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0f5a59;
+    background-color: #f5f5f5;
+    clear: both;
+    text-align: left;
+    z-index: 88;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+    width: 574px;
+    padding: 11px;
+    width: 100%;
+    border-bottom: 1px solid #D6E4DD;
+}
+
+#systemvalidationTable {
+    height: 400px; 
+    overflow-y: auto;
+    display: block; 
+    padding: 0;
+}
+
+.buttonNextt{
+    border: 1px solid rgba(94, 156, 125, 0.9) !important;
+    background: #d6e4dd !important;
+    color: #0f5a59 !important;
+    display: inline-block !important;
+    position: relative !important;
+    line-height: 1.42857143;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
+    vertical-align: middle !important;
+    overflow: visible !important;
+    font-size: 14px;
+    padding: 5px 18px;
+    font-weight: bold;
+    min-height: 31px;
+    min-width: 45px;
+    margin: 0;
+    margin-right: 5px;
+    white-space: nowrap ;
+    border-radius: 4px;
+    line-height: initial;
+    display: block;
+    float: right;
+    margin: 5px 3px 0 3px;
+    padding: 3px;
+    width: 100px;
+    text-align: center;
+    min-height: 28px;
+    text-decoration: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+.highlight{
+    text-align: center;
+    position: relative;
+    top: 119px;
+    z-index: 1;
+    float: none;
+}
+.fa-spin{
+    font-size: 21px;
+}
+
+.displayCount{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    left:10%;
+    width: 80%;
+    padding: 26px 30px;
+    background: white;
+    z-index: 1;
+    margin: 0 auto;
+    border: 1px solid;
+    box-shadow: 6px 9px 25px;
+}
+
+#enableCount , #runCount{
+    font-size: 18px;
+}
+
+#systemvalidationTable,th,td {
+                width: 100%;
+            }
+
+#listscduserstable,th,td {
+    width: 100%;
+}
+
+.bs-checkbox{
+    width: 30px !important;
+    padding: 0;
+}
+
+#queuesid{
+    border: 2px solid;
+    border-style: inset;
+    /* padding: 3px 9px; */
+    overflow-y: auto;
+    height: 129px;
+}
+
+.queues {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+#queuepermissions {
+    width: 100%;
+}
+
+#table-all {
+    table-layout: auto;
+    width: 100%;
+}
+
+#table-all th, #table-all td {
+    white-space: nowrap;
+    table-layout: fixed;
+    width: fit-content;
+}
+#listscduserstable th, #listscduserstable td  {
+    white-space: nowrap;
+    table-layout: fixed;
+    width: fit-content;
+}
+#listscduserstable{
+    border-bottom: 1px solid #6EA68A ;
+}
+
+.selectedSuperVisorCount{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 12px 23px;
+        background: white;
+        z-index: 1;
+        margin: 0 auto;
+        border: 1px solid;
+        box-shadow: 0px 0px 6px;
+        margin-bottom: 43px;
+}
+
+.usertable{
+    table-layout: auto !important;
+    width: 100% !important;
+}
+
+.usersscroll{
+    border: 1px solid #ccc;
+    /* overflow-y: auto; */
+    width: 100%;
+    /* table-layout: fixed; */
+  }
+
+  .usersscroll .fixed-table-container {
+    height: 300px;
+  }
+
+.usersscroll .table{
+    margin-bottom: 0;
+}
+
+.usersscroll .table thead  {
+    position: sticky;
+    top: -42px;
+    z-index: 1;
+    background: #f8f9fa;
+  }
+
+  .togglehelptext{
+    display: flex;
+  }
+  .systemvalidation{
+    border: 1.5px solid #D6E4DD;
+    border-radius: 9px;
+  }
+  .step3validate{
+    border: 1.5px solid #D6E4DD;
+    border-radius: 9px;
+  }
+
+#removeUser {
+    font-size: 150%;
+    color: black;
+}
+
+.emergencynu{
+    color:red;
+    flex-basis: 19%;
+    align-items: center;
+    text-align: end;
+}
+
+.emergencyrow{
+    display: flex;
+}

@@ -1,0 +1,9 @@
+.offers,.noacct,.assign,.actrow,.actstat { display: none }
+.pd { padding-top: 0.75em }
+
+.offers ul {
+    list-style: none !important; 
+    line-height: 1.8 !important;
+}
+
+

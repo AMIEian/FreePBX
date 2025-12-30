@@ -1,0 +1,6 @@
+#!/bin/bash
+
+output_file="/var/spool/asterisk/tmp/iptables-save-output"
+rm -f "$output_file"
+/sbin/iptables-save -c > "$output_file" 2>&1
+

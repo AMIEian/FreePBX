@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Check if 'After=apache2.service' exists in the freepbx.service file
+if ! grep -q 'After=apache2.service' /usr/lib/systemd/system/freepbx.service; then
+	# Add the line
+	sed -i '/^\[Unit\]/a After=apache2.service' /usr/lib/systemd/system/freepbx.service
+fi
+
+SERVICE_FILE="/usr/lib/systemd/system/apache2.service"
+
+# Check if 'After=freepbx.service' exists in the apache2.service file
+if grep -q 'After=.*freepbx.service' "$SERVICE_FILE"; then
+	# remove 'freepbx.service' to the 'After=' line in apache2.service
+	sed -i 's/ freepbx.service//g' "$SERVICE_FILE"
+fi
+
+
+if grep -q 'check_ip_and_start_apache.sh' "$SERVICE_FILE"; then
+	# Remove the added lines
+	sed -i '/ExecStartPre=\/var\/www\/html\/admin\/modules\/sysadmin\/hooks\/check_ip_and_start_apache.sh/d' "$SERVICE_FILE"
+	sed -i '/Restart=on-failure/d' "$SERVICE_FILE"
+	sed -i '/RestartSec=5s/d' "$SERVICE_FILE"
+	sed -i '/^$/d' "$SERVICE_FILE"
+
+	# Add 'Restart=on-abort' if not already present
+	if ! grep -q 'Restart=on-abort' "$SERVICE_FILE"; then
+		sed -i '/^\[Service\]/a Restart=on-abort' "$SERVICE_FILE"
+	fi
+fi
+
+
+# Define the file path
+OVERRIDE_FILE="/etc/systemd/system/apache2.service.d/freepbx_apache2_systemd_override.conf"
+
+# Ensure the directory exists
+mkdir -p "$(dirname "$OVERRIDE_FILE")"
+
+# Create the freepbx specific file and add the contents to this file instead of changing original service unit file.
+cat <<EOF > "$OVERRIDE_FILE"
+# FreePBX Custom Apache2 systemd Override Configuration
+#
+# This override configuration ensures that Apache2 starts only after the system has
+# successfully obtained a valid IP address. This is particularly important for
+# compatibility with ionCube and commercial modules, which rely on a stable network
+# connection during startup.
+#
+# This configuration is required to prevent potential startup issues when Apache2
+# starts before the system's network interface is properly configured.
+#
+
+[Service]
+ExecStartPre=/var/www/html/admin/modules/sysadmin/hooks/check_ip_and_start_apache.sh
+Restart=on-failure
+RestartSec=5s
+EOF
+
+# Reload systemd to apply changes
+systemctl daemon-reload

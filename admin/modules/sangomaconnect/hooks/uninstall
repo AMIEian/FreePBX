@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+require_once '/usr/lib/sysadmin/includes.php';
+
+if(class_exists('\Sangoma\Licensing\Ioncube') && \Sangoma\Licensing\Ioncube::isFileEncoded(__FILE__)) {
+	$v = new \Sysadmin\Validator("sangomaconnect");
+	$v->secureInclude('hooks/utils.php');
+} else {
+	include __DIR__ . '/utils.php';
+}
+
+client_ctl('proxy-client', 'stop');
+client_ctl('proxy-client', 'disable');
+exec('rm -rf /usr/local/proxy-client/config/connect-proxy-metadata', $output_lines, $ret);
+exec('rm -rf /etc/logrotate.d/connect-proxy', $output_lines, $ret);
+exec('rm -rf /usr/lib/systemd/system/connect-proxy.service', $output_lines, $ret);
+exec('systemctl daemon-reload', $output_lines, $ret);
+
+?>

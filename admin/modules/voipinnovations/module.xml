@@ -1,0 +1,65 @@
+<module>
+	<rawname>voipinnovations</rawname>
+	<repo>commercial</repo>
+	<name>VoIPInnovations</name>
+	<version>17.0.1.4</version>
+	<category>Connectivity</category>
+	<menuitems>
+		<voipinnovations needsenginedb="yes">Metered SIP trunking</voipinnovations>
+	</menuitems>
+	<description>
+		This module is used to configure, manage and troubleshoot your VoIPInnovations(tm) SIP trunks and DIDs. The license on this source code is NOT GPL Open Source, it is a proprietary Free to Use license.
+	</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/25690461/Voip+Innovations+Module</more-info>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<changelog>
+		*17.0.1.4* 17.0.1.4 release
+		*17.0.1alpha* 17.0.1 alpha release
+	</changelog>
+	<depends>
+		<phpversion>8.2</phpversion>
+		<module>core ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+		<module>userman ge 17.0.1</module>
+		<module>sipsettings ge 17.0.1</module>
+		<module>certman ge 17.0.1</module>
+		<module>sms ge 17.0.1</module>
+	</depends>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<hooks>
+		<sms namespace="FreePBX\modules" class="Sms">
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="loadAdaptor">smsAdaptor</method>
+		</sms>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="hookTabs" namespace="FreePBX\Modules" class="Voipinnovations">coreDIDHook</method>
+		</core>
+		<userman class="Userman" namespace="FreePBX\modules">
+			<method callingMethod="delGroup" namespace="FreePBX\Modules" class="Voipinnovations">usermanDelGroup</method>
+			<method callingMethod="addGroup" namespace="FreePBX\Modules" class="Voipinnovations">usermanAddGroup</method>
+			<method callingMethod="updateGroup" namespace="FreePBX\Modules" class="Voipinnovations">usermanUpdateGroup</method>
+			<method callingMethod="myShowPage" namespace="FreePBX\Modules" class="Voipinnovations">usermanShowPage</method>
+			<method callingMethod="delUser" namespace="FreePBX\Modules" class="Voipinnovations">usermanDelUser</method>
+			<method callingMethod="addUser" namespace="FreePBX\Modules" class="Voipinnovations">usermanAddUser</method>
+			<method callingMethod="updateUser" namespace="FreePBX\Modules" class="Voipinnovations">usermanUpdateUser</method>
+		</userman>
+		<ucp class="Ucp">
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="addUser">ucpAddUser</method>
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="updateUser">ucpUpdateUser</method>
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="delUser">ucpDelUser</method>
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="addGroup">ucpAddGroup</method>
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method namespace="FreePBX\Modules" class="Voipinnovations" callingMethod="delGroup">ucpDelGroup</method>
+		</ucp>
+	</hooks>
+	<oobe method="oobeHook" priority="5000"/>
+	<console>
+		<command>
+			<name>voipinnovations</name>
+		</command>
+	</console>
+</module>

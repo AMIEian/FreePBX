@@ -1,0 +1,143 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for extensionsettings
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-20 05:50+0000\n"
+"PO-Revision-Date: 2015-04-22 20:33+0200\n"
+"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
+"extensionsettings/ru_RU/>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
+
+#: views/view.grid.php:24
+msgid "Busy"
+msgstr ""
+
+#: views/view.grid.php:34
+msgid "CF"
+msgstr ""
+
+#: views/view.grid.php:35
+msgid "CFB"
+msgstr ""
+
+#: views/view.grid.php:36
+msgid "CFU"
+msgstr ""
+
+#: views/view.grid.php:32
+msgid "CW"
+msgstr ""
+
+#: views/view.grid.php:20
+msgid "Call status"
+msgstr "Статус вызова"
+
+#: Extensionsettings.class.php:64
+msgid "Command not found!"
+msgstr ""
+
+#: extensionsettings.i18n.php:8
+msgid ""
+"Creates a list of all extensions and their current settings for CW, CF, CFB, "
+"CFU, VMXB and VMXU"
+msgstr ""
+"Создает список всех внутренних номеров и их текущих настроек для CW, CF, "
+"CFB, CFU, VMXB и VMXU"
+
+#: views/view.grid.php:33
+msgid "DND"
+msgstr ""
+
+#: assets/js/extensionsettings.js:18
+msgid "Edit"
+msgstr ""
+
+#: views/view.grid.php:17
+msgid "Extension"
+msgstr "Внутренний номер"
+
+#: extensionsettings.i18n.php:4 extensionsettings.i18n.php:10
+#: views/page.main.php:4
+msgid "Extension Settings"
+msgstr "Настройки внутренних номеров"
+
+#: Extensionsettings.class.php:131
+msgid "Extensions"
+msgstr ""
+
+#: views/view.grid.php:30
+msgid "FM"
+msgstr ""
+
+#: views/view.grid.php:31
+msgid "FM-list"
+msgstr ""
+
+#: views/view.grid.php:19
+msgid "Follow-Me"
+msgstr "Следуйте сюда"
+
+#: Extensionsettings.class.php:174 views/view.grid.php:26
+msgid "Operator"
+msgstr ""
+
+#: Extensionsettings.class.php:96
+#, php-format
+msgid "Page Not Found (%s)!!!!"
+msgstr ""
+
+#: views/view.grid.php:27
+msgid "Press 0"
+msgstr ""
+
+#: views/view.grid.php:28
+msgid "Press 1"
+msgstr ""
+
+#: views/view.grid.php:29
+msgid "Press 2"
+msgstr ""
+
+#: extensionsettings.i18n.php:6
+msgid "Settings"
+msgstr "Установки"
+
+#: views/view.grid.php:23
+msgid "Status"
+msgstr "Статус"
+
+#: views/view.grid.php:25
+msgid "Unavail"
+msgstr ""
+
+#: views/view.grid.php:18
+msgid "VmX Locator"
+msgstr "VmX локатор"
+
+#~ msgid "FreePBX Extension Settings"
+#~ msgstr "Настройки внутренних номеров FreePBX"

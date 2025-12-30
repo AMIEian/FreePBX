@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cat <<- EOF > /etc/logrotate.d/scribe
+/var/log/asterisk/scribe.log {
+    size 50M
+    missingok
+    rotate 5
+    notifempty
+    sharedscripts
+    dateext
+    create 0640 asterisk asterisk
+    su asterisk asterisk
+    postrotate
+        chown asterisk:asterisk /var/log/asterisk/scribe.log
+    endscript
+}
+EOF

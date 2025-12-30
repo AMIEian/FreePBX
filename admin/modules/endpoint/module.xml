@@ -1,0 +1,126 @@
+<module>
+	<rawname>endpoint</rawname>
+	<name>EndPoint Manager</name>
+	<version>17.0.7</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<repo>commercial</repo>
+	<type>setup</type>
+	<category>Settings</category>
+	<description>Endpoint Manager - COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Supports provisioning of devices.</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/31064118/EndPoint+Manager</more-info>
+	<changelog>
+		*17.0.7*    Fixing network mask scan validation issue 
+		*17.0.6*    Strengthened data validation and SQL injection protection 
+		*17.0.4*    Fixing FREEI-2286 Sanitizing the subnet input field for network scan. 
+		*17.0.3*    Adding validation for the AJAX request parameters. 
+		*17.0.2.31* Packaging of ver 17.0.2.31
+		*17.0.2.30* Packaging of ver 17.0.2.30
+		*17.0.2.29* FREEI-2231  
+		*17.0.2.28* FREEI-2172 Endpoint - Getting error when we change the extension from account 1 to account 2 
+		*17.0.2.27* FREEI-2152 
+		*17.0.2.26* #issues 765  Invalid argument supplied for foreach 
+		*17.0.2.25* FREEI-2112 Timezone issue in P phones 
+		*17.0.2.24* Packaging of ver 17.0.2.24
+		*17.0.2.23* FREEI-2009 Multicast paging support for P310 and P315. 
+		*17.0.2.22* FREEI-650 PBX removing Umlauts and Polish diacritical marks from Name field for buttons 
+		*17.0.2.21* #456 D62 phones contact file creates a empty contact 
+		*17.0.2.20* Replacing http with https for endpoint ips in ext mapping page 
+		*17.0.2.19* Issue-699 DST/Timezone on EPM is broken on Snom 
+		*17.0.2.18* Issue-680 Snom 'phone_type' should be removed from EPM template 
+		*17.0.2.17* FREEI-1834 P phone not provisioning with latest recommended firmware 
+		*17.0.2.16* Disable of direct IP calling for yealink phones 
+		*17.0.2.15* Github #666 Fixing backgroun image issue for SNOM 
+		*17.0.2.14* FREEI-1841 Yelink phone template 
+		*17.0.2.13* FREEI-1835 Endpoint - Woops error - Undefined variable $reload_status 
+		*17.0.2.12* Issue-666 "__background__" place holder not populating with value in EPM. 
+		*17.0.2.11* FREEI-1811 
+		*17.0.2.10* FREEI-1660 
+		*17.0.2.9* FREEI-1686 - If RTAPI HAProxy is enabled, the sslsngphone port is used for phoneapp service 
+		*17.0.2.8* FREEI-1660 UPGRADE TO 17 KILLED HOTDESKING FOR S-SERIES S500/S505 
+		*17.0.2.7* FREEI-1668 LDAP password is preventing EPM to write config 
+		*17.0.2.6* Github #634 Fixing Transparent Background not working issue 
+		*17.0.2.5* FREEI-1649 Fixing Uniden template rebuild error
+		*17.0.2.4* FREEI-1621 Fixing syntax error in firmware management
+		*17.0.2.3* FREEI-1566 EPM Backup &amp;amp; Restore Error in v15 to v16/v17 
+		*17.0.2.2* FREEI-1598 Fixing undefined key error 
+		*17.0.2.1* FREEI-1578 GS template issue while issue custom prov url 
+		*17.0.2*    Fixing FREEI-1558 undefined variable error. 
+		*17.0.1.99* FREEI-1547 If there's no setup of LDAP, then remove Directory option in P phone 
+		*17.0.1.98* FREEI-1022 Fixing styling issue 
+		*17.0.1.97* FREEI-1539 Make P-Series web UI visible to users 
+		*17.0.1.96* FREEI-1022 Adding LDAP support for Px phones 
+		*17.0.1.95* Fixing FREEI-1537 undefined index issue 
+		*17.0.1.87* Fixing Missing APP-STATUS/PARKING from P31X issue
+		*17.0.1.86* Github #447 changing default value for the GS phones 
+		*17.0.1.85* Adding support of the Call flow app for Px  
+		*17.0.1.82* Adding support of the TimeCondition app for Px  
+		*17.0.1alpha* 17.0.1 alpha release
+	</changelog>
+	<depends>
+		<version>17.0.1</version>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+		<module>core ge 17.0.1</module>
+		<module>cdr ge 17.0.1</module>
+		<module>paging ge 17.0.1</module>
+		<module>sipsettings ge 17.0.1</module>
+		<module>framework ge 17.0.1</module>
+		<module>parking ge 17.0.1</module>
+	</depends>
+	<methods>
+		<get_config pri="750">endpoint_core_process</get_config>
+	</methods>
+	<hooks>
+		<sysadmin class="Sysadmin" namespace="FreePBX\modules">
+			<method callingMethod="getModuleLicenseInformation" class="Endpoint" namespace="FreePBX\modules">sendModuleLicenseInformation</method>
+		</sysadmin>
+		<framework class="View" namespace="FreePBX">
+			<method callingMethod="alertInfoDrawSelect" class="Endpoint" namespace="FreePBX\modules">alertInfoDrawSelect</method>
+		</framework>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Endpoint" namespace="FreePBX\modules">chownFreepbx</method>
+		</framework>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Endpoint" namespace="FreePBX\modules">startFreepbx</method>
+		</framework>
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
+                        <method callingMethod="getHeaders" class="Endpoint" namespace="FreePBX\modules">bulkhandlerGetHeaders</method>
+                        <method callingMethod="getTypes" class="Endpoint" namespace="FreePBX\modules">bulkhandlerGetTypes</method>
+                        <method callingMethod="import" class="Endpoint" namespace="FreePBX\modules">bulkhandlerImport</method>
+                        <method callingMethod="export" class="Endpoint" namespace="FreePBX\modules">bulkhandlerExport</method>
+                </bulkhandler>
+		<ucp class="Ucp">
+			<method callingMethod="constructModuleConfigPages" class="Endpoint" namespace="FreePBX\modules">ucpConfigPage</method>
+			<method callingMethod="addUser" class="Endpoint" namespace="FreePBX\modules">ucpAddUser</method>
+			<method callingMethod="updateUser" class="Endpoint" namespace="FreePBX\modules">ucpUpdateUser</method>
+			<method callingMethod="delUser" class="Endpoint" namespace="FreePBX\modules">ucpDelUser</method>
+			<method callingMethod="addGroup" class="Endpoint" namespace="FreePBX\modules">ucpAddGroup</method>
+			<method callingMethod="updateGroup" class="Endpoint" namespace="FreePBX\modules">ucpUpdateGroup</method>
+			<method callingMethod="delGroup" class="Endpoint" namespace="FreePBX\modules">ucpDelGroup</method>
+		</ucp>
+	</hooks>
+	<fileinclude>
+	    <install>functions.inc.php</install>
+	</fileinclude>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#endpoint</link>
+	</commercial>
+	<menuitems>
+		<endpoint needsenginedb="yes">EndPoint Manager</endpoint>
+	</menuitems>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<md5sum>d635a5b60a80d478f2e61cad07067d9b</md5sum>
+	<oobe method="oobeHook" priority="99"/>
+	<console>
+		<command>
+			<name>endpoint</name>
+			<alias>epm</alias>
+		</command>
+	</console>
+</module>

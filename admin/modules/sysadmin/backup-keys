@@ -1,0 +1,31 @@
+#!/bin/env php
+<?php
+if (posix_geteuid() != 0) {
+	print "This must be run as root.\n";
+	exit;
+}
+
+// Create a zip file with all the required keys in it.
+$files = array("webserver.crt", "webserver.key", "ca-bundle.crt");
+$output = "/tmp/ssl-backup.zip";
+@unlink($output);
+
+$pki = "/etc/apache2/pki";
+if (!file_exists("$pki/webserver.crt") || !file_exists("$pki/webserver.key")) {
+	exit;
+}
+
+$zip = new ZipArchive();
+$zip->open($output, ZipArchive::CREATE);
+foreach ($files as $f) {
+	$zip->addFile("$pki/$f", "$f");
+}
+
+$zip->close();
+
+chown($output, "asterisk");
+chmod($output, 0700);
+print "Backup has been generated. Download immediately via Sysadmin!\n";
+exit;
+
+

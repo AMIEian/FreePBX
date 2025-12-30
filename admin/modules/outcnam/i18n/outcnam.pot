@@ -1,0 +1,67 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for outcnam
+# Copyright (C) 2008-2025 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-20 05:48-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: views/main.php:14
+msgid "Enable CDR"
+msgstr ""
+
+#: views/main.php:39
+msgid "Enable RPID"
+msgstr ""
+
+#: views/main.php:54
+msgid "If enabled, found CNAM will be displayed on rpid enabled endpoints."
+msgstr ""
+
+#: views/main.php:29
+msgid ""
+"If enabled, the CDR AccountCode column will be populated with any found "
+"outbound CNAM."
+msgstr ""
+
+#: views/main.php:22
+#: views/main.php:47
+msgid "No"
+msgstr ""
+
+#: views/main.php:2
+msgid "Outbound CallerID Name"
+msgstr ""
+
+#: Outcnam.class.php:68
+msgid "Reset"
+msgstr ""
+
+#: views/main.php:64
+msgid "Scheme"
+msgstr ""
+
+#: views/main.php:76
+msgid "Setup Schemes in CID Superfecta section"
+msgstr ""
+
+#: Outcnam.class.php:73
+msgid "Submit"
+msgstr ""
+
+#: views/main.php:20
+#: views/main.php:45
+msgid "Yes"
+msgstr ""

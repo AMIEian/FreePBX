@@ -1,0 +1,719 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for pbxmfa
+# Copyright (C) 2008-2025 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-29 02:51-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid " E-Mail Address specified"
+msgstr ""
+
+msgid " Email Address"
+msgstr ""
+
+msgid " Extension"
+msgstr ""
+
+msgid " Extension specified"
+msgstr ""
+
+msgid " and "
+msgstr ""
+
+#, php-format
+msgid "%s Email Setup Validator Test Email (%s)"
+msgstr ""
+
+#, php-format
+msgid "%s Steps to configure authenticator app - (%s)"
+msgstr ""
+
+#, php-format
+msgid "%s Users %s Successfully"
+msgstr ""
+
+#, php-format
+msgid "%s Verify your login (%s)"
+msgstr ""
+
+#, php-format
+msgid "%s has reached the maximum login attempts"
+msgstr ""
+
+#, php-format
+msgid "%s reached the maximum login attempts (%s)"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid ""
+"After resetting MFA you will no longer be able to use backup codes that are "
+"saved and are currently used for authentication."
+msgstr ""
+
+msgid ""
+"An authenticator app configuration mail will be sent to users for the first "
+"time when they log in"
+msgstr ""
+
+msgid "Are you sure you want to disable MFA"
+msgstr ""
+
+msgid "Are you sure you want to disable MFA ?"
+msgstr ""
+
+#, perl-format
+msgid "Are you sure you wish to disable MFA for %s users?"
+msgstr ""
+
+msgid "Are you sure you wish to enable MFA for selected users?"
+msgstr ""
+
+msgid "Authenticator app config mail body is required"
+msgstr ""
+
+msgid "Authenticator app config mail subject is required"
+msgstr ""
+
+msgid "Backup Codes"
+msgstr ""
+
+msgid "Backup code downloaded successfully"
+msgstr ""
+
+msgid ""
+"Backup codes are used when you can't get codes by text, call, or from "
+"authenticator apps, then you can use these backup codes to sign in to PBX. "
+"Once the backup code is used to sign in, that code becomes inactive. Backup "
+"codes can be generate any time."
+msgstr ""
+
+msgid "Backup codes deleted successfully"
+msgstr ""
+
+msgid "Call timeout. Please try again..!!"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Code verified successfully"
+msgstr ""
+
+msgid "Custom Email Template"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disable MFA"
+msgstr ""
+
+msgid "Disabling..."
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email Address"
+msgstr ""
+
+msgid "Email Settings"
+msgstr ""
+
+msgid "Email settings saved successfully"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable / Disable MFA"
+msgstr ""
+
+msgid "Enable / Disable MFA System Wide"
+msgstr ""
+
+msgid ""
+"Enable / Disable MFA for all users / only for all Administrators / only for "
+"all Userman users"
+msgstr ""
+
+msgid "Enable / Disable custom email template"
+msgstr ""
+
+msgid "Enable UCP MFA"
+msgstr ""
+
+msgid "Enable administrator MFA"
+msgstr ""
+
+msgid "Enable mfa for this user when accessing UCP GUI"
+msgstr ""
+
+msgid "Enable mfa for this user when accessing admin GUI"
+msgstr ""
+
+msgid "Enabling..."
+msgstr ""
+
+msgid "Enter the code displayed in the Authenticator app on your mobile device​"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+#, php-format
+msgid "Exporting Databases from %s"
+msgstr ""
+
+msgid "Extension"
+msgstr ""
+
+msgid "Extension / Phone number is not available. Please try again..!!"
+msgstr ""
+
+msgid "Extension is required"
+msgstr ""
+
+msgid "For more information see: "
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid ""
+"If a user loses their phone or otherwise can't get codes by email, call, or "
+"authenticator app, they can use these backup codes to sign in to PBX."
+msgstr ""
+
+msgid ""
+"If a user loses their phone or otherwise can't get codes by text, call, or "
+"Google Authenticator, they can use backup codes to sign in to PBX."
+msgstr ""
+
+msgid ""
+"If the MFA type is set to \"All\" - all MFA authentication methods will be "
+"displayed to the user during login and the user can pick one of the methods "
+"to verify their identity."
+msgstr ""
+
+msgid ""
+"If the MFA type is set to \"Authenticator Apps\" - an OTP is generated from "
+"the linked authenticator app. Users have to use these OTP every time they "
+"log in. We recommend using authenticator apps such as Microsoft "
+"Authenticator / Google Authenticator Apps."
+msgstr ""
+
+msgid ""
+"If the MFA type is set to \"Call\" - a call will be made to the extension "
+"which is associated with the user and the user has to receive the call and "
+"should press the \"#\" key to authenticate."
+msgstr ""
+
+msgid ""
+"If the MFA type is set to \"Email\" - an OTP will be sent to the user via "
+"email."
+msgstr ""
+
+msgid ""
+"If the MFA type is set to authenticator app then the user will receive the "
+"authenticator app configuration mail again the next time they sign in."
+msgstr ""
+
+msgid ""
+"If the userman user has PBX Administration GUI access then those users will "
+"be displayed under the \"Administrator\" tabs."
+msgstr ""
+
+msgid ""
+"If there is no admin MFA license then admin MFA for users will not be "
+"enabled."
+msgstr ""
+
+msgid ""
+"If you have configured the authenticator app, all those settings will be "
+"removed from the system. You have to configure the authenticator app once "
+"again."
+msgstr ""
+
+msgid "Inherit"
+msgstr ""
+
+msgid "Insufficient Data"
+msgstr ""
+
+msgid "Invalid Call Id"
+msgstr ""
+
+msgid "Invalid Call Type"
+msgstr ""
+
+msgid "Invalid Code. Please try with other backup code"
+msgstr ""
+
+msgid "Invalid Credentials"
+msgstr ""
+
+msgid "Invalid Email Address"
+msgstr ""
+
+msgid "Invalid Extension"
+msgstr ""
+
+msgid "Invalid Login"
+msgstr ""
+
+msgid "Invalid OTP"
+msgstr ""
+
+msgid "Invalid User"
+msgstr ""
+
+msgid "Invalid Username"
+msgstr ""
+
+msgid "Licensed User Limit"
+msgstr ""
+
+msgid "Linked Extension"
+msgstr ""
+
+msgid "Logged in successfully"
+msgstr ""
+
+msgid "Login Panel is required"
+msgstr ""
+
+msgid "MFA Enabled Admins"
+msgstr ""
+
+msgid "MFA Settings"
+msgstr ""
+
+#, php-format
+msgid "MFA for the User %s successfully"
+msgstr ""
+
+msgid "MFA has been successfully reset."
+msgstr ""
+
+msgid "MFA is already disabled for the select users"
+msgstr ""
+
+msgid "MFA is disabled"
+msgstr ""
+
+msgid "MFA is not enabled"
+msgstr ""
+
+#, perl-format
+msgid "MFA is not enabled for %s users. Please check the log for more info."
+msgstr ""
+
+msgid "MFA will be enabled only for the users that have an"
+msgstr ""
+
+msgid "MFA will be enabled only for the users who"
+msgstr ""
+
+msgid "MFA will be enabled only for the users who are linked with"
+msgstr ""
+
+msgid "Mail sent successfully..!!"
+msgstr ""
+
+msgid "Multi-Factor Authentication Settings"
+msgstr ""
+
+msgid "New Backup Codes Generated Successfully"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No answer. Please try again..!!"
+msgstr ""
+
+msgid "No backup code found"
+msgstr ""
+
+msgid "No backup codes exists"
+msgstr ""
+
+#, php-format
+msgid "Not able to %s %s users. Please check the logs for more details."
+msgstr ""
+
+msgid "Not able to Login"
+msgstr ""
+
+msgid "Not able to authenticate. Please try again."
+msgstr ""
+
+msgid "Not able to authenticate. Please try again..!!"
+msgstr ""
+
+#, php-format
+msgid "Not able to call %s number. Please check the call configurations"
+msgstr ""
+
+msgid "Not able to call. Refresh your browser and try again."
+msgstr ""
+
+msgid "Not able to login. Please try again"
+msgstr ""
+
+msgid "Not able to make call. "
+msgstr ""
+
+msgid "Not able to make call. Please try again..!!"
+msgstr ""
+
+msgid "Not able to send Mail. Please try again..!!"
+msgstr ""
+
+msgid "Not able to send test mail. MFA require valid mail client"
+msgstr ""
+
+msgid "Not able to sent mail"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Note: Disabling MFA will reset all enable MFA Settings"
+msgstr ""
+
+#, php-format
+msgid ""
+"Note: Everytime when MFA settings are saved, MFA will be enabled for all the "
+"selected type of users."
+msgstr ""
+
+msgid "OTP Email type is required"
+msgstr ""
+
+msgid "OTP Mail Body"
+msgstr ""
+
+msgid "OTP Mail Subject"
+msgstr ""
+
+msgid "OTP Mail Type"
+msgstr ""
+
+msgid "OTP Verification"
+msgstr ""
+
+msgid "OTP is already sent to registered Email Address"
+msgstr ""
+
+msgid "OTP is sent to registered Email Address"
+msgstr ""
+
+msgid "OTP is sent to to registered Email Address"
+msgstr ""
+
+msgid "OTP mail body is required"
+msgstr ""
+
+msgid "OTP mail subject is required"
+msgstr ""
+
+msgid "OTP verified successfully"
+msgstr ""
+
+msgid ""
+"Old backup codes have been deleted. You will no longer be able to use backup "
+"codes that are saved and are currently used for authentication."
+msgstr ""
+
+msgid ""
+"Once the user uses a backup code to sign in, that code becomes inactive. The "
+"administrator can create a new set of 10 backup codes or the userman users "
+"can generate/regenerate/delete/download backup codes from UCP Settings. When "
+"a new set of codes is created, the old set is automatically removed."
+msgstr ""
+
+msgid "PBX MFA"
+msgstr ""
+
+msgid "Password is required"
+msgstr ""
+
+msgid "Please enter extension"
+msgstr ""
+
+msgid "Please enter extension!"
+msgstr ""
+
+msgid "Please enter mfaType"
+msgstr ""
+
+msgid "Please enter user email address!"
+msgstr ""
+
+msgid "Please enter valid OTP"
+msgstr ""
+
+msgid "Please enter valid extension"
+msgstr ""
+
+msgid "Please enter your OTP code here"
+msgstr ""
+
+msgid "Please fix below errors"
+msgstr ""
+
+msgid "Please generate a new backup codes."
+msgstr ""
+
+msgid ""
+"Please make sure to save settings after changing the current MFA settings"
+msgstr ""
+
+msgid "Please provide valid username"
+msgstr ""
+
+#, php-format
+msgid "Please wait we are calling %s"
+msgstr ""
+
+#, php-format
+msgid "Please wait..!! We are calling %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"Protect your account with Multi-Factor Authentication. Each time you sign in "
+"to your account, you'll need your password and a verification code."
+msgstr ""
+
+msgid "Provided verification code is expired."
+msgstr ""
+
+msgid ""
+"Provided verification code is expired. Refresh your browser and try again"
+msgstr ""
+
+msgid "Provided verification code is invalid"
+msgstr ""
+
+msgid "Provided verification code is valid"
+msgstr ""
+
+msgid "QR Code Mail Body"
+msgstr ""
+
+msgid "QR Code Mail Subject"
+msgstr ""
+
+msgid "QR Code Mail Type"
+msgstr ""
+
+msgid "Remaining User Limit"
+msgstr ""
+
+msgid "Request attempt is exceeded. Refresh your browser and try again."
+msgstr ""
+
+msgid "Resend attempt is exceeded. Refresh your browser and try again."
+msgstr ""
+
+msgid "Reset MFA"
+msgstr ""
+
+msgid "Save Email Settings"
+msgstr ""
+
+msgid "Save settings"
+msgstr ""
+
+#, php-format
+msgid ""
+"Session save path is undefined. This can cause undefined unlocks. Please set "
+"a 'session.save_path' in your php.ini file. It should match the same path "
+"that is set for the web portion of PHP. We have defaulted to [%s]"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Test Mail Sent Successfully"
+msgstr ""
+
+msgid "Text to be used for the body of the OTP email. Usable variables are:"
+msgstr ""
+
+msgid ""
+"Text to be used for the body of the Steps to configure authenticator email. "
+"Pre-defined variables are:"
+msgstr ""
+
+msgid "Text to be used for the subject of the OTP email. Usable variables are:"
+msgstr ""
+
+msgid ""
+"Text to be used for the subject of the QR code email. Pre-defined variables "
+"are:"
+msgstr ""
+
+msgid ""
+"The affected user will no longer be able to use backup codes that are saved "
+"and are currently used for authentication. "
+msgstr ""
+
+msgid ""
+"The affected user will no longer be able to use backup codes that are saved "
+"and are currently used for authentication. New backup codes have to be "
+"generated and saved for this user"
+msgstr ""
+
+msgid ""
+"These printable one-time passcodes allow user to sign in when away from your "
+"phone, like when they are traveling."
+msgstr ""
+
+msgid "To reset MFA, MFA must be enabled."
+msgstr ""
+
+msgid "To use backup codes, MFA must be enabled."
+msgstr ""
+
+msgid "Trust this device for 30 days"
+msgstr ""
+
+msgid "Type of MFA"
+msgstr ""
+
+msgid "Type of Users"
+msgstr ""
+
+msgid "UCP"
+msgstr ""
+
+msgid "UCP Unlock Help"
+msgstr ""
+
+msgid "Unlocked this UCP user - "
+msgstr ""
+
+#, php-format
+msgid "Unlocking: %s Failed, Invalid session"
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "User Email Address"
+msgstr ""
+
+msgid "User email address is required. Because MFA is enabled for this user"
+msgstr ""
+
+msgid ""
+"User has to be linked to extension. Because MFA is enabled for this user"
+msgstr ""
+
+msgid "User not found"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Username is required"
+msgstr ""
+
+#, php-format
+msgid "Users are already %s"
+msgstr ""
+
+msgid "Validate Code"
+msgstr ""
+
+msgid "Validate OTP"
+msgstr ""
+
+msgid ""
+"We called your phone but did not receive expected response. Please try "
+"again..!!"
+msgstr ""
+
+#, php-format
+msgid "We have sent One Time Password to %s"
+msgstr ""
+
+#, php-format
+msgid "What is MFA"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+#, php-format
+msgid ""
+"You are currently using %s of %s MFA admin licenses. You will not be able to "
+"enable admin MFA for new users until you disable old ones or purchase "
+"another MFA admin license pack"
+msgstr ""
+
+msgid ""
+"You have not configured Authenticator app on your mobile device. We have "
+"sent you an email with steps to configure. Please follow those steps and "
+"after configuring, enter the code displayed in the Authenticator app on your "
+"mobile device​"
+msgstr ""
+
+msgid "You have reached the maximum login attempts"
+msgstr ""
+
+msgid "You must add an e-mail to this user prior to enabling MFA"
+msgstr ""
+
+msgid "You must link extension to this user prior to enabling MFA"
+msgstr ""
+
+msgid ""
+"You’ve reached the maximum login attempts. Refresh your browser and try again"
+msgstr ""
+
+msgid "an Extension"
+msgstr ""
+
+msgid "and"
+msgstr ""
+
+msgid "are linked with"
+msgstr ""
+
+msgid "have "
+msgstr ""
+
+msgid "login username"
+msgstr ""
+
+msgid "otp is required"
+msgstr ""
+
+msgid "testmail is required"
+msgstr ""
+
+msgid "unlock key"
+msgstr ""
+
+msgid "unlock ucp"
+msgstr ""

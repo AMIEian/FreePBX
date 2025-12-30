@@ -1,0 +1,50 @@
+[
+    {
+        "name": "blake-gardner/mac-address",
+        "version": "2.2.0",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/BlakeGardner/php-mac-address.git",
+            "reference": "aee0feabb05e4c0b2e972b6fb3d3aedff224e772"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/BlakeGardner/php-mac-address/zipball/aee0feabb05e4c0b2e972b6fb3d3aedff224e772",
+            "reference": "aee0feabb05e4c0b2e972b6fb3d3aedff224e772",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "squizlabs/php_codesniffer": "dev-phpcs-fixer"
+        },
+        "time": "2022-01-03T20:07:18+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "BlakeGardner\\MacAddress": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Blake Gardner",
+                "email": "blakegardner@cox.net"
+            }
+        ],
+        "description": "Get, validate and generate MAC addresses.",
+        "keywords": [
+            "DHCP",
+            "IP",
+            "MAC",
+            "address",
+            "ifconfig"
+        ]
+    }
+]

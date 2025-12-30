@@ -1,0 +1,57 @@
+<module>
+	<rawname>recording_report</rawname>
+	<name>Call Recording Report</name>
+	<version>17.0.3.8</version>
+	<repo>commercial</repo>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>Commercial</license>
+	<licenselink>https://portal.sangoma.com/marketing/resources/2808/Sangoma%20Corporate/Terms%20of%20Service%20and%20User%20License%20Agreement/FreePBXCommercialModule-EndUserAgreement.txt</licenselink>
+	<type>tool</type>
+	<category>Reports</category>
+	<description>COMMERCIAL MODULE REQUIRES A LICENSE FOR IT TO FUNCTION. Displays various information related to the voicemail system. This is a non standard module and requies a license for it to work</description>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/62488691/Call+Recording+Reports</more-info>
+	<commercial>
+		<type>paid</type>
+		<link>//www.freepbx.org/add-ons/#call-recording-reports</link>
+	</commercial>
+	<changelog>
+		*17.0.3.5* Packaging of ver 17.0.3.5
+		*17.0.2* Packaging of ver 17.0.2
+		*17.0.1.1 17.0.1.1 release
+		*17.0.1* 17.0.1alpha release
+	</changelog>
+	<depends>
+		<phpcomponent>ionCube PHP Loader</phpcomponent>
+		<phpversion>8.2</phpversion>
+		<module>sysadmin ge 17.0.1</module>
+		<module>recordings</module>
+		<module>framework ge 17.0.1</module>
+		<module>filestore ge 17.0.1</module>
+	</depends>
+	<database>
+		<table name="recording_report">
+			<field name="key" type="string" length="25" notnull="false"/>
+			<field name="value" type="text" notnull="false"/>
+			<key name="key" type="unique">
+				<column name="key"/>
+			</key>
+		</table>
+		<table name="recording_files">
+			<field name="file" type="string" length="190" default="" primarykey="true"/>
+			<field name="duration" type="integer" notnull="false"/>
+			<field name="updated" type="integer" notnull="false"/>
+		</table>
+	</database>
+	<menuitems>
+		<recording_report>Call Recordings</recording_report>
+	</menuitems>
+	<supported>
+		<version>17.0</version>
+	</supported>
+	<console>
+		<command>
+			<name>recordingreports</name>
+			<class>Recording_report</class>
+		</command>
+	</console>
+</module>

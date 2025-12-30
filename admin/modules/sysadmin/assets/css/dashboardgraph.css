@@ -1,0 +1,98 @@
+.toolbar-disk h2 {
+    margin-bottom: 0px;
+    margin-top: 6px;
+}
+
+
+#page_Main_Diskspace_diskspace .title-bar {
+    z-index: 1;
+    position: relative;
+}
+
+.disk__usage__container {
+    padding: 1rem 4rem;
+}
+
+.disk__usage__container #diskUsageChart {
+    margin-top: -115px;
+    width: 375px !important;
+    height: 375px !important;
+    transform: translate(15%, 0%);
+}
+
+.disk__usage__container .usage__details h2 {
+    margin-top: 15px;
+}
+
+.disk__usage__container .usage__details h4 {
+    text-align: center;
+    margin-top: -5rem;
+}
+
+.disk__usage__container .row {
+    margin-top: 2rem;
+}
+
+.disk__usage__container .row .col-xs-6 {
+    padding: 5px 17px;
+    margin-top: 1rem;
+    border-radius: 0px;
+    border: 1px solid #e1e1e1;
+}
+
+.disk__usage__container .row .col-xs-6 .color {
+    width: 10px;
+    height: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.disk__usage__container .row .col-xs-6 .file__name {
+    display: flex;
+    flex-direction: row;
+}
+
+.disk__usage__container .row .col-xs-6 .files__count {
+    font-size: 12px;
+}
+
+.disk__usage__container .d-flex {
+    display: flex !important;
+}
+
+.disk__usage__container .flex-row {
+    flex-direction: row !important;
+}
+
+.disk__usage__container .flex-column {
+    flex-direction: column !important;
+}
+
+.disk__usage__container .ml-auto {
+    margin-left: auto !important;
+}
+
+.disk__usage__container .align-items-center {
+    align-items: center !important;
+}
+
+.disk__noti__wrapper {
+    margin: 10px;
+}
+
+.disk__noti {
+    display: flex;
+    padding: 5px 10px;
+    border: 1px solid #31708f66;
+    align-items: center;
+}
+
+.disk__noti i {
+    cursor: pointer;
+    margin-left: auto !important;
+}
+
+.text-info {
+    font-size: 12px;
+    color: blue;
+}

@@ -50,7 +50,39 @@ This documentation covers **18 modules** with **67 API endpoints**, each with co
 - Web Callback
 
 ## Authentication
-Most APIs require authentication. FreePBX typically uses OAuth2 for API authentication. Ensure you have obtained a valid access token.
+Most APIs require authentication. FreePBX uses OAuth2 for API authentication. You must obtain a valid access token before making API requests.
+
+### Obtaining an Access Token
+
+**Method 1: Via FreePBX Admin GUI**
+1. Log in to FreePBX Admin Interface
+2. Navigate to **Admin** → **API** → **Settings**
+3. Click on **Create New Application**
+4. Provide application details (name, redirect URI, etc.)
+5. Copy the **Client ID** and **Client Secret**
+6. Use OAuth2 authorization code flow or client credentials grant to obtain an access token
+
+**Method 2: OAuth2 Token Request (Client Credentials)**
+```bash
+curl -X POST "http://freepbx.example.com/admin/api/api/token" \
+     -d "grant_type=client_credentials" \
+     -d "client_id=YOUR_CLIENT_ID" \
+     -d "client_secret=YOUR_CLIENT_SECRET" \
+     -d "scope=*"
+```
+
+**Response:**
+```json
+{
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+}
+```
+
+### Using the Access Token
+
+Once you have the access token, include it in the `Authorization` header for all API requests:
 
 **Header:**
 `Authorization: Bearer YOUR_ACCESS_TOKEN_HERE`
@@ -64,6 +96,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
 curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
      -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
 ```
+
+**Note:** Access tokens expire after a specified time (typically 1 hour). You'll need to request a new token when the current one expires.
 
 ---
 

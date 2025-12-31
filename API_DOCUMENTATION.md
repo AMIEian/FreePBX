@@ -6,6 +6,7 @@ This document outlines the RESTful APIs identified within the FreePBX project. T
 
 - [Overview](#overview)
 - [Authentication](#authentication)
+- [Frontend / Admin UI](#frontend--admin-ui)
 - [Module: Core](#module-core)
 - [Module: Calendar](#module-calendar)
 - [Module: Conferences](#module-conferences)
@@ -98,6 +99,226 @@ curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
 ```
 
 **Note:** Access tokens expire after a specified time (typically 1 hour). You'll need to request a new token when the current one expires.
+
+---
+
+## Frontend / Admin UI
+
+FreePBX provides a comprehensive web-based admin interface for managing API applications, tokens, and exploring the API capabilities. This section details how to use the frontend features.
+
+### Accessing the API Admin Interface
+
+1. Log in to FreePBX Admin Interface
+2. Navigate to **Admin** → **API** → **Settings**
+
+The API admin interface includes six main tabs:
+
+### 1. Applications Tab
+
+Manage OAuth2 client applications that can access the FreePBX API.
+
+**Features:**
+- Create and manage API applications
+- View application credentials (Client ID and Client Secret)
+- Configure redirect URIs for OAuth2 flows
+- Delete applications when no longer needed
+
+**Application Types:**
+
+1. **Web-Server App** (Authorization Code Grant)
+   - Best for: Server-side web applications
+   - Flow: Authorization code with client secret
+   - Use case: Traditional web apps with backend server
+
+2. **Browser-based/Single Page App** (Implicit Grant)
+   - Best for: JavaScript applications running in browser
+   - Flow: Implicit grant (no client secret)
+   - Use case: Single-page applications (SPAs)
+
+3. **Native App** (Password Grant)
+   - Best for: Mobile or desktop applications
+   - Flow: Resource owner password credentials
+   - Use case: First-party native applications
+
+4. **Machine-to-Machine App** (Client Credentials Grant)
+   - Best for: Server-to-server integrations
+   - Flow: Client credentials with client secret
+   - Use case: Backend services, automated scripts
+
+**Creating an Application:**
+
+1. Click **Add Application** dropdown
+2. Select the appropriate application type
+3. Fill in the application details:
+   - **Name**: A descriptive name for your application
+   - **Description**: Purpose of the application
+   - **Redirect URI**: Callback URL for OAuth2 flows (required for web apps)
+4. Click **Save**
+5. Copy the **Client ID** and **Client Secret** (displayed once)
+
+**Viewing API URLs:**
+- Click **API URL List** button to view available API endpoints
+- Shows REST API URLs and GraphQL URLs
+- Toggle between HTTP/HTTPS protocols
+- Switch between Admin ports and API-specific ports
+
+### 2. Access Tokens Tab
+
+View and manage currently active access tokens.
+
+**Features:**
+- View all active access tokens across all applications
+- See token expiration times
+- Revoke tokens immediately if compromised
+- Monitor which applications have active sessions
+
+**Token Information Displayed:**
+- Application name
+- Token identifier (partial)
+- Expiration timestamp
+- Scopes granted
+- Actions (Revoke)
+
+### 3. Refresh Tokens Tab
+
+Manage OAuth2 refresh tokens for long-lived sessions.
+
+**Features:**
+- View all refresh tokens
+- Revoke refresh tokens to end persistent sessions
+- Monitor refresh token usage
+
+**Use Case:**
+Refresh tokens allow applications to obtain new access tokens without requiring user re-authentication. Useful for:
+- Mobile applications
+- Long-running integrations
+- Background services
+
+### 4. Scope Visualizer Tab
+
+Explore available API scopes and permissions.
+
+**Features:**
+- Interactive visualization of API scopes
+- Browse available REST and GraphQL endpoints
+- Understand permission requirements for each endpoint
+- Filter by module or endpoint type
+
+**Scope Types:**
+- **REST Scopes**: Permissions for RESTful API endpoints
+- **GraphQL Scopes**: Permissions for GraphQL queries and mutations
+
+**Using the Visualizer:**
+1. Select scope type (REST or GraphQL)
+2. Browse the tree structure of available scopes
+3. Click on scopes to see detailed information
+4. Use this to determine which scopes to request for your application
+
+### 5. GraphQL Documentation Tab
+
+Generate and view comprehensive GraphQL API documentation.
+
+**Features:**
+- Auto-generated documentation based on GraphQL schema
+- Interactive documentation browser
+- Search functionality for queries, mutations, and types
+- View field descriptions and type information
+
+**Using GraphQL Documentation:**
+1. Navigate to the GraphQL Documentation tab
+2. Browse the schema by types, queries, or mutations
+3. Click on any type to see its fields and relationships
+4. Use the search bar to find specific queries or types
+
+### 6. GraphQL Explorer Tab (GraphiQL)
+
+Interactive GraphQL query builder and tester.
+
+**Features:**
+- Write and test GraphQL queries in real-time
+- Auto-completion for queries and fields
+- Query history
+- Response preview
+- Built-in documentation explorer
+
+**Using GraphiQL:**
+
+1. **Writing Queries:**
+   ```graphql
+   query {
+     users {
+       id
+       name
+       extension
+     }
+   }
+   ```
+
+2. **Using Variables:**
+   ```graphql
+   query GetUser($id: ID!) {
+     user(id: $id) {
+       name
+       extension
+     }
+   }
+   ```
+   Variables panel:
+   ```json
+   {
+     "id": "100"
+   }
+   ```
+
+3. **Mutations:**
+   ```graphql
+   mutation UpdateUser($id: ID!, $name: String!) {
+     updateUser(id: $id, input: {name: $name}) {
+       id
+       name
+     }
+   }
+   ```
+
+4. **Keyboard Shortcuts:**
+   - **Ctrl+Enter** / **Cmd+Enter**: Execute query
+   - **Ctrl+Space**: Trigger auto-completion
+   - **Shift+Ctrl+P**: Prettify query
+
+**Authentication in GraphiQL:**
+The GraphiQL explorer automatically uses your FreePBX admin session. For external applications, you must include the OAuth2 access token in the Authorization header.
+
+### Best Practices for Frontend Usage
+
+1. **Application Management:**
+   - Create separate applications for different environments (dev, staging, production)
+   - Use descriptive names to identify applications easily
+   - Regularly audit and remove unused applications
+   - Rotate client secrets periodically for security
+
+2. **Token Management:**
+   - Monitor active tokens regularly
+   - Revoke tokens immediately when no longer needed
+   - Set appropriate expiration times for your use case
+   - Use refresh tokens for long-running applications
+
+3. **Scope Management:**
+   - Follow the principle of least privilege
+   - Only request scopes that your application needs
+   - Review scope permissions before granting access
+   - Document required scopes in your application documentation
+
+4. **GraphQL Usage:**
+   - Use GraphiQL to prototype queries before implementation
+   - Leverage the documentation tab to understand available operations
+   - Request only the fields you need to minimize response size
+   - Use variables for dynamic queries
+
+5. **Security:**
+   - Always use HTTPS in production environments
+   - Store client secrets securely (never in frontend code)
+   - Implement proper token storage (secure cookies, local storage with encryption)
+   - Regularly review access token and refresh token lists
 
 ---
 

@@ -129,21 +129,25 @@ Manage OAuth2 client applications that can access the FreePBX API.
    - Best for: Server-side web applications
    - Flow: Authorization code with client secret
    - Use case: Traditional web apps with backend server
+   - **Recommended** for production use
 
 2. **Browser-based/Single Page App** (Implicit Grant)
    - Best for: JavaScript applications running in browser
    - Flow: Implicit grant (no client secret)
    - Use case: Single-page applications (SPAs)
+   - **⚠️ Security Warning:** Implicit grant is deprecated in OAuth 2.1. For modern SPAs, use Authorization Code flow with PKCE (Proof Key for Code Exchange) instead.
 
 3. **Native App** (Password Grant)
    - Best for: Mobile or desktop applications
    - Flow: Resource owner password credentials
    - Use case: First-party native applications
+   - **⚠️ Security Warning:** Password grant is deprecated in OAuth 2.1. For native apps, use Authorization Code flow with PKCE instead.
 
 4. **Machine-to-Machine App** (Client Credentials Grant)
    - Best for: Server-to-server integrations
    - Flow: Client credentials with client secret
    - Use case: Backend services, automated scripts
+   - **Recommended** for server-to-server authentication
 
 **Creating an Application:**
 
@@ -317,7 +321,11 @@ The GraphiQL explorer automatically uses your FreePBX admin session. For externa
 5. **Security:**
    - Always use HTTPS in production environments
    - Store client secrets securely (never in frontend code)
-   - Implement proper token storage (secure cookies, local storage with encryption)
+   - **Token Storage Best Practices:**
+     - **Backend applications**: Secure server-side session storage
+     - **SPAs**: HTTP-only secure cookies (immune to XSS attacks)
+     - **Native apps**: Platform-specific secure storage (Keychain on iOS, KeyStore on Android)
+     - **Avoid**: Local storage or session storage (vulnerable to XSS attacks)
    - Regularly review access token and refresh token lists
 
 ---

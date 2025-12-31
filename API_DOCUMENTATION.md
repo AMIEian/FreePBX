@@ -2,11 +2,331 @@
 
 This document outlines the RESTful APIs identified within the FreePBX project. The APIs are organized by module.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Authentication](#authentication)
+- [Frontend / Admin UI](#frontend--admin-ui)
+- [Module: Core](#module-core)
+- [Module: Calendar](#module-calendar)
+- [Module: Conferences](#module-conferences)
+- [Module: Contact Manager](#module-contact-manager)
+- [Module: Fax](#module-fax)
+- [Module: Find Me / Follow Me](#module-find-me--follow-me)
+- [Module: Hotel Wakeup](#module-hotel-wakeup)
+- [Module: Parking](#module-parking)
+- [Module: Pinsets](#module-pinsets)
+- [Module: Presence State](#module-presence-state)
+- [Module: Queues](#module-queues)
+- [Module: SMS](#module-sms)
+- [Module: Time Conditions](#module-time-conditions)
+- [Module: UCP (User Control Panel)](#module-ucp-user-control-panel)
+- [Module: Userman (User Manager)](#module-userman-user-manager)
+- [Module: Voicemail](#module-voicemail)
+- [Module: RestApps (Phone Apps)](#module-restapps-phone-apps)
+- [Module: Web Callback](#module-web-callback)
+
+## Overview
+
+This documentation covers **18 modules** with **67 API endpoints**, each with complete cURL request examples.
+
+### Documented Modules:
+- Core
+- Calendar
+- Conferences
+- Contact Manager
+- Fax
+- Find Me / Follow Me
+- Hotel Wakeup
+- Parking
+- Pinsets
+- Presence State
+- Queues
+- SMS
+- Time Conditions
+- UCP (User Control Panel)
+- Userman (User Manager)
+- Voicemail
+- RestApps (Phone Apps)
+- Web Callback
+
 ## Authentication
-Most APIs require authentication. FreePBX typically uses OAuth2 for API authentication. Ensure you have obtained a valid access token.
+Most APIs require authentication. FreePBX uses OAuth2 for API authentication. You must obtain a valid access token before making API requests.
+
+### Obtaining an Access Token
+
+**Method 1: Via FreePBX Admin GUI**
+1. Log in to FreePBX Admin Interface
+2. Navigate to **Admin** → **API** → **Settings**
+3. Click on **Create New Application**
+4. Provide application details (name, redirect URI, etc.)
+5. Copy the **Client ID** and **Client Secret**
+6. Use OAuth2 authorization code flow or client credentials grant to obtain an access token
+
+**Method 2: OAuth2 Token Request (Client Credentials)**
+```bash
+curl -X POST "http://freepbx.example.com/admin/api/api/token" \
+     -d "grant_type=client_credentials" \
+     -d "client_id=YOUR_CLIENT_ID" \
+     -d "client_secret=YOUR_CLIENT_SECRET" \
+     -d "scope=*"
+```
+
+**Response:**
+```json
+{
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+}
+```
+
+### Using the Access Token
+
+Once you have the access token, include it in the `Authorization` header for all API requests:
 
 **Header:**
-`Authorization: Bearer <access_token>`
+`Authorization: Bearer YOUR_ACCESS_TOKEN_HERE`
+
+**Example:**
+```bash
+# Replace YOUR_ACCESS_TOKEN_HERE with your actual token
+# Replace freepbx.example.com with your FreePBX server address
+
+# Example: Test authentication by listing users
+curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
+     -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
+```
+
+**Note:** Access tokens expire after a specified time (typically 1 hour). You'll need to request a new token when the current one expires.
+
+---
+
+## Frontend / Admin UI
+
+FreePBX provides a comprehensive web-based admin interface for managing API applications, tokens, and exploring the API capabilities. This section details how to use the frontend features.
+
+### Accessing the API Admin Interface
+
+1. Log in to FreePBX Admin Interface
+2. Navigate to **Admin** → **API** → **Settings**
+
+The API admin interface includes six main tabs:
+
+### 1. Applications Tab
+
+Manage OAuth2 client applications that can access the FreePBX API.
+
+**Features:**
+- Create and manage API applications
+- View application credentials (Client ID and Client Secret)
+- Configure redirect URIs for OAuth2 flows
+- Delete applications when no longer needed
+
+**Application Types:**
+
+1. **Web-Server App** (Authorization Code Grant)
+   - Best for: Server-side web applications
+   - Flow: Authorization code with client secret
+   - Use case: Traditional web apps with backend server
+   - **Recommended** for production use
+
+2. **Browser-based/Single Page App** (Implicit Grant)
+   - Best for: JavaScript applications running in browser
+   - Flow: Implicit grant (no client secret)
+   - Use case: Single-page applications (SPAs)
+   - **⚠️ Security Warning:** Implicit grant is deprecated in OAuth 2.1. For modern SPAs, use Authorization Code flow with PKCE (Proof Key for Code Exchange) instead.
+
+3. **Native App** (Password Grant)
+   - Best for: Mobile or desktop applications
+   - Flow: Resource owner password credentials
+   - Use case: First-party native applications
+   - **⚠️ Security Warning:** Password grant is deprecated in OAuth 2.1. For native apps, use Authorization Code flow with PKCE instead.
+
+4. **Machine-to-Machine App** (Client Credentials Grant)
+   - Best for: Server-to-server integrations
+   - Flow: Client credentials with client secret
+   - Use case: Backend services, automated scripts
+   - **Recommended** for server-to-server authentication
+
+**Creating an Application:**
+
+1. Click **Add Application** dropdown
+2. Select the appropriate application type
+3. Fill in the application details:
+   - **Name**: A descriptive name for your application
+   - **Description**: Purpose of the application
+   - **Redirect URI**: Callback URL for OAuth2 flows (required for web apps)
+4. Click **Save**
+5. Copy the **Client ID** and **Client Secret** (displayed once)
+
+**Viewing API URLs:**
+- Click **API URL List** button to view available API endpoints
+- Shows REST API URLs and GraphQL URLs
+- Toggle between HTTP/HTTPS protocols
+- Switch between Admin ports and API-specific ports
+
+### 2. Access Tokens Tab
+
+View and manage currently active access tokens.
+
+**Features:**
+- View all active access tokens across all applications
+- See token expiration times
+- Revoke tokens immediately if compromised
+- Monitor which applications have active sessions
+
+**Token Information Displayed:**
+- Application name
+- Token identifier (partial)
+- Expiration timestamp
+- Scopes granted
+- Actions (Revoke)
+
+### 3. Refresh Tokens Tab
+
+Manage OAuth2 refresh tokens for long-lived sessions.
+
+**Features:**
+- View all refresh tokens
+- Revoke refresh tokens to end persistent sessions
+- Monitor refresh token usage
+
+**Use Case:**
+Refresh tokens allow applications to obtain new access tokens without requiring user re-authentication. Useful for:
+- Mobile applications
+- Long-running integrations
+- Background services
+
+### 4. Scope Visualizer Tab
+
+Explore available API scopes and permissions.
+
+**Features:**
+- Interactive visualization of API scopes
+- Browse available REST and GraphQL endpoints
+- Understand permission requirements for each endpoint
+- Filter by module or endpoint type
+
+**Scope Types:**
+- **REST Scopes**: Permissions for RESTful API endpoints
+- **GraphQL Scopes**: Permissions for GraphQL queries and mutations
+
+**Using the Visualizer:**
+1. Select scope type (REST or GraphQL)
+2. Browse the tree structure of available scopes
+3. Click on scopes to see detailed information
+4. Use this to determine which scopes to request for your application
+
+### 5. GraphQL Documentation Tab
+
+Generate and view comprehensive GraphQL API documentation.
+
+**Features:**
+- Auto-generated documentation based on GraphQL schema
+- Interactive documentation browser
+- Search functionality for queries, mutations, and types
+- View field descriptions and type information
+
+**Using GraphQL Documentation:**
+1. Navigate to the GraphQL Documentation tab
+2. Browse the schema by types, queries, or mutations
+3. Click on any type to see its fields and relationships
+4. Use the search bar to find specific queries or types
+
+### 6. GraphQL Explorer Tab (GraphiQL)
+
+Interactive GraphQL query builder and tester.
+
+**Features:**
+- Write and test GraphQL queries in real-time
+- Auto-completion for queries and fields
+- Query history
+- Response preview
+- Built-in documentation explorer
+
+**Using GraphiQL:**
+
+1. **Writing Queries:**
+   ```graphql
+   query {
+     users {
+       id
+       name
+       extension
+     }
+   }
+   ```
+
+2. **Using Variables:**
+   ```graphql
+   query GetUser($id: ID!) {
+     user(id: $id) {
+       name
+       extension
+     }
+   }
+   ```
+   Variables panel:
+   ```json
+   {
+     "id": "100"
+   }
+   ```
+
+3. **Mutations:**
+   ```graphql
+   mutation UpdateUser($id: ID!, $name: String!) {
+     updateUser(id: $id, input: {name: $name}) {
+       id
+       name
+     }
+   }
+   ```
+
+4. **Keyboard Shortcuts:**
+   - **Ctrl+Enter** / **Cmd+Enter**: Execute query
+   - **Ctrl+Space**: Trigger auto-completion
+   - **Shift+Ctrl+P**: Prettify query
+
+**Authentication in GraphiQL:**
+The GraphiQL explorer automatically uses your FreePBX admin session. For external applications, you must include the OAuth2 access token in the Authorization header.
+
+### Best Practices for Frontend Usage
+
+1. **Application Management:**
+   - Create separate applications for different environments (dev, staging, production)
+   - Use descriptive names to identify applications easily
+   - Regularly audit and remove unused applications
+   - Rotate client secrets periodically for security
+
+2. **Token Management:**
+   - Monitor active tokens regularly
+   - Revoke tokens immediately when no longer needed
+   - Set appropriate expiration times for your use case
+   - Use refresh tokens for long-running applications
+
+3. **Scope Management:**
+   - Follow the principle of least privilege
+   - Only request scopes that your application needs
+   - Review scope permissions before granting access
+   - Document required scopes in your application documentation
+
+4. **GraphQL Usage:**
+   - Use GraphiQL to prototype queries before implementation
+   - Leverage the documentation tab to understand available operations
+   - Request only the fields you need to minimize response size
+   - Use variables for dynamic queries
+
+5. **Security:**
+   - Always use HTTPS in production environments
+   - Store client secrets securely (never in frontend code)
+   - **Token Storage Best Practices:**
+     - **Backend applications**: Secure server-side session storage
+     - **SPAs**: HTTP-only secure cookies (immune to XSS attacks)
+     - **Native apps**: Platform-specific secure storage (Keychain on iOS, KeyStore on Android)
+     - **Avoid**: Local storage or session storage (vulnerable to XSS attacks)
+   - Regularly review access token and refresh token lists
 
 ---
 
@@ -19,8 +339,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of all users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/core/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/core/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User**
@@ -29,8 +349,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details for a specific user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/core/users/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/core/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -44,8 +364,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of all calendars.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/calendar/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/calendar/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Calendar**
@@ -54,8 +374,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details of a specific calendar.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/calendar/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/calendar/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Calendar**
@@ -64,8 +384,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates a specific calendar.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/calendar/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/calendar/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "New Name", "description": "Updated Description"}'
         ```
@@ -77,8 +397,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves events for a specific calendar.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/calendar/events/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/calendar/events/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Event**
@@ -87,8 +407,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Adds or updates an event in a calendar.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/calendar/events/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/calendar/events/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"eventid": "new", "start": "2023-10-27 10:00:00", "end": "2023-10-27 11:00:00", "description": "Meeting"}'
         ```
@@ -104,8 +424,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of all conferences.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/conferences/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/conferences/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Conference**
@@ -114,8 +434,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details of a specific conference.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/conferences/101" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/conferences/101" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Delete Conference**
@@ -124,8 +444,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Deletes a specific conference.
     *   **cURL:**
         ```bash
-        curl -X DELETE "http://<your-server>/admin/api/rest/conferences/101" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X DELETE "http://freepbx.example.com/admin/api/rest/conferences/101" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Create/Update Conference**
@@ -134,8 +454,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Creates or updates a conference room.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/conferences/101" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/conferences/101" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "Team Meeting", "userpin": "1234", "adminpin": "5678"}'
         ```
@@ -151,8 +471,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves all contact manager groups.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **List Groups by Owner**
@@ -161,8 +481,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves contact manager groups for a specific owner ID.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Group Info**
@@ -171,8 +491,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details of a specific group for a specific owner.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups/1/5" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups/1/5" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Entries
@@ -182,8 +502,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves entries for a specific group.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/groups/1/5/entries" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/groups/1/5/entries" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Entry**
@@ -192,8 +512,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details of a specific contact entry.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/contactmanager/entries/10" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/contactmanager/entries/10" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -207,8 +527,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves global fax settings.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Detect Fax**
@@ -217,8 +537,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Lists fax detection modules.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/detect" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/detect" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Settings**
@@ -227,8 +547,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates global fax settings.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/fax/" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/fax/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"key": "value"}'
         ```
@@ -240,8 +560,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves fax settings for all users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User Settings**
@@ -250,8 +570,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves fax settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/fax/users/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/fax/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update User Settings**
@@ -260,8 +580,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates fax settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/fax/users/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/fax/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"faxenabled": "true", "faxemail": "user@example.com"}'
         ```
@@ -277,8 +597,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves Find Me/Follow Me settings for all users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/findmefollow/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/findmefollow/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User Settings**
@@ -287,8 +607,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves Find Me/Follow Me settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/findmefollow/users/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/findmefollow/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update User Settings**
@@ -297,8 +617,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates Find Me/Follow Me settings for a specific user.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/findmefollow/users/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/findmefollow/users/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"strategy": "ringallv2", "grptime": "20", "grplist": "100"}'
         ```
@@ -314,8 +634,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves the hotel wakeup code.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/code" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/code" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Languages**
@@ -324,8 +644,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves list of installed languages for wakeup calls.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/languages" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/languages" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **List Wakeup Calls**
@@ -334,8 +654,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves all scheduled wakeup calls.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/wakeup" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Wakeup Call**
@@ -344,8 +664,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a specific wakeup call.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/hotelwakeup/wakeup/1/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup/1/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Create Wakeup Call**
@@ -354,8 +674,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Schedules a new wakeup call.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/hotelwakeup/wakeup" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"day": "2023-10-27", "time": "07:00", "destination": "100"}'
         ```
@@ -366,8 +686,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Deletes a specific wakeup call.
     *   **cURL:**
         ```bash
-        curl -X DELETE "http://<your-server>/admin/api/rest/hotelwakeup/wakeup/1/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X DELETE "http://freepbx.example.com/admin/api/rest/hotelwakeup/wakeup/1/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -381,8 +701,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves the default parking lot settings.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/parking/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/parking/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Default Lot**
@@ -391,8 +711,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates the default parking lot settings.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/parking/" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/parking/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"slots": "71-79"}'
         ```
@@ -408,8 +728,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of all pinsets.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/pinsets/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/pinsets/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Pinset**
@@ -418,8 +738,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details of a specific pinset.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/pinsets/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/pinsets/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Pinset**
@@ -428,8 +748,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates a specific pinset.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/pinsets/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/pinsets/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"description": "Sales", "passwords": "1234\n5678"}'
         ```
@@ -445,8 +765,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of presence states.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/presencestate/list" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/presencestate/list" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **List Types**
@@ -455,8 +775,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of presence state types.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/presencestate/types" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/presencestate/types" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User Preferences**
@@ -465,8 +785,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves presence state preferences for a user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/presencestate/prefs/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/presencestate/prefs/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update User Preferences**
@@ -475,8 +795,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates presence state preferences for a user.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/presencestate/prefs/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/presencestate/prefs/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"state": "available"}'
         ```
@@ -492,8 +812,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of all queues.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Queue Details**
@@ -502,8 +822,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details of a specific queue.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/500" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/500" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Queue Members
@@ -513,8 +833,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves all members for all queues.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/members" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/members" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Queue Members**
@@ -523,8 +843,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves members of a specific queue.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/queues/members/500" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/queues/members/500" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Queue Members**
@@ -533,8 +853,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates members of a specific queue.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/queues/members/500" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/queues/members/500" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"member": "Local/100@from-queue/n,0", "dynmembers": "101,0"}'
         ```
@@ -550,8 +870,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves SMS media content by ID.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/sms/media/123" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/sms/media/123" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -565,8 +885,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of all time conditions.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/timeconditions/" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/timeconditions/" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get Time Condition State**
@@ -575,8 +895,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves the state of a specific time condition.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/timeconditions/1" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/timeconditions/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Time Condition State**
@@ -585,8 +905,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates the state of a specific time condition.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/timeconditions/1" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/timeconditions/1" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"state": "true"}'
         ```
@@ -602,8 +922,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of UCP dashboards for the user.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/ucp/dashboard/tab" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Update Dashboard Layout**
@@ -612,8 +932,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates the order of dashboard tabs.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/ucp/dashboard/tab/layout" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab/layout" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '["id1", "id2"]'
         ```
@@ -624,8 +944,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Creates a new dashboard.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/ucp/dashboard/tab" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "New Dashboard"}'
         ```
@@ -636,8 +956,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates a specific dashboard.
     *   **cURL:**
         ```bash
-        curl -X POST "http://<your-server>/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X POST "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"name": "Updated Name"}'
         ```
@@ -648,8 +968,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Deletes a specific dashboard.
     *   **cURL:**
         ```bash
-        curl -X DELETE "http://<your-server>/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X DELETE "http://freepbx.example.com/admin/api/rest/ucp/dashboard/tab/dashboard-uuid" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -663,8 +983,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of all Userman users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/users" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/users" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User**
@@ -673,8 +993,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves details of a specific Userman user (by username).
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/users/admin" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/users/admin" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Extensions
@@ -684,8 +1004,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves a list of default extensions associated with users.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/extensions" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/extensions" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 *   **Get User by Extension**
@@ -694,8 +1014,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves user details by default extension.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/userman/extensions/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/userman/extensions/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ---
@@ -709,8 +1029,8 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Retrieves voicemail mailbox details.
     *   **cURL:**
         ```bash
-        curl -X GET "http://<your-server>/admin/api/rest/voicemail/mailboxes/100" \
-             -H "Authorization: Bearer <access_token>"
+        curl -X GET "http://freepbx.example.com/admin/api/rest/voicemail/mailboxes/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
 
 ### Password
@@ -720,8 +1040,102 @@ Most APIs require authentication. FreePBX typically uses OAuth2 for API authenti
     *   **Description:** Updates the voicemail password for a mailbox.
     *   **cURL:**
         ```bash
-        curl -X PUT "http://<your-server>/admin/api/rest/voicemail/password/100" \
-             -H "Authorization: Bearer <access_token>" \
+        curl -X PUT "http://freepbx.example.com/admin/api/rest/voicemail/password/100" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
              -H "Content-Type: application/json" \
              -d '{"password": "1234"}'
+        ```
+
+---
+
+## Module: RestApps (Phone Apps)
+
+**Note:** RestApps endpoints are accessed directly via PHP files at the web root, not through the `/admin/api/rest/` path like other modules.
+
+### Sync
+*   **Sync Phone Apps**
+    *   **Method:** `POST`
+    *   **URI:** `/restapps/sync.php`
+    *   **Description:** Synchronizes phone applications data between the server and client devices.
+    *   **cURL:**
+        ```bash
+        curl -X POST "http://freepbx.example.com/restapps/sync.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
+             -H "Content-Type: application/json" \
+             -d '{"device_id": "device123", "app_version": "1.0"}'
+        ```
+
+### Applications
+*   **List Phone Applications**
+    *   **Method:** `GET`
+    *   **URI:** `/restapps/applications.php`
+    *   **Description:** Retrieves a list of available phone applications.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://freepbx.example.com/restapps/applications.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
+        ```
+
+*   **Get Application**
+    *   **Method:** `GET`
+    *   **URI:** `/restapps/applications.php?app={app_name}`
+    *   **Description:** Retrieves details of a specific phone application.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://freepbx.example.com/restapps/applications.php?app=freepbx" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
+        ```
+
+### Desktop Phone API
+*   **Desktop Phone Interface**
+    *   **Method:** `POST`
+    *   **URI:** `/restapps/dphoneApi.php`
+    *   **Description:** API endpoint for desktop phone integration and control.
+    *   **cURL:**
+        ```bash
+        curl -X POST "http://freepbx.example.com/restapps/dphoneApi.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
+             -H "Content-Type: application/json" \
+             -d '{"action": "dial", "extension": "100"}'
+        ```
+
+### Images
+*   **Get Application Image**
+    *   **Method:** `GET`
+    *   **URI:** `/restapps/image.php?file={filename}`
+    *   **Description:** Retrieves image assets for phone applications.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://freepbx.example.com/restapps/image.php?file=icon.png" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
+             -o icon.png
+        ```
+
+---
+
+## Module: Web Callback
+
+**Note:** Web Callback endpoint is accessed directly via `wcb.php` at the web root, not through the `/admin/api/rest/` path like other modules.
+
+### Callback Request
+*   **Initiate Web Callback**
+    *   **Method:** `POST`
+    *   **URI:** `/wcb.php`
+    *   **Description:** Initiates a web callback request to connect a user to a phone number.
+    *   **cURL:**
+        ```bash
+        curl -X POST "http://freepbx.example.com/wcb.php" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE" \
+             -H "Content-Type: application/json" \
+             -d '{"source": "100", "destination": "18005551234", "context": "from-internal"}'
+        ```
+
+*   **Get Callback Status**
+    *   **Method:** `GET`
+    *   **URI:** `/wcb.php?id={callback_id}`
+    *   **Description:** Retrieves the status of a web callback request.
+    *   **cURL:**
+        ```bash
+        curl -X GET "http://freepbx.example.com/wcb.php?id=callback123" \
+             -H "Authorization: Bearer YOUR_ACCESS_TOKEN_HERE"
         ```
